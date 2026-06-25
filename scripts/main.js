@@ -6,6 +6,7 @@ const fallbackProfile = {
   location: "待补充",
   bio: "个人介绍待补充。建议用 2-4 句话概括你的方向、能力、关注的问题和正在寻找的机会。",
   cv: "assets/docs/CV.pdf",
+  avatar: "",
 };
 
 async function loadJson(path, fallback) {
@@ -23,11 +24,24 @@ function text(value, fallback = "待补充") {
   return value && String(value).trim() ? value : fallback;
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function sentence(value) {
+  const clean = text(value, "说明待补充。");
+  return clean.length > 220 ? `${clean.slice(0, 220)}...` : clean;
+}
+
 function setProfile(profile) {
   const safeProfile = { ...fallbackProfile, ...profile };
-  document.title = `${text(safeProfile.name, "Portfolio")} | Portfolio`;
-  document.querySelector(".brand").textContent = text(safeProfile.name, "Portfolio");
-  document.querySelector("h1").textContent = text(safeProfile.name, "Portfolio");
+  document.title = `${text(safeProfile.name, "Homepage")} | Homepage`;
+  document.querySelector("#profile-name").textContent = text(safeProfile.name, "Homepage");
   document.querySelector("#profile-headline").textContent = text(safeProfile.headline, fallbackProfile.headline);
   document.querySelector("#profile-bio").textContent = text(safeProfile.bio, fallbackProfile.bio);
   document.querySelector("#profile-phone").textContent = text(safeProfile.phone);
@@ -38,54 +52,63 @@ function setProfile(profile) {
   emailLink.textContent = email;
   emailLink.href = `mailto:${email}`;
 
-  for (const link of [document.querySelector("#cv-link-hero"), document.querySelector("#cv-link-footer")]) {
+  for (const link of [document.querySelector("#profile-cv"), document.querySelector("#cv-link-footer")]) {
     link.href = text(safeProfile.cv, fallbackProfile.cv);
+  }
+
+  const avatar = document.querySelector("#avatar");
+  if (safeProfile.avatar) {
+    avatar.innerHTML = `<img src="${escapeHtml(safeProfile.avatar)}" alt="${escapeHtml(safeProfile.name)}" />`;
+  } else {
+    avatar.textContent = text(safeProfile.name, "赵").slice(0, 1);
   }
 }
 
-function projectCard(project) {
-  const tags = (project.tags || ["Portfolio"]).map((tag) => `<span class="tag">${tag}</span>`).join("");
+function renderTags(tags = []) {
+  return tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+}
+
+function projectEntry(project, index) {
+  const title = escapeHtml(project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
+  const summary = escapeHtml(sentence(project.summary));
+  const badge = `Pages ${escapeHtml(project.pages || "")}`;
   return `
-    <a class="project-card" href="${project.pdf}" target="_blank" rel="noreferrer">
-      <div class="project-cover">
-        <img src="${project.cover}" alt="${project.title} cover" loading="lazy" />
+    <article class="entry">
+      <a class="entry-media" href="${escapeHtml(project.pdf)}" target="_blank" rel="noreferrer">
+        <span class="badge">${badge}</span>
+        <img src="${escapeHtml(project.cover)}" alt="${title} cover" loading="lazy" />
+      </a>
+      <div class="entry-body">
+        <h3 class="entry-title"><a href="${escapeHtml(project.pdf)}" target="_blank" rel="noreferrer">${title}</a></h3>
+        <p class="entry-authors"><strong>赵钧毅</strong></p>
+        <ul class="entry-summary">
+          <li>${summary}</li>
+        </ul>
+        <div class="tagline">${renderTags(project.tags || ["Portfolio"])}</div>
       </div>
-      <div class="project-content">
-        <div class="project-meta">
-          <span class="tag">Pages ${project.pages}</span>
-          ${tags}
-        </div>
-        <h3>${project.title}</h3>
-        <p>${project.summary}</p>
-      </div>
-    </a>
+    </article>
   `;
 }
 
-function paperCard(paper) {
-  const gallery = (paper.images || [])
-    .slice(0, 4)
-    .map(
-      (image, index) => `
-        <a href="${image}" target="_blank" rel="noreferrer">
-          <img src="${image}" alt="${paper.title} figure ${index + 1}" loading="lazy" />
-        </a>
-      `,
-    )
-    .join("");
-
+function paperEntry(paper) {
+  const title = escapeHtml(paper.title || "Research manuscript");
+  const summary = escapeHtml(sentence(paper.summary));
   return `
-    <article class="paper-card">
-      <a class="paper-cover" href="${paper.cover}" target="_blank" rel="noreferrer">
-        <img src="${paper.cover}" alt="${paper.title} cover" loading="lazy" />
+    <article class="entry">
+      <a class="entry-media" href="${escapeHtml(paper.docx)}" target="_blank" rel="noreferrer">
+        <span class="badge">DOCX</span>
+        <img src="${escapeHtml(paper.cover)}" alt="${title} cover" loading="lazy" />
       </a>
-      <div>
-        <h3>${paper.title}</h3>
-        <p>${paper.summary}</p>
-        <div class="card-actions">
-          <a class="button secondary" href="${paper.docx}" target="_blank" rel="noreferrer">Open DOCX</a>
+      <div class="entry-body">
+        <h3 class="entry-title"><a href="${escapeHtml(paper.docx)}" target="_blank" rel="noreferrer">${title}</a></h3>
+        <p class="entry-authors"><strong>赵钧毅</strong> et al.</p>
+        <ul class="entry-summary">
+          <li>${summary}</li>
+        </ul>
+        <div class="tagline">
+          <span class="tag">Research</span>
+          <span class="tag">Manuscript</span>
         </div>
-        <div class="paper-gallery">${gallery}</div>
       </div>
     </article>
   `;
@@ -99,9 +122,8 @@ async function init() {
   ]);
 
   setProfile(profile);
-  document.querySelector("#projects-grid").innerHTML = projects.map(projectCard).join("");
-  document.querySelector("#papers-list").innerHTML = papers.map(paperCard).join("");
-  document.querySelector("#year").textContent = new Date().getFullYear();
+  document.querySelector("#projects-list").innerHTML = projects.map(projectEntry).join("");
+  document.querySelector("#papers-list").innerHTML = papers.map(paperEntry).join("");
 }
 
 init();
