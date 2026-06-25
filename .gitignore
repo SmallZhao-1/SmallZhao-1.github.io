@@ -1,0 +1,12 @@
+# Local source files used for extraction. The website uses the copies in assets/.
+/CV.pdf
+/heal.docx
+/Manuscript.docx
+/赵钧毅-作品集.pdf
+
+# Local editor files
+.vscode/
+
+# Python caches
+__pycache__/
+*.pyc

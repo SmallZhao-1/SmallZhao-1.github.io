@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "project-01",
+    "title": "作品 01",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "3-7",
+    "cover": "assets/projects/project-01-cover.png",
+    "pdf": "assets/projects/project-01.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-02",
+    "title": "作品 02",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "8-14",
+    "cover": "assets/projects/project-02-cover.png",
+    "pdf": "assets/projects/project-02.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-03",
+    "title": "作品 03",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "15-18",
+    "cover": "assets/projects/project-03-cover.png",
+    "pdf": "assets/projects/project-03.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-04",
+    "title": "作品 04",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "19-24",
+    "cover": "assets/projects/project-04-cover.png",
+    "pdf": "assets/projects/project-04.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-05",
+    "title": "作品 05",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "25-29",
+    "cover": "assets/projects/project-05-cover.png",
+    "pdf": "assets/projects/project-05.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-06",
+    "title": "作品 06",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "30-32",
+    "cover": "assets/projects/project-06-cover.png",
+    "pdf": "assets/projects/project-06.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-07",
+    "title": "作品 07",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "33-35",
+    "cover": "assets/projects/project-07-cover.png",
+    "pdf": "assets/projects/project-07.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-08",
+    "title": "作品 08",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "36-39",
+    "cover": "assets/projects/project-08-cover.png",
+    "pdf": "assets/projects/project-08.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  },
+  {
+    "slug": "project-09",
+    "title": "作品 09",
+    "summary": "项目标题和说明待补充。可在 data/projects.json 中修改。",
+    "pages": "40-41",
+    "cover": "assets/projects/project-09-cover.png",
+    "pdf": "assets/projects/project-09.pdf",
+    "tags": [
+      "Portfolio"
+    ]
+  }
+]

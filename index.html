@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="赵钧毅的个人作品集主页，展示项目作品、研究论文与个人简历。" />
+    <title>赵钧毅 | Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Back to top">赵钧毅</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#cv">CV</a>
+        <a href="mailto:zhaojunyi20040110@gmail.com">Email</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Architecture / Urban Computing / Portfolio</p>
+          <h1 id="hero-title">赵钧毅</h1>
+          <p id="profile-headline" class="headline">Portfolio / Personal Homepage</p>
+          <p id="profile-bio" class="hero-bio">
+            个人介绍待补充。建议用 2-4 句话概括你的方向、能力、关注的问题和正在寻找的机会。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View Projects</a>
+            <a id="cv-link-hero" class="button secondary" href="assets/docs/CV.pdf" target="_blank" rel="noreferrer">Open CV</a>
+          </div>
+        </div>
+        <aside class="profile-panel" aria-label="Profile details">
+          <dl>
+            <div>
+              <dt>Email</dt>
+              <dd><a id="profile-email" href="mailto:zhaojunyi20040110@gmail.com">zhaojunyi20040110@gmail.com</a></dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd id="profile-phone">18774986412</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd id="profile-location">待补充</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section id="projects" class="section" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected works</p>
+          <h2 id="projects-title">作品集项目</h2>
+          <p>封面来自每个项目对应的 PDF 第一页。点击卡片可以直接打开该项目 PDF。</p>
+        </div>
+        <div id="projects-grid" class="project-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="research" class="section research-section" aria-labelledby="research-title">
+        <div class="section-heading">
+          <p class="eyebrow">Research</p>
+          <h2 id="research-title">论文与研究</h2>
+          <p>已从 Word 文档中自动提取标题、摘要和部分图片，后续可手动替换封面与说明。</p>
+        </div>
+        <div id="papers-list" class="papers-list" aria-live="polite"></div>
+      </section>
+
+      <section id="cv" class="section cv-section" aria-labelledby="cv-title">
+        <div>
+          <p class="eyebrow">Curriculum vitae</p>
+          <h2 id="cv-title">个人简历</h2>
+          <p>
+            简历 PDF 已放入网站资源中。建议后续把个人介绍、教育经历、获奖和技能整理成网页文本，
+            这样别人不下载 PDF 也能快速了解你。
+          </p>
+        </div>
+        <a id="cv-link-footer" class="button primary" href="assets/docs/CV.pdf" target="_blank" rel="noreferrer">Open CV PDF</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> 赵钧毅</span>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
