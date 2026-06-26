@@ -168,7 +168,6 @@ function paperEntry(paper) {
           <span class="tag">Research</span>
           <span class="tag">Manuscript</span>
         </div>
-        <a class="text-link" href="${escapeHtml(href)}">Open reading page</a>
       </div>
     </article>
   `;
