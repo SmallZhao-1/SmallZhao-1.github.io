@@ -534,6 +534,61 @@ code {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.paper-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 760px);
+  gap: 42px;
+  align-items: start;
+}
+
+.paper-toc {
+  position: sticky;
+  top: 72px;
+  max-height: calc(100vh - 96px);
+  overflow: auto;
+  padding-right: 10px;
+}
+
+.paper-toc h2 {
+  margin: 0 0 10px;
+  color: var(--heading);
+  font-size: 14px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.paper-toc ol {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paper-toc li {
+  min-width: 0;
+}
+
+.paper-toc a {
+  display: block;
+  color: #aeb6c2;
+  font-size: 13px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.paper-toc a:hover {
+  color: var(--link-hover);
+}
+
+.toc-level-3 {
+  padding-left: 12px;
+}
+
+.toc-level-4 {
+  padding-left: 24px;
+}
+
 .paper-content {
   display: grid;
   grid-template-columns: minmax(0, 760px);
@@ -548,6 +603,7 @@ code {
 }
 
 .paper-heading {
+  scroll-margin-top: 70px;
   color: var(--heading);
   line-height: 1.22;
 }
@@ -560,6 +616,12 @@ code {
 .paper-heading-3 {
   margin: 22px 0 9px;
   font-size: 19px;
+}
+
+.paper-heading-4 {
+  margin: 18px 0 8px;
+  color: #dcecff;
+  font-size: 17px;
 }
 
 .paper-figure {
@@ -581,6 +643,42 @@ code {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.paper-list {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+.paper-list li {
+  line-height: 1.65;
+}
+
+.list-level-1 {
+  margin-left: 18px;
+}
+
+.paper-table-wrap {
+  max-width: 100%;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+.paper-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.paper-table td {
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  vertical-align: top;
 }
 
 @media (max-width: 900px) {
@@ -658,6 +756,20 @@ code {
 
   .paper-shell {
     padding: 28px 16px 52px;
+  }
+
+  .paper-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .paper-toc {
+    position: static;
+    max-height: none;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
   }
 
   .paper-header h1 {

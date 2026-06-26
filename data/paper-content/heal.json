@@ -1,20 +1,95 @@
 {
   "slug": "heal",
   "title": "Urban renewal in high-density urban areas from the perspective of crowd psychological health",
+  "authors": "Junyi Zhao*a *2210620119@student.cumtb.edu.cn",
   "summary": "Accelerated urbanization has led to significantly increased urban density, amplifying associated challenges including strains on mental well-being. Concurrently, the saturation of traditional building stock emphasizes the critical importance of urban renewal initiatives. Current research in this domain often adopts singular perspectives: examples include analyzing pedestrian visual relationships using 3D-Isovist techniques, quantifying psychological perceptions through sensor-based data collection, or focusing on optimizing urban greenery configurations. While valuable, these approaches typically examine factors in isolation. A holistic framework integrating multiple dimensions is essential for effective urban renewal planning yet remains understudied. Addressing this gap, this paper proposes a novel multi-objective optimization methodology designed for the critical early planning stages of urban renewal, explicitly incorporating psychological healing as a core objective to foster healthier urban environments.",
   "docx": "assets/docs/heal.docx",
+  "toc": [
+    {
+      "id": "abstract",
+      "level": 2,
+      "text": "Abstract"
+    },
+    {
+      "id": "1-introduction",
+      "level": 2,
+      "text": "1.Introduction"
+    },
+    {
+      "id": "2-methodology",
+      "level": 2,
+      "text": "2. Methodology"
+    },
+    {
+      "id": "2-1-study-area",
+      "level": 3,
+      "text": "2.1. Study area"
+    },
+    {
+      "id": "2-2-method-to-calculate-the-utci",
+      "level": 3,
+      "text": "2.2. Method to calculate the UTCI"
+    },
+    {
+      "id": "2-3-method-to-calculate-the-radiation",
+      "level": 3,
+      "text": "2.3. Method to calculate the Radiation"
+    },
+    {
+      "id": "2-4-method-to-calculate-the-emotion",
+      "level": 3,
+      "text": "2.4. Method to calculate the emotion"
+    },
+    {
+      "id": "2-5-data-preprocessing-and-parameter-setting",
+      "level": 3,
+      "text": "2.5. Data preprocessing and parameter setting"
+    },
+    {
+      "id": "3-result",
+      "level": 2,
+      "text": "3.Result"
+    },
+    {
+      "id": "4-conclusion",
+      "level": 2,
+      "text": "4.Conclusion"
+    },
+    {
+      "id": "4-1-summary-of-technical-process-and-results",
+      "level": 3,
+      "text": "4.1. Summary of Technical Process and Results"
+    },
+    {
+      "id": "4-2-innovation",
+      "level": 3,
+      "text": "4.2. Innovation"
+    },
+    {
+      "id": "4-3-shortage-and-expectation",
+      "level": 3,
+      "text": "4.3. Shortage and expectation"
+    }
+  ],
   "blocks": [
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 1,
+      "id": "urban-renewal-in-high-density-urban-areas-from-the-perspective-of-crowd-",
       "text": "Urban renewal in high-density urban areas from the perspective of crowd psychological health"
     },
     {
       "type": "paragraph",
-      "text": "Junyi Zhao*a *2210620119@student.cumtb.edu.cn"
+      "text": "Junyi Zhao*a"
+    },
+    {
+      "type": "paragraph",
+      "text": "*2210620119@student.cumtb.edu.cn"
     },
     {
       "type": "heading",
       "level": 2,
+      "id": "abstract",
       "text": "Abstract"
     },
     {
@@ -30,7 +105,9 @@
       "text": "In the final results, we find that the three optimization objectives exhibited certain antagonistic effects, and there are cases of reverse optimization of the optimization objectives. The optimization factors of different building heights are desperate between 0.72 and 1.30. The final updated height is the initial heights multiply the height factors, which is between 12.30 and 76.56. We speculate that this might be related to the location of the building and its original height. We take the mean optimal solution as our reference target. According to the average optimal solution, the emotion is optimized by 0.0012%, which is very tiny. The emotion is optimized by 13.95% and the UTCI is optimized by 0.24%. The study can help balance the various considerations in the early stage of design and it is a supplement of urban renewal strategies. This method is also an attempt at computationally assisted preliminary design. Designers can change the optimization goals according to different considerations to adapt to different environments."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "1-introduction",
       "text": "1.Introduction"
     },
     {
@@ -60,6 +137,7 @@
     {
       "type": "heading",
       "level": 2,
+      "id": "2-methodology",
       "text": "2. Methodology"
     },
     {
@@ -76,7 +154,8 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 3,
+      "id": "2-1-study-area",
       "text": "2.1. Study area"
     },
     {
@@ -85,7 +164,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-06.png",
+      "src": "assets/papers/heal/image-06-display.webp",
+      "thumb": "assets/papers/heal/image-06-thumb.webp",
+      "original": "assets/papers/heal/image-06.png",
       "alt": "heal figure 1",
       "width": 8115,
       "height": 4120
@@ -96,7 +177,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-07.png",
+      "src": "assets/papers/heal/image-07-display.webp",
+      "thumb": "assets/papers/heal/image-07-thumb.webp",
+      "original": "assets/papers/heal/image-07.png",
       "alt": "heal figure 2",
       "width": 2446,
       "height": 2484
@@ -107,7 +190,8 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 3,
+      "id": "2-2-method-to-calculate-the-utci",
       "text": "2.2. Method to calculate the UTCI"
     },
     {
@@ -116,7 +200,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-08.png",
+      "src": "assets/papers/heal/image-08-display.webp",
+      "thumb": "assets/papers/heal/image-08-thumb.webp",
+      "original": "assets/papers/heal/image-08.png",
       "alt": "heal figure 3",
       "width": 7750,
       "height": 3990
@@ -127,7 +213,8 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 3,
+      "id": "2-3-method-to-calculate-the-radiation",
       "text": "2.3. Method to calculate the Radiation"
     },
     {
@@ -136,7 +223,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-09.png",
+      "src": "assets/papers/heal/image-09-display.webp",
+      "thumb": "assets/papers/heal/image-09-thumb.webp",
+      "original": "assets/papers/heal/image-09.png",
       "alt": "heal figure 4",
       "width": 4755,
       "height": 3990
@@ -147,7 +236,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-10.png",
+      "src": "assets/papers/heal/image-10-display.webp",
+      "thumb": "assets/papers/heal/image-10-thumb.webp",
+      "original": "assets/papers/heal/image-10.png",
       "alt": "heal figure 5",
       "width": 5065,
       "height": 3990
@@ -158,7 +249,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-11.png",
+      "src": "assets/papers/heal/image-11-display.webp",
+      "thumb": "assets/papers/heal/image-11-thumb.webp",
+      "original": "assets/papers/heal/image-11.png",
       "alt": "heal figure 6",
       "width": 1397,
       "height": 662
@@ -169,7 +262,8 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 3,
+      "id": "2-4-method-to-calculate-the-emotion",
       "text": "2.4. Method to calculate the emotion"
     },
     {
@@ -178,7 +272,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-12.png",
+      "src": "assets/papers/heal/image-12-display.webp",
+      "thumb": "assets/papers/heal/image-12-thumb.webp",
+      "original": "assets/papers/heal/image-12.png",
       "alt": "heal figure 7",
       "width": 2491,
       "height": 543
@@ -189,7 +285,11 @@
     },
     {
       "type": "paragraph",
-      "text": "The statistical analysis is based on a classic MLR model (Equation (2)): Emotion j = α1 Vαr1 + α2 Vαr2+ ... + αn Vαrn + γ +ε (2)"
+      "text": "The statistical analysis is based on a classic MLR model (Equation (2)):"
+    },
+    {
+      "type": "paragraph",
+      "text": "Emotion j = α1 Vαr1 + α2 Vαr2+ ... + αn Vαrn + γ +ε (2)"
     },
     {
       "type": "paragraph",
@@ -201,7 +301,8 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 3,
+      "id": "2-5-data-preprocessing-and-parameter-setting",
       "text": "2.5. Data preprocessing and parameter setting"
     },
     {
@@ -213,7 +314,32 @@
       "text": "In the program of WallceiX, the crossover rate determines how many offspring chromosomes are produced from the combination of parent chromosomes. The mutation rate introduces random changes in the offspring population to prevent the algorithm from getting trapped in local optima and leaving some areas of the solution space unexplored.16 And we need to select the appropriate Generation Size and Generation Count. In this study, the settings of the relevant parameters are as shown in the (Table 1)."
     },
     {
-      "type": "paragraph",
+      "type": "table",
+      "rows": [
+        [
+          "Variable",
+          "Generation Size",
+          "Generation Count",
+          "Crossover Probility",
+          "Mutation Probility",
+          "Crossover Dis-tribution Index",
+          "Mutation Dis-tribution Index",
+          "Random Seed"
+        ],
+        [
+          "Parameter",
+          "40",
+          "30",
+          "0.9",
+          "1/r",
+          "20",
+          "20",
+          "1"
+        ]
+      ]
+    },
+    {
+      "type": "caption",
       "text": "Table 1. The relevant parameters"
     },
     {
@@ -222,7 +348,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-13.png",
+      "src": "assets/papers/heal/image-13-display.webp",
+      "thumb": "assets/papers/heal/image-13-thumb.webp",
+      "original": "assets/papers/heal/image-13.png",
       "alt": "heal figure 8",
       "width": 4755,
       "height": 4120
@@ -232,8 +360,43 @@
       "text": "fig 8. The contour lines of several buildings"
     },
     {
-      "type": "paragraph",
-      "text": "Table 2. The original height data of TB 3.Result"
+      "type": "table",
+      "rows": [
+        [
+          "Building Index",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        [
+          "Height(m)",
+          "66.0",
+          "15.0",
+          "3.0",
+          "30.0",
+          "43.0",
+          "30.0",
+          "20.0",
+          "20.0",
+          "17.0"
+        ]
+      ]
+    },
+    {
+      "type": "caption",
+      "text": "Table 2. The original height data of TB"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "3-result",
+      "text": "3.Result"
     },
     {
       "type": "paragraph",
@@ -241,21 +404,27 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-14.png",
+      "src": "assets/papers/heal/image-14-display.webp",
+      "thumb": "assets/papers/heal/image-14-thumb.webp",
+      "original": "assets/papers/heal/image-14.png",
       "alt": "heal figure 9",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-04.png",
+      "src": "assets/papers/heal/image-04-display.webp",
+      "thumb": "assets/papers/heal/image-04-thumb.webp",
+      "original": "assets/papers/heal/image-04.png",
       "alt": "heal figure 10",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-15.png",
+      "src": "assets/papers/heal/image-15-display.webp",
+      "thumb": "assets/papers/heal/image-15-thumb.webp",
+      "original": "assets/papers/heal/image-15.png",
       "alt": "heal figure 11",
       "width": 3508,
       "height": 2480
@@ -270,14 +439,18 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-05.png",
+      "src": "assets/papers/heal/image-05-display.webp",
+      "thumb": "assets/papers/heal/image-05-thumb.webp",
+      "original": "assets/papers/heal/image-05.png",
       "alt": "heal figure 12",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-01.png",
+      "src": "assets/papers/heal/image-01-display.webp",
+      "thumb": "assets/papers/heal/image-01-thumb.webp",
+      "original": "assets/papers/heal/image-01.png",
       "alt": "heal figure 13",
       "width": 3508,
       "height": 2480
@@ -292,21 +465,27 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-16.png",
+      "src": "assets/papers/heal/image-16-display.webp",
+      "thumb": "assets/papers/heal/image-16-thumb.webp",
+      "original": "assets/papers/heal/image-16.png",
       "alt": "heal figure 14",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-17.png",
+      "src": "assets/papers/heal/image-17-display.webp",
+      "thumb": "assets/papers/heal/image-17-thumb.webp",
+      "original": "assets/papers/heal/image-17.png",
       "alt": "heal figure 15",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-18.png",
+      "src": "assets/papers/heal/image-18-display.webp",
+      "thumb": "assets/papers/heal/image-18-thumb.webp",
+      "original": "assets/papers/heal/image-18.png",
       "alt": "heal figure 16",
       "width": 3508,
       "height": 2480
@@ -321,28 +500,36 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-19.png",
+      "src": "assets/papers/heal/image-19-display.webp",
+      "thumb": "assets/papers/heal/image-19-thumb.webp",
+      "original": "assets/papers/heal/image-19.png",
       "alt": "heal figure 17",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-20.png",
+      "src": "assets/papers/heal/image-20-display.webp",
+      "thumb": "assets/papers/heal/image-20-thumb.webp",
+      "original": "assets/papers/heal/image-20.png",
       "alt": "heal figure 18",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-21.png",
+      "src": "assets/papers/heal/image-21-display.webp",
+      "thumb": "assets/papers/heal/image-21-thumb.webp",
+      "original": "assets/papers/heal/image-21.png",
       "alt": "heal figure 19",
       "width": 3508,
       "height": 2480
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-22.png",
+      "src": "assets/papers/heal/image-22-display.webp",
+      "thumb": "assets/papers/heal/image-22-thumb.webp",
+      "original": "assets/papers/heal/image-22.png",
       "alt": "heal figure 20",
       "width": 3508,
       "height": 2480
@@ -353,7 +540,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-02.png",
+      "src": "assets/papers/heal/image-02-display.webp",
+      "thumb": "assets/papers/heal/image-02-thumb.webp",
+      "original": "assets/papers/heal/image-02.png",
       "alt": "heal figure 21",
       "width": 4961,
       "height": 3508
@@ -372,7 +561,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/heal/image-03.png",
+      "src": "assets/papers/heal/image-03-display.webp",
+      "thumb": "assets/papers/heal/image-03-thumb.webp",
+      "original": "assets/papers/heal/image-03.png",
       "alt": "heal figure 22",
       "width": 3508,
       "height": 2480
@@ -382,16 +573,72 @@
       "text": "fig 14. The display of the mean optimal solution: (a) illustrates the ranking of the mean optimal solution among the three optimization objectives; (b)(c)(d) present the visualized results of each optimization objective after the building optimization."
     },
     {
-      "type": "paragraph",
-      "text": "Table 3. The comparison of each TB’s height: It shows the initial height, the optimized height, and the optimization coefficient."
+      "type": "table",
+      "rows": [
+        [
+          "Building Index",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        [
+          "Original Height(m)",
+          "66.0",
+          "15.0",
+          "3.0",
+          "30.0",
+          "43.0",
+          "30.0",
+          "20.0",
+          "20.0",
+          "17.0"
+        ],
+        [
+          "Optimized Coefficient",
+          "1.16",
+          "0.82",
+          "1.01",
+          "0.72",
+          "1.29",
+          "1.30",
+          "1.24",
+          "0.74",
+          "0.84"
+        ],
+        [
+          "Optimized Height(m)",
+          "76.56",
+          "12.30",
+          "3.03",
+          "21.60",
+          "55.47",
+          "39.00",
+          "24.80",
+          "14.80",
+          "14.28"
+        ]
+      ]
     },
     {
-      "type": "paragraph",
-      "text": "4.Conclusion"
+      "type": "caption",
+      "text": "Table 3. The comparison of each TB’s height: It shows the initial height, the optimized height, and the optimization coefficient."
     },
     {
       "type": "heading",
       "level": 2,
+      "id": "4-conclusion",
+      "text": "4.Conclusion"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "4-1-summary-of-technical-process-and-results",
       "text": "4.1. Summary of Technical Process and Results"
     },
     {
@@ -404,7 +651,8 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 3,
+      "id": "4-2-innovation",
       "text": "4.2. Innovation"
     },
     {
@@ -412,20 +660,30 @@
       "text": "The research is an exploration of the multi-objective optimization computational design method. The innovation of the research lies in the following:"
     },
     {
-      "type": "paragraph",
-      "text": "Considering human mental health from multiple perspectives (3D-Isovist, UTCI, Radiation)"
-    },
-    {
-      "type": "paragraph",
-      "text": "Pay attention to the current hot policies for urban renewal Utilizing computational methods for design assistance"
-    },
-    {
-      "type": "paragraph",
-      "text": "This method allows the designer to model any existing situation. The initial settings defined include (1) the layout of buildings; (2) the original settings in WallceiX include parameters shown in Table 1 (3) The height and location of observation points"
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Considering human mental health from multiple perspectives (3D-Isovist, UTCI, Radiation)"
+        },
+        {
+          "level": 0,
+          "text": "Pay attention to the current hot policies for urban renewal"
+        },
+        {
+          "level": 0,
+          "text": "Utilizing computational methods for design assistance"
+        },
+        {
+          "level": 0,
+          "text": "This method allows the designer to model any existing situation. The initial settings defined include (1) the layout of buildings; (2) the original settings in WallceiX include parameters shown in Table 1 (3) The height and location of observation points"
+        }
+      ]
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 3,
+      "id": "4-3-shortage-and-expectation",
       "text": "4.3. Shortage and expectation"
     },
     {
@@ -433,12 +691,17 @@
       "text": "However, the research still has certain limitations and subsequent related research can further explore and improve upon these aspects:"
     },
     {
-      "type": "paragraph",
-      "text": "Considering that this study serves as a reference for the previous design, the refinement of the site and TB grid division dimensions is not negligible, which would result in insignificant visual differences."
-    },
-    {
-      "type": "paragraph",
-      "text": "The optimized genetic attributes are simple, consisting only of the height of each building. In subsequent studies, the genes can be optimized in multiple aspects such as layout, window opening’s position."
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Considering that this study serves as a reference for the previous design, the refinement of the site and TB grid division dimensions is not negligible, which would result in insignificant visual differences."
+        },
+        {
+          "level": 0,
+          "text": "The optimized genetic attributes are simple, consisting only of the height of each building. In subsequent studies, the genes can be optimized in multiple aspects such as layout, window opening’s position."
+        }
+      ]
     },
     {
       "type": "paragraph",
@@ -457,8 +720,7 @@
       "text": "2. `````Hung, S.-H. & Chang, C.-Y. How do humans value urban nature? Developing the perceived biophilic design scale (PBDs) for preference and emotion. Urban For. Urban Green. 76, 127730 (2022).[2"
     },
     {
-      "type": "heading",
-      "level": 2,
+      "type": "paragraph",
       "text": "3. Kaklauskas, A. et al. Emotions analysis in public spaces for urban planning. Land Use Policy 107, 105458 (2021)."
     },
     {

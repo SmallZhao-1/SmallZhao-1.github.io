@@ -1,16 +1,222 @@
 {
   "slug": "manuscript",
   "title": "Assessment of Photovoltaic Potential in Abandoned Industrial Mining Areas Based on a Double Machine Learning Framework: A Case Study of Xiaoyi City",
+  "authors": "",
   "summary": "Within the ongoing energy transition of Chinese-style modernization, abandoned industrial mining areas are promising sites for photovoltaic deployment (PV), but require reliable assessment of solar resources and capacity. This study develops a prediction framework for large abandoned mining sites, evaluating ground and rooftop PV potential. Using Xiaoyi City, Shanxi Province, China, we mapped regional PV potential. A three-dimensional modeling and parcel-morphology clustering workflow using Grasshopper and ArcGIS Pro produced 54 samples across four parcel types. Building energy use intensity (EUI) and solar radiation were simulated with Ladybug Tools. Ground solar radiation (GSR), rooftop solar radiation (RSR), total solar radiation (TSR), and EUI were predicted using feature-space interpolation and double machine learning (DML), achieving R² = 0.88–0.99; Shapley additive explanations (SHAP) improved interpretability. Predicted outputs were converted into deployable PV capacity and utilization potential, supporting PV planning and redevelopment of abandoned mining land.",
   "docx": "assets/docs/Manuscript.docx",
+  "toc": [
+    {
+      "id": "abstract",
+      "level": 2,
+      "text": "Abstract"
+    },
+    {
+      "id": "background",
+      "level": 2,
+      "text": "Background"
+    },
+    {
+      "id": "solar-energy-utilization",
+      "level": 2,
+      "text": "Solar energy utilization"
+    },
+    {
+      "id": "mining-area-photovoltaic-potential",
+      "level": 2,
+      "text": "Mining area photovoltaic potential"
+    },
+    {
+      "id": "machine-learning-and-energy-consumption-simulation",
+      "level": 2,
+      "text": "Machine learning and energy consumption simulation"
+    },
+    {
+      "id": "research-gap-and-objectives",
+      "level": 2,
+      "text": "Research gap and objectives"
+    },
+    {
+      "id": "study-framework",
+      "level": 2,
+      "text": "Study framework"
+    },
+    {
+      "id": "study-area",
+      "level": 2,
+      "text": "Study area"
+    },
+    {
+      "id": "basic-information",
+      "level": 3,
+      "text": "Basic information"
+    },
+    {
+      "id": "climate-information",
+      "level": 3,
+      "text": "Climate information"
+    },
+    {
+      "id": "geographic-data-information",
+      "level": 3,
+      "text": "Geographic data information"
+    },
+    {
+      "id": "parcel-morphologies-clustering",
+      "level": 2,
+      "text": "Parcel morphologies clustering"
+    },
+    {
+      "id": "building-energy-simulation",
+      "level": 2,
+      "text": "Building energy simulation"
+    },
+    {
+      "id": "energy-simulation",
+      "level": 3,
+      "text": "Energy simulation"
+    },
+    {
+      "id": "morphology-parameters",
+      "level": 3,
+      "text": "Morphology parameters"
+    },
+    {
+      "id": "employed-machine-learning-algorithms",
+      "level": 2,
+      "text": "Employed machine learning algorithms"
+    },
+    {
+      "id": "data-enhancement",
+      "level": 3,
+      "text": "Data enhancement"
+    },
+    {
+      "id": "double-machine-learning",
+      "level": 3,
+      "text": "Double machine learning"
+    },
+    {
+      "id": "shap-analysis",
+      "level": 3,
+      "text": "SHAP analysis"
+    },
+    {
+      "id": "photovoltaic-potential-assessment",
+      "level": 2,
+      "text": "Photovoltaic potential assessment"
+    },
+    {
+      "id": "model-application",
+      "level": 3,
+      "text": "Model application"
+    },
+    {
+      "id": "calculation-of-photovoltaic-potential",
+      "level": 3,
+      "text": "Calculation of photovoltaic potential"
+    },
+    {
+      "id": "clustering-analysis",
+      "level": 2,
+      "text": "Clustering analysis"
+    },
+    {
+      "id": "clustering-result",
+      "level": 3,
+      "text": "Clustering result"
+    },
+    {
+      "id": "distribution-of-clustering-characteristics",
+      "level": 3,
+      "text": "Distribution of clustering characteristics"
+    },
+    {
+      "id": "data-augmentation-results-distribution",
+      "level": 2,
+      "text": "Data augmentation results distribution"
+    },
+    {
+      "id": "augmentation-result-of-geographic-distributions",
+      "level": 3,
+      "text": "Augmentation result of geographic distributions"
+    },
+    {
+      "id": "augmentation-results-of-parcel-characteristics",
+      "level": 3,
+      "text": "Augmentation results of parcel characteristics"
+    },
+    {
+      "id": "prediction-model",
+      "level": 2,
+      "text": "Prediction model"
+    },
+    {
+      "id": "model-performance-evaluation",
+      "level": 3,
+      "text": "Model performance evaluation"
+    },
+    {
+      "id": "shap-result-analysis",
+      "level": 3,
+      "text": "SHAP result analysis"
+    },
+    {
+      "id": "distribution-of-forecast-results",
+      "level": 3,
+      "text": "Distribution of forecast results"
+    },
+    {
+      "id": "photovoltaic-potential-distribution",
+      "level": 2,
+      "text": "Photovoltaic potential distribution"
+    },
+    {
+      "id": "morphology-clustering",
+      "level": 2,
+      "text": "Morphology clustering"
+    },
+    {
+      "id": "performance-and-characteristic-analysis",
+      "level": 2,
+      "text": "Performance and characteristic analysis"
+    },
+    {
+      "id": "model-performance-analysis",
+      "level": 3,
+      "text": "Model performance analysis"
+    },
+    {
+      "id": "characteristic-correlation-analysis",
+      "level": 3,
+      "text": "Characteristic correlation analysis"
+    },
+    {
+      "id": "model-interpretability",
+      "level": 3,
+      "text": "Model interpretability"
+    },
+    {
+      "id": "implication-of-this-study",
+      "level": 2,
+      "text": "Implication of this study"
+    },
+    {
+      "id": "limitations-and-future-work",
+      "level": 2,
+      "text": "Limitations and future work"
+    }
+  ],
   "blocks": [
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 1,
+      "id": "assessment-of-photovoltaic-potential-in-abandoned-industrial-mining-area",
       "text": "Assessment of Photovoltaic Potential in Abandoned Industrial Mining Areas Based on a Double Machine Learning Framework: A Case Study of Xiaoyi City"
     },
     {
       "type": "heading",
       "level": 2,
+      "id": "abstract",
       "text": "Abstract"
     },
     {
@@ -23,11 +229,14 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 1,
+      "id": "introduction",
       "text": "Introduction"
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "background",
       "text": "Background"
     },
     {
@@ -35,7 +244,9 @@
       "text": "Building energy consumption accounts for approximately one-third of global energy use and represents a major share of urban energy demand[1]. To achieve its dual carbon goals—peaking carbon emissions by 2030 and reaching carbon neutrality by 2060—China is implementing phased energy policies to modernize its energy sector and is expected to enter the decisive stage of its carbon neutrality pathway by 2050[2]. However, driven by rapid urbanization, carbon emissions from China’s residential buildings continue to rise, with total building-related emissions reaching 4.07 billion tons of CO₂, or 38.2% of national emissions[3]. China also has a large stock of aging residential communities that not only contribute substantially to building energy consumption but also offer significant potential for energy-efficient retrofits. Analysis using the China 2050 Demand Resources and Energy Analysis Model (DREAM) indicates that optimizing the energy mix and retrofitting the existing building stock are key strategies for reducing energy-related carbon emissions in the building sector[4]."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "solar-energy-utilization",
       "text": "Solar energy utilization"
     },
     {
@@ -47,7 +258,9 @@
       "text": "The ratio of solar power generation to energy consumption effectively reflects a building's energy self-sufficiency. Li et al. used the energy self-sufficiency rate to characterize the degree of energy independence in eight cities worldwide[10]. They further applied a PV substitution rate, defined as the proportion of annual building energy demand met by PV generation, to assess the energy self-sufficiency of different urban blocks [11]。"
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "mining-area-photovoltaic-potential",
       "text": "Mining area photovoltaic potential"
     },
     {
@@ -67,7 +280,9 @@
       "text": "In summary, abandoned industrial mining areas combine large stocks of industrial land with aging residential buildings that typically exhibit poor energy performance. The “planar and three-dimensional” spatial characteristics of abandoned industrial mining areas indicate strong potential for integrated deployment of both ground-mounted centralized PV and building-scale distributed PV. On the one hand, existing industrial land can be redeveloped by constructing centralized PV power plants; on the other hand, aging residential buildings in mining areas can improve their energy performance through rooftop PV retrofits. Therefore, systematically assessing the PV potential of abandoned industrial mining areas has significant theoretical and practical value for advancing energy transition in these areas."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "machine-learning-and-energy-consumption-simulation",
       "text": "Machine learning and energy consumption simulation"
     },
     {
@@ -83,7 +298,9 @@
       "text": "Multi-objective prediction of building energy use at the site scale typically involves several performance targets. Consequently, most studies employ multi-objective optimization techniques to identify optimal decision-variable values under these multiple objectives. Moayedi et al. integrated several algorithms to optimize a multilayer perceptron neural network and achieved multi-objective prediction of heating and cooling loads in residential buildings[35]. DML is an approach that combines multiple machine learning models or optimization stages, whose core aim is to mitigate bias in causal inference and prediction problems through two-stage estimation. This method is suitable for high-dimensional data with complex interaction effects and can enhance both predictive accuracy and generalization performance for models trained on hierarchical energy consumption data. For prediction tasks involving multiple energy-related targets, tuning the hyperparameters of a DML framework enables the simultaneous modeling of multiple correlated objectives. Chernozhukov et al. applied DML, leveraging Neyman-orthogonal scores and cross-fitting techniques to reduce estimation bias in the presence of high-dimensional nuisance parameters[36]."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "research-gap-and-objectives",
       "text": "Research gap and objectives"
     },
     {
@@ -95,24 +312,32 @@
       "text": "To address these gaps, this study introduces a multi-objective DML approach. The objective is to achieve cooperative prediction of multiple energy performance parameters for complex building layout parcels. This enables an integrated assessment of deployable PV capacity and energy self-sufficiency across all parcels. Accordingly, this study aims to:"
     },
     {
-      "type": "paragraph",
-      "text": "Develop an integrated evaluation framework for composite spaces comprising “aging residential buildings and large-scale industrial brownfields,” enabling unified quantitative assessment of PV deployment potential and building energy-use levels across different parcels."
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Develop an integrated evaluation framework for composite spaces comprising “aging residential buildings and large-scale industrial brownfields,” enabling unified quantitative assessment of PV deployment potential and building energy-use levels across different parcels."
+        },
+        {
+          "level": 0,
+          "text": "Establish a multi-objective DML model that is effectively coupled with building energy simulation to achieve cooperative prediction of multiple energy performance parameters across multiple parcel types in these special spatial contexts, and to provide an interpretable analysis of the machine learning model."
+        },
+        {
+          "level": 0,
+          "text": "Assess the spatial distribution of energy self-sufficiency across parcels in the study area and provide quantitative decision support for the three-dimensional PV deployment potential of the abandoned industrial mining area."
+        }
+      ]
     },
     {
-      "type": "paragraph",
-      "text": "Establish a multi-objective DML model that is effectively coupled with building energy simulation to achieve cooperative prediction of multiple energy performance parameters across multiple parcel types in these special spatial contexts, and to provide an interpretable analysis of the machine learning model."
-    },
-    {
-      "type": "paragraph",
-      "text": "Assess the spatial distribution of energy self-sufficiency across parcels in the study area and provide quantitative decision support for the three-dimensional PV deployment potential of the abandoned industrial mining area."
+      "type": "heading",
+      "level": 1,
+      "id": "methodology",
+      "text": "Methodology"
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "Methodology"
-    },
-    {
-      "type": "paragraph",
+      "id": "study-framework",
       "text": "Study framework"
     },
     {
@@ -121,7 +346,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-24.png",
+      "src": "assets/papers/manuscript/image-24-display.webp",
+      "thumb": "assets/papers/manuscript/image-24-thumb.webp",
+      "original": "assets/papers/manuscript/image-24.png",
       "alt": "manuscript figure 1",
       "width": 1268,
       "height": 1790
@@ -131,8 +358,16 @@
       "text": "Figure 1. Technology roadmap"
     },
     {
-      "type": "paragraph",
-      "text": "Study area Basic information"
+      "type": "heading",
+      "level": 2,
+      "id": "study-area",
+      "text": "Study area"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "basic-information",
+      "text": "Basic information"
     },
     {
       "type": "paragraph",
@@ -140,7 +375,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-25.png",
+      "src": "assets/papers/manuscript/image-25-display.webp",
+      "thumb": "assets/papers/manuscript/image-25-thumb.webp",
+      "original": "assets/papers/manuscript/image-25.png",
       "alt": "manuscript figure 2",
       "width": 1266,
       "height": 393
@@ -151,7 +388,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-01.jpeg",
+      "src": "assets/papers/manuscript/image-01-display.webp",
+      "thumb": "assets/papers/manuscript/image-01-thumb.webp",
+      "original": "assets/papers/manuscript/image-01.jpeg",
       "alt": "manuscript figure 3",
       "width": 1268,
       "height": 821
@@ -161,7 +400,9 @@
       "text": "Figure 3. Xiaoyi city field survey photos."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "climate-information",
       "text": "Climate information"
     },
     {
@@ -170,7 +411,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-13.png",
+      "src": "assets/papers/manuscript/image-13-display.webp",
+      "thumb": "assets/papers/manuscript/image-13-thumb.webp",
+      "original": "assets/papers/manuscript/image-13.png",
       "alt": "manuscript figure 4",
       "width": 1268,
       "height": 763
@@ -180,7 +423,9 @@
       "text": "Figure 4. Climatic conditions of Xiaoyi City: (a)annual dry bulb temperature; (b)annual global horizontal rad"
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "geographic-data-information",
       "text": "Geographic data information"
     },
     {
@@ -189,7 +434,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-02.png",
+      "src": "assets/papers/manuscript/image-02-display.webp",
+      "thumb": "assets/papers/manuscript/image-02-thumb.webp",
+      "original": "assets/papers/manuscript/image-02.png",
       "alt": "manuscript figure 5",
       "width": 1266,
       "height": 645
@@ -199,7 +446,9 @@
       "text": "Figure 5. (a) Land use type distribution in Xiaoyi City; (b) distribution of buildings by functional use in Xiaoyi City; (c) distribution of buildings by construction period"
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "parcel-morphologies-clustering",
       "text": "Parcel morphologies clustering"
     },
     {
@@ -211,8 +460,16 @@
       "text": "MiniBatchKMeans is a mini-batch iterative variant of K-means that updates cluster centroids at each iteration using only a randomly selected mini-batch of samples from the full dataset. This procedure substantially reduces computational cost and improves scalability in large-sample settings, while maintaining clustering performance comparable to that of standard K-means[40], [41]. After obtaining the initial clustering results, clusters containing fewer than 10 samples were identified and separated, and were treated as unstable classes in a post-processing step. This reduces the influence of isolated clusters on the overall classification structure and improves the robustness of the land-parcel morphology classification."
     },
     {
-      "type": "paragraph",
-      "text": "Building energy simulation Energy simulation"
+      "type": "heading",
+      "level": 2,
+      "id": "building-energy-simulation",
+      "text": "Building energy simulation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "energy-simulation",
+      "text": "Energy simulation"
     },
     {
       "type": "paragraph",
@@ -223,32 +480,84 @@
       "text": "In this study, a simulation method was applied to evaluate energy performance at the Xiaoyi City parcel scale. The simulation considered the following metrics:"
     },
     {
-      "type": "paragraph",
-      "text": "TSR: the total amount of solar radiation incident on the vertical boundary of the entire parcel (unit: kWh/m²·year). Parcel total solar radiation includes radiation received by all surfaces within the parcel, including building roofs, façades, and the ground surface, and serves as a fundamental indicator for assessing the potential for regional PV power generation [43]."
-    },
-    {
-      "type": "paragraph",
-      "text": "GSR: the amount of solar radiation incident on non-building ground surfaces within the parcel (unit: kWh/m²·year), which provides important reference information for evaluating ground-mounted PV array layouts and the feasibility of distributed PV systems[44]."
-    },
-    {
-      "type": "paragraph",
-      "text": "RSR: the amount of solar radiation received by building roof surfaces (unit: kWh/m²·year), which is a key parameter for the design of rooftop PV systems and determines the installation potential and power generation performance of rooftop PV panels[45]."
-    },
-    {
-      "type": "paragraph",
-      "text": "EUI: the annual energy consumption per unit of building floor area (unit: kWh/m²), reflecting the energy use level of the parcel. By comparing energy use intensity with PV power generation potential, the feasibility of achieving energy self-sufficiency at the parcel scale can be evaluated[46]."
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "TSR: the total amount of solar radiation incident on the vertical boundary of the entire parcel (unit: kWh/m²·year). Parcel total solar radiation includes radiation received by all surfaces within the parcel, including building roofs, façades, and the ground surface, and serves as a fundamental indicator for assessing the potential for regional PV power generation [43]."
+        },
+        {
+          "level": 0,
+          "text": "GSR: the amount of solar radiation incident on non-building ground surfaces within the parcel (unit: kWh/m²·year), which provides important reference information for evaluating ground-mounted PV array layouts and the feasibility of distributed PV systems[44]."
+        },
+        {
+          "level": 0,
+          "text": "RSR: the amount of solar radiation received by building roof surfaces (unit: kWh/m²·year), which is a key parameter for the design of rooftop PV systems and determines the installation potential and power generation performance of rooftop PV panels[45]."
+        },
+        {
+          "level": 0,
+          "text": "EUI: the annual energy consumption per unit of building floor area (unit: kWh/m²), reflecting the energy use level of the parcel. By comparing energy use intensity with PV power generation potential, the feasibility of achieving energy self-sufficiency at the parcel scale can be evaluated[46]."
+        }
+      ]
     },
     {
       "type": "paragraph",
       "text": "The implementation and data flow of the energy performance model were organized into four stages, with the core functions implemented primarily using components within the Grasshopper platform. Grasshopper is a visual programming tool tightly integrated with Rhino and is commonly used for parametric modeling in architecture, as well as for performance simulation via the Ladybug and Honeybee plugins[47]. First, SHP files for Xiaoyi City were imported into ArcGIS Pro, and corresponding 3D building models were generated and exported to Rhinoceros 8 for subsequent computation. Second, the energy performance prediction model was constructed on the Grasshopper platform. Through programmatic coupling and interaction between Ladybug and Radiance, numerical simulations of roof and ground solar radiation were conducted, with both the building and site geometries discretized using a 5×5 m grid. Using components from Dragonfly, Honeybee, and Ladybug, an energy model calibrated to local conditions in Xiaoyi City was developed to predict the EUI of local buildings. Model parameters were based on local conditions in Xiaoyi City and on the relevant provisions of the Code for Thermal Design of Civil Buildings [48] and the Unified Standard for Design of Civil Buildings [49]. Some parameters were set to the default values of the software components, and the main parameter settings are summarized in Table 1. Third, the energy consumption prediction model was executed to obtain the simulation results. Fourth, the simulation outputs were exported to Excel and linked to the original land-parcel attribute table. The overall modeling workflow is illustrated in Figure 6."
     },
     {
-      "type": "paragraph",
+      "type": "caption",
       "text": "Table 1. The main parameter settings of the energy performance simulation model"
     },
     {
+      "type": "table",
+      "rows": [
+        [
+          "Parameter name",
+          "Value",
+          "Basis"
+        ],
+        [
+          "Climate Zone",
+          "5-Cool",
+          "Climate zone of Xiaoyi City according to ASHRAE classification"
+        ],
+        [
+          "Vintage",
+          "1980-2004 (CBECS)",
+          "Predominant construction period (year range) of local buildings"
+        ],
+        [
+          "Window Ratio Parameter",
+          "0.25",
+          "Set to the maximum limit prescribed in the Code for Thermal Design of Civil Buildings [48]"
+        ],
+        [
+          "HVAC Template",
+          "PSZ-HP with VAV System",
+          "Independent, integrated heating-and-cooling system, consistent with the systems used in most residential buildings in Xiaoyi City"
+        ],
+        [
+          "Service Hot Water",
+          "Gas Water Heater",
+          "Gas-fired water heaters are commonly used in Xiaoyi City"
+        ],
+        [
+          "Ambient Temperature",
+          "15℃",
+          "Reflects the typical installation of water heaters in low-temperature spaces (e.g., balconies and equipment platforms)"
+        ],
+        [
+          "Floor Height",
+          "3m",
+          "Determined according to the limiting values specified in the Unified Standard for Design of Civil Buildings[49]"
+        ]
+      ]
+    },
+    {
       "type": "image",
-      "src": "assets/papers/manuscript/image-03.png",
+      "src": "assets/papers/manuscript/image-03-display.webp",
+      "thumb": "assets/papers/manuscript/image-03-thumb.webp",
+      "original": "assets/papers/manuscript/image-03.png",
       "alt": "manuscript figure 6",
       "width": 1265,
       "height": 345
@@ -258,7 +567,9 @@
       "text": "Figure 6. Simulation Program."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "morphology-parameters",
       "text": "Morphology parameters"
     },
     {
@@ -267,7 +578,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-04.png",
+      "src": "assets/papers/manuscript/image-04-display.webp",
+      "thumb": "assets/papers/manuscript/image-04-thumb.webp",
+      "original": "assets/papers/manuscript/image-04.png",
       "alt": "manuscript figure 7",
       "width": 1267,
       "height": 347
@@ -277,68 +590,111 @@
       "text": "Figure 7. Parcel morphology parameters schematic diagram."
     },
     {
-      "type": "paragraph",
-      "text": "PA is extracted from the Xiaoyi City SHP files and represents the parcel size, serving as a basic measure of parcel scale ([50]). It is illustrated in Figure 6(a)."
-    },
-    {
-      "type": "paragraph",
-      "text": "BD is defined as the ratio of the total building footprint area to the parcel area. It reflects the compactness of buildings within the parcel and serves as a key indicator of parcel form ([51]). It is illustrated in Figure 6(b) and is calculated as"
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "PA is extracted from the Xiaoyi City SHP files and represents the parcel size, serving as a basic measure of parcel scale ([50]). It is illustrated in Figure 6(a)."
+        },
+        {
+          "level": 0,
+          "text": "BD is defined as the ratio of the total building footprint area to the parcel area. It reflects the compactness of buildings within the parcel and serves as a key indicator of parcel form ([51]). It is illustrated in Figure 6(b) and is calculated as"
+        }
+      ]
     },
     {
       "type": "paragraph",
       "text": "where is the total number of buildings within the parcel, is the footprint area of building , and is the parcel area."
     },
     {
-      "type": "paragraph",
-      "text": "Parcel building volume (PBV) is defined as the sum of the products of building footprint area and height for all buildings within the parcel, capturing the efficiency of three-dimensional space utilization. It is illustrated in Figure 6(c) and is calculated as"
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Parcel building volume (PBV) is defined as the sum of the products of building footprint area and height for all buildings within the parcel, capturing the efficiency of three-dimensional space utilization. It is illustrated in Figure 6(c) and is calculated as"
+        }
+      ]
     },
     {
       "type": "paragraph",
       "text": "where is the footprint area of building , and is the height of building ."
     },
     {
-      "type": "paragraph",
-      "text": "WAH incorporates the building footprint area into the calculation of parcel-level building height and reflects the parcel's spatial density, an important factor affecting the physical environment. It is illustrated in Figure 6(d) and is calculated as"
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "WAH incorporates the building footprint area into the calculation of parcel-level building height and reflects the parcel's spatial density, an important factor affecting the physical environment. It is illustrated in Figure 6(d) and is calculated as"
+        }
+      ]
     },
     {
       "type": "paragraph",
       "text": "where is the footprint area of building , and is the height of building ."
     },
     {
-      "type": "paragraph",
-      "text": "Sky view factor (SVF) is a key parameter for quantifying the fraction of the sky visible from a given point and the corresponding exposure to sky radiation (including solar and longwave radiation). By influencing heat gains and losses, SVF directly affects the accuracy of predictions of daylighting, heating, and cooling energy demand. In this study, SVF for buildings in Xiaoyi City is calculated in SAGA GIS [52], and the mean SVF of all buildings within a parcel is used as a parcel-level characteristic. It is illustrated in Figure 6(e) and is calculated as"
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Sky view factor (SVF) is a key parameter for quantifying the fraction of the sky visible from a given point and the corresponding exposure to sky radiation (including solar and longwave radiation). By influencing heat gains and losses, SVF directly affects the accuracy of predictions of daylighting, heating, and cooling energy demand. In this study, SVF for buildings in Xiaoyi City is calculated in SAGA GIS [52], and the mean SVF of all buildings within a parcel is used as a parcel-level characteristic. It is illustrated in Figure 6(e) and is calculated as"
+        }
+      ]
     },
     {
       "type": "paragraph",
       "text": "where is the sky view factor at point , is the zenith angle in direction , and is the visibility index (equal to 1 if the sky is visible and 0 if it is obstructed)."
     },
     {
-      "type": "paragraph",
-      "text": "Total building surface area (TBSA) is the sum of the exterior surface areas of all buildings within the parcel and characterizes the potential for heat exchange between buildings and the external environment. It is illustrated in Figure 6(f) and is calculated as"
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Total building surface area (TBSA) is the sum of the exterior surface areas of all buildings within the parcel and characterizes the potential for heat exchange between buildings and the external environment. It is illustrated in Figure 6(f) and is calculated as"
+        }
+      ]
     },
     {
       "type": "paragraph",
       "text": "where is the exterior surface area of building ."
     },
     {
-      "type": "paragraph",
-      "text": "Average building distance (ABD) is the mean of the distances from each building to its three nearest neighbors within the parcel. It characterizes the spatial distribution pattern of buildings. It is illustrated in Figure 6(g) and is calculated as"
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Average building distance (ABD) is the mean of the distances from each building to its three nearest neighbors within the parcel. It characterizes the spatial distribution pattern of buildings. It is illustrated in Figure 6(g) and is calculated as"
+        }
+      ]
     },
     {
       "type": "paragraph",
       "text": "where denotes the nearest-neighbor set of building , specifically the set of its three closest buildings in this study; indexes buildings in the set ; and is the Euclidean distance between buildings and . represents the average distance from building to its three nearest neighbors."
     },
     {
-      "type": "paragraph",
-      "text": "The parcel centroid X (CX) coordinate in ArcGIS Pro indicates the parcel's position along the X-axis. It is illustrated in Figure 6(h)."
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "The parcel centroid X (CX) coordinate in ArcGIS Pro indicates the parcel's position along the X-axis. It is illustrated in Figure 6(h)."
+        },
+        {
+          "level": 0,
+          "text": "The parcel centroid Y (CY) coordinate in ArcGIS Pro indicates the parcel's position along the Y-axis. It is illustrated in Figure 6(i)."
+        }
+      ]
     },
     {
-      "type": "paragraph",
-      "text": "The parcel centroid Y (CY) coordinate in ArcGIS Pro indicates the parcel's position along the Y-axis. It is illustrated in Figure 6(i)."
+      "type": "heading",
+      "level": 2,
+      "id": "employed-machine-learning-algorithms",
+      "text": "Employed machine learning algorithms"
     },
     {
-      "type": "paragraph",
-      "text": "Employed machine learning algorithms Data enhancement"
+      "type": "heading",
+      "level": 3,
+      "id": "data-enhancement",
+      "text": "Data enhancement"
     },
     {
       "type": "paragraph",
@@ -349,7 +705,9 @@
       "text": "Because parcels in Xiaoyi City can be classified as either with buildings or without buildings, this study further proposes a differentiated data synthesis strategy. Separate rules are defined for generating synthetic samples for parcels with buildings and for parcels without buildings, ensuring that the augmented data closely match the original data in terms of statistical characteristics and distributions for each parcel type. This design mitigates distributional shift and reduces the risk of model performance degradation."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "double-machine-learning",
       "text": "Double machine learning"
     },
     {
@@ -369,16 +727,21 @@
       "text": "The core components of the DML framework used in this study are as follows:"
     },
     {
-      "type": "paragraph",
-      "text": "Treatment variable (T): A binary indicator representing the presence or absence of buildings within a parcel, determined according to BD. This dichotomous specification follows the basic framework of the Rubin causal model. Parcels with buildings are assigned to the treatment group (T=1), whereas parcels without buildings are assigned to the control group (T=0)."
-    },
-    {
-      "type": "paragraph",
-      "text": "Outcome variables: The four performance parameters derived from parcel-level performance simulations, which serve as the target variables for model prediction."
-    },
-    {
-      "type": "paragraph",
-      "text": "Confounding variables: The morphological parameters of the parcels."
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Treatment variable (T): A binary indicator representing the presence or absence of buildings within a parcel, determined according to BD. This dichotomous specification follows the basic framework of the Rubin causal model. Parcels with buildings are assigned to the treatment group (T=1), whereas parcels without buildings are assigned to the control group (T=0)."
+        },
+        {
+          "level": 0,
+          "text": "Outcome variables: The four performance parameters derived from parcel-level performance simulations, which serve as the target variables for model prediction."
+        },
+        {
+          "level": 0,
+          "text": "Confounding variables: The morphological parameters of the parcels."
+        }
+      ]
     },
     {
       "type": "paragraph",
@@ -386,7 +749,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-05.png",
+      "src": "assets/papers/manuscript/image-05-display.webp",
+      "thumb": "assets/papers/manuscript/image-05-thumb.webp",
+      "original": "assets/papers/manuscript/image-05.png",
       "alt": "manuscript figure 8",
       "width": 1266,
       "height": 1794
@@ -396,7 +761,9 @@
       "text": "Figure 8 DML schematic diagram"
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "shap-analysis",
       "text": "SHAP analysis"
     },
     {
@@ -408,8 +775,16 @@
       "text": "Separate RF models are trained for each of the four target variables. All feature values used for model training are first processed with median imputation and standardization, then passed to TreeSHAP to compute sample-level SHAP values. For each target variable, we obtain (i) mean absolute SHAP values to quantify global feature importance, (ii) dependence plots to characterize the relationships between feature values and their effects, and (iii) beeswarm plots to analyze both the magnitude and direction of feature contributions. These SHAP-based analyses provide a foundation for interpreting the model’s internal mechanisms."
     },
     {
-      "type": "paragraph",
-      "text": "Photovoltaic potential assessment Model application"
+      "type": "heading",
+      "level": 2,
+      "id": "photovoltaic-potential-assessment",
+      "text": "Photovoltaic potential assessment"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "model-application",
+      "text": "Model application"
     },
     {
       "type": "paragraph",
@@ -420,7 +795,9 @@
       "text": "In this study, parcel morphology parameters are extracted from the dataset and used to train an RF model to simultaneously predict four energy performance parameters: TSR, GSR, RSR, and EUI. The prediction results for all parcels in Xiaoyi City are exported to Excel, yielding a complete parcel-level dataset that supports energy-efficiency assessment and optimization-oriented design."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "calculation-of-photovoltaic-potential",
       "text": "Calculation of photovoltaic potential"
     },
     {
@@ -436,8 +813,43 @@
       "text": "Second, the packing factor (PF) of the PV array is determined using Eq. (10). In this study, a fixed optimal tilt angle and the sc1 criterion are adopted. According to the table provided by Martín-Chivelet[56], the corresponding fitted equation is given in Eq. (11). The values of the remaining parameters used in the calculations are summarized in Table 3."
     },
     {
-      "type": "paragraph",
+      "type": "caption",
       "text": "Table 2. Parameter settings used for PV potential assessment."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Parameter name",
+          "Abbreviation",
+          "Value"
+        ],
+        [
+          "Generator-to-System Area Ratio",
+          "GSR",
+          "0.75"
+        ],
+        [
+          "PV Module Efficiency",
+          "η",
+          "0.15"
+        ],
+        [
+          "Performance Ratio",
+          "PR",
+          "0.80"
+        ],
+        [
+          "Shading Factor",
+          "",
+          "0.05"
+        ],
+        [
+          "Latitude of Xiaoyi City (°)",
+          "φ",
+          "37.15"
+        ]
+      ]
     },
     {
       "type": "paragraph",
@@ -445,7 +857,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-06.png",
+      "src": "assets/papers/manuscript/image-06-display.webp",
+      "thumb": "assets/papers/manuscript/image-06-thumb.webp",
+      "original": "assets/papers/manuscript/image-06.png",
       "alt": "manuscript figure 9",
       "width": 1037,
       "height": 409
@@ -463,8 +877,22 @@
       "text": "Given the specific characteristics of parcels—some of which are without buildings—and the need to evaluate net energy output at the parcel scale, net energy production is used to characterize energy surplus or deficit. The net energy balance is calculated according to Eq. (16), where a positive value indicates that PV generation exceeds the energy demand of the buildings within the parcel, whereas a negative value indicates that additional external energy is required even after accounting for PV generation."
     },
     {
-      "type": "paragraph",
-      "text": "Result Clustering analysis Clustering result"
+      "type": "heading",
+      "level": 1,
+      "id": "result",
+      "text": "Result"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "clustering-analysis",
+      "text": "Clustering analysis"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "clustering-result",
+      "text": "Clustering result"
     },
     {
       "type": "paragraph",
@@ -472,7 +900,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-07.png",
+      "src": "assets/papers/manuscript/image-07-display.webp",
+      "thumb": "assets/papers/manuscript/image-07-thumb.webp",
+      "original": "assets/papers/manuscript/image-07.png",
       "alt": "manuscript figure 10",
       "width": 1266,
       "height": 719
@@ -483,7 +913,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-08.png",
+      "src": "assets/papers/manuscript/image-08-display.webp",
+      "thumb": "assets/papers/manuscript/image-08-thumb.webp",
+      "original": "assets/papers/manuscript/image-08.png",
       "alt": "manuscript figure 11",
       "width": 1132,
       "height": 613
@@ -493,7 +925,9 @@
       "text": "Figure 11. Sample Parcel 3D Models."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "distribution-of-clustering-characteristics",
       "text": "Distribution of clustering characteristics"
     },
     {
@@ -502,7 +936,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-09.png",
+      "src": "assets/papers/manuscript/image-09-display.webp",
+      "thumb": "assets/papers/manuscript/image-09-thumb.webp",
+      "original": "assets/papers/manuscript/image-09.png",
       "alt": "manuscript figure 12",
       "width": 1268,
       "height": 870
@@ -512,8 +948,16 @@
       "text": "Figure 12. Distribution of features in Xiaoyi City."
     },
     {
-      "type": "paragraph",
-      "text": "Data augmentation results distribution Augmentation result of geographic distributions"
+      "type": "heading",
+      "level": 2,
+      "id": "data-augmentation-results-distribution",
+      "text": "Data augmentation results distribution"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "augmentation-result-of-geographic-distributions",
+      "text": "Augmentation result of geographic distributions"
     },
     {
       "type": "paragraph",
@@ -525,7 +969,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-10.png",
+      "src": "assets/papers/manuscript/image-10-display.webp",
+      "thumb": "assets/papers/manuscript/image-10-thumb.webp",
+      "original": "assets/papers/manuscript/image-10.png",
       "alt": "manuscript figure 13",
       "width": 1267,
       "height": 442
@@ -535,7 +981,9 @@
       "text": "Figure 13. Spatial distribution of sample points before and after data augmentation."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "augmentation-results-of-parcel-characteristics",
       "text": "Augmentation results of parcel characteristics"
     },
     {
@@ -544,14 +992,18 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-11.png",
+      "src": "assets/papers/manuscript/image-11-display.webp",
+      "thumb": "assets/papers/manuscript/image-11-thumb.webp",
+      "original": "assets/papers/manuscript/image-11.png",
       "alt": "manuscript figure 14",
       "width": 1281,
       "height": 3766
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-12.png",
+      "src": "assets/papers/manuscript/image-12-display.webp",
+      "thumb": "assets/papers/manuscript/image-12-thumb.webp",
+      "original": "assets/papers/manuscript/image-12.png",
       "alt": "manuscript figure 15",
       "width": 1290,
       "height": 3791
@@ -561,8 +1013,16 @@
       "text": "Figure 14. Comparison of box plots of feature distributions between augmented and original data."
     },
     {
-      "type": "paragraph",
-      "text": "Prediction model Model performance evaluation"
+      "type": "heading",
+      "level": 2,
+      "id": "prediction-model",
+      "text": "Prediction model"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "model-performance-evaluation",
+      "text": "Model performance evaluation"
     },
     {
       "type": "paragraph",
@@ -577,8 +1037,73 @@
       "text": "For TSR and GSR, the R² values for the training set are 0.86 and 0.89, whereas those for the validation set are 0.31 and 0.56, respectively, and the validation errors are relatively large (RMSE of 295.46 and 423.40; MAE of 231.12 and 356.40 for TSR and GSR, respectively). This finding indicates that non-negligible generalization errors remain in the radiation-related sub-tasks, which, to some extent, reflects the influence of environmental uncertainty on the radiation data. However, TSR is not used directly in the subsequent assessment of PV power-generation potential. The subsequent analyses primarily rely on the predicted values for RSR, GSR, and EUI. Therefore, fluctuations in the predictive performance of TSR have only a limited impact on the core conclusions of this study."
     },
     {
-      "type": "paragraph",
+      "type": "caption",
       "text": "Table 3. Target prediction model evaluation."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Target",
+          "Train R2",
+          "Value R2",
+          "Train RMSE",
+          "Value RMSE",
+          "Train MAE",
+          "Value MAE",
+          "R2",
+          "RMSE",
+          "MAE"
+        ],
+        [
+          "TSR",
+          "0.86",
+          "0.31",
+          "119.60",
+          "295.46",
+          "88.83",
+          "231.12",
+          "0.88",
+          "112.20",
+          "84.28"
+        ],
+        [
+          "RSR",
+          "0.97",
+          "0.96",
+          "12.54",
+          "29.04",
+          "8.64",
+          "20.52",
+          "0.99",
+          "11.51",
+          "8.28"
+        ],
+        [
+          "EUI",
+          "0.98",
+          "0.98",
+          "1.52",
+          "3.83",
+          "1.05",
+          "2.68",
+          "0.99",
+          "1.49",
+          "1.00"
+        ],
+        [
+          "GSR",
+          "0.89",
+          "0.56",
+          "160.81",
+          "423.40",
+          "132.82",
+          "356.40",
+          "0.89",
+          "159.00",
+          "128.19"
+        ]
+      ]
     },
     {
       "type": "paragraph",
@@ -594,7 +1119,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-23.png",
+      "src": "assets/papers/manuscript/image-23-display.webp",
+      "thumb": "assets/papers/manuscript/image-23-thumb.webp",
+      "original": "assets/papers/manuscript/image-23.png",
       "alt": "manuscript figure 16",
       "width": 1265,
       "height": 1011
@@ -605,7 +1132,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-14.png",
+      "src": "assets/papers/manuscript/image-14-display.webp",
+      "thumb": "assets/papers/manuscript/image-14-thumb.webp",
+      "original": "assets/papers/manuscript/image-14.png",
       "alt": "manuscript figure 17",
       "width": 1266,
       "height": 1033
@@ -616,7 +1145,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-15.png",
+      "src": "assets/papers/manuscript/image-15-display.webp",
+      "thumb": "assets/papers/manuscript/image-15-thumb.webp",
+      "original": "assets/papers/manuscript/image-15.png",
       "alt": "manuscript figure 18",
       "width": 1266,
       "height": 1077
@@ -626,7 +1157,9 @@
       "text": "Figure 17. Heatmap of Pearson correlation coefficients."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "shap-result-analysis",
       "text": "SHAP result analysis"
     },
     {
@@ -646,12 +1179,89 @@
       "text": "Figure 20 further elucidates these nonlinear mechanisms. In the EUI and RSR models, the SHAP curves for SVF show approximately linear increases. In contrast, TBSA and PBV exhibit rapid SHAP variation at lower values, followed by gradual flattening, suggesting a threshold effect. For GSR and TSR, the SHAP curves of PA and BD display “increase-then-stabilize” or multi-peak patterns, suggesting that increasing BD and land-use extent within a certain range enhances GSR and TSR, but beyond a critical scale, the marginal effects weaken substantially or even become negative."
     },
     {
-      "type": "paragraph",
+      "type": "caption",
       "text": "Table 4. Global Feature Importance (Mean |SHAP| values) across Multi-objective Targets"
     },
     {
+      "type": "table",
+      "rows": [
+        [
+          "Feature",
+          "EUI",
+          "GSR",
+          "RSR",
+          "TSR"
+        ],
+        [
+          "PA",
+          "0.08",
+          "50.63",
+          "0.63",
+          "66.95"
+        ],
+        [
+          "ABD",
+          "1.57",
+          "19.60",
+          "37.98",
+          "11.77"
+        ],
+        [
+          "BD",
+          "0.21",
+          "54.27",
+          "1.66",
+          "35.44"
+        ],
+        [
+          "TBSA",
+          "0.66",
+          "38.09",
+          "7.18",
+          "15.26"
+        ],
+        [
+          "SVF",
+          "18.70",
+          "28.46",
+          "298.21",
+          "15.57"
+        ],
+        [
+          "PBV",
+          "0.40",
+          "64.96",
+          "8.58",
+          "16.54"
+        ],
+        [
+          "WAH",
+          "6.71",
+          "16.15",
+          "118.27",
+          "9.40"
+        ],
+        [
+          "CX",
+          "0.78",
+          "42.19",
+          "3.03",
+          "28.66"
+        ],
+        [
+          "CY",
+          "0.07",
+          "107.79",
+          "2.36",
+          "58.35"
+        ]
+      ]
+    },
+    {
       "type": "image",
-      "src": "assets/papers/manuscript/image-16.png",
+      "src": "assets/papers/manuscript/image-16-display.webp",
+      "thumb": "assets/papers/manuscript/image-16-thumb.webp",
+      "original": "assets/papers/manuscript/image-16.png",
       "alt": "manuscript figure 19",
       "width": 1267,
       "height": 1041
@@ -662,7 +1272,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-17.png",
+      "src": "assets/papers/manuscript/image-17-display.webp",
+      "thumb": "assets/papers/manuscript/image-17-thumb.webp",
+      "original": "assets/papers/manuscript/image-17.png",
       "alt": "manuscript figure 20",
       "width": 1269,
       "height": 951
@@ -673,14 +1285,18 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-18.png",
+      "src": "assets/papers/manuscript/image-18-display.webp",
+      "thumb": "assets/papers/manuscript/image-18-thumb.webp",
+      "original": "assets/papers/manuscript/image-18.png",
       "alt": "manuscript figure 21",
       "width": 968,
       "height": 2815
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-19.png",
+      "src": "assets/papers/manuscript/image-19-display.webp",
+      "thumb": "assets/papers/manuscript/image-19-thumb.webp",
+      "original": "assets/papers/manuscript/image-19.png",
       "alt": "manuscript figure 22",
       "width": 956,
       "height": 2780
@@ -690,7 +1306,9 @@
       "text": "Figure 20. SHAP Dependence Plots."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "distribution-of-forecast-results",
       "text": "Distribution of forecast results"
     },
     {
@@ -703,14 +1321,18 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-20.png",
+      "src": "assets/papers/manuscript/image-20-display.webp",
+      "thumb": "assets/papers/manuscript/image-20-thumb.webp",
+      "original": "assets/papers/manuscript/image-20.png",
       "alt": "manuscript figure 23",
       "width": 1277,
       "height": 1960
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-20.png",
+      "src": "assets/papers/manuscript/image-20-display.webp",
+      "thumb": "assets/papers/manuscript/image-20-thumb.webp",
+      "original": "assets/papers/manuscript/image-20.png",
       "alt": "manuscript figure 24",
       "width": 1277,
       "height": 1960
@@ -721,7 +1343,9 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-21.png",
+      "src": "assets/papers/manuscript/image-21-display.webp",
+      "thumb": "assets/papers/manuscript/image-21-thumb.webp",
+      "original": "assets/papers/manuscript/image-21.png",
       "alt": "manuscript figure 25",
       "width": 1267,
       "height": 874
@@ -731,7 +1355,9 @@
       "text": "Figure 22. Distribution of Predicted Values of Clustered Target Features in Xiaoyi City."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "photovoltaic-potential-distribution",
       "text": "Photovoltaic potential distribution"
     },
     {
@@ -748,14 +1374,18 @@
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-22.png",
+      "src": "assets/papers/manuscript/image-22-display.webp",
+      "thumb": "assets/papers/manuscript/image-22-thumb.webp",
+      "original": "assets/papers/manuscript/image-22.png",
       "alt": "manuscript figure 26",
       "width": 906,
       "height": 2130
     },
     {
       "type": "image",
-      "src": "assets/papers/manuscript/image-22.png",
+      "src": "assets/papers/manuscript/image-22-display.webp",
+      "thumb": "assets/papers/manuscript/image-22-thumb.webp",
+      "original": "assets/papers/manuscript/image-22.png",
       "alt": "manuscript figure 27",
       "width": 906,
       "height": 2130
@@ -766,11 +1396,14 @@
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 1,
+      "id": "discussion",
       "text": "Discussion"
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "morphology-clustering",
       "text": "Morphology clustering"
     },
     {
@@ -790,8 +1423,16 @@
       "text": "The distributions of EUI differ only modestly across clusters and mainly exhibit narrow, concentrated ranges, which aligns with the relatively uniform building types in Xiaoyi and the limited variation in building function and performance. However, Clusters 1 and 2 display slightly higher and more concentrated EUI values, likely corresponding to built-up areas with higher development intensity and building density. In contrast, Cluster 0 and parts of Cluster 3, which contain extensive vacant land, show a small number of anomalous predictions, suggesting some model uncertainty under extreme morphological conditions. GSR is distributed relatively evenly across all clusters, indicating that regional geographic and climatic conditions more strongly influence it than parcel morphology."
     },
     {
-      "type": "paragraph",
-      "text": "Performance and characteristic analysis Model performance analysis"
+      "type": "heading",
+      "level": 2,
+      "id": "performance-and-characteristic-analysis",
+      "text": "Performance and characteristic analysis"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "model-performance-analysis",
+      "text": "Model performance analysis"
     },
     {
       "type": "paragraph",
@@ -802,7 +1443,9 @@
       "text": "By contrast, the R² values for TSR and GSR are slightly lower (approximately 0.88–0.90), and a degree of underestimation is observed at high radiation levels. In the scatter plots, the fitted lines for these two variables have slopes slightly less than one and intercepts slightly greater than 0. Furthermore, Figure 16 show that, in segments where the actual values vary smoothly, the predicted series exhibits noticeable fluctuations, indicating that the framework still incurs some bias when representing complex radiative transfer processes. Nevertheless, considering the ratios of RMSE and MAE to the overall ranges of the target variables, this level of error is acceptable for regional-scale PV planning and energy performance assessment. It is sufficient to support quantitative decision-making and scenario comparison."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "characteristic-correlation-analysis",
       "text": "Characteristic correlation analysis"
     },
     {
@@ -818,7 +1461,9 @@
       "text": "The model predictions, together with the correlation analysis, underscore the substantial PV potential of industrial brownfield and mining parcels. On the one hand, parcels without buildings in former industrial mining areas (primarily in Cluster 0) have favorable TSR and GSR conditions, enabling large-scale deployment of PV modules and achieving high net energy yields and PV substitution rates. On the other hand, clusters with high building density exhibit relatively high RSR and are well-suited for the deployment of distributed rooftop PV systems."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 3,
+      "id": "model-interpretability",
       "text": "Model interpretability"
     },
     {
@@ -830,7 +1475,9 @@
       "text": "Conversely, the nonlinear effects illustrated in Figure 20 provide a more detailed quantitative basis for morphological control. The approximately monotonic SHAP curves of EUI with respect to SV and WAH suggest that, once parcel openness and building height exceed a certain level, the associated increase in energy use can no longer be effectively offset by adjustments to other morphological parameters. By contrast, the sharp variations at low values and the saturating trends at high values observed for features such as PBSA and PBV indicate that, in compact configurations with relatively small PBV, even minor morphological adjustments can have substantial effects on both energy use and radiation. For GSR and TSR, the multimodal and U-shaped SHAP curves of PA, BD, and CY show that the radiation environment depends strongly on spatial location and combinations of layout patterns. These findings suggest that, in high-density urban regeneration projects or new-town developments, SHAP analysis of the multi-objective DML framework can be used to prioritize key morphological variables that exhibit high sensitivity and clear threshold behavior across multiple energy performance targets. Overall, SHAP provides a transparent interpretive layer for the multi-objective DML framework, thereby translating complex nonlinear models into actionable design insights."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "implication-of-this-study",
       "text": "Implication of this study"
     },
     {
@@ -846,7 +1493,9 @@
       "text": "Finally, given the pronounced differences in building density and development intensity among parcels, conventional single machine learning models struggle to simultaneously satisfy the prediction requirements for both parcels with and without buildings. To address this limitation, we employ a DML prediction framework. As shown in Figure 14, this DML framework maintains high prediction accuracy under diverse parcel conditions. It exhibits superior robustness and generalization performance, particularly for parcels without buildings or sparse development."
     },
     {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 2,
+      "id": "limitations-and-future-work",
       "text": "Limitations and future work"
     },
     {
@@ -854,20 +1503,26 @@
       "text": "This study proposes a framework for assessing the PV potential of industrial brownfields; however, several limitations remain, and future research may refine and extend this framework in the following directions:"
     },
     {
-      "type": "paragraph",
-      "text": "The prediction accuracy for TSR and GSR is relatively low, primarily due to the absence of key linear predictors and a limited sample size. Future work could expand the number of parcel samples and enrich feature sets describing parcel morphology, thereby improving the characterization and prediction of parcel-scale radiation behavior."
-    },
-    {
-      "type": "paragraph",
-      "text": "At present, estimates of solar radiation and power generation rely primarily on proportional methods and analytical formulas, which are insufficient for representing complex meteorological conditions. Subsequent studies could incorporate professional PV simulation software such as PVsyst, in combination with other modelling tools, to enable more detailed and accurate simulations of solar radiation and electricity generation[56]"
-    },
-    {
-      "type": "paragraph",
-      "text": "Future research could collect and apply equipment and environmental parameters that more closely reflect the actual conditions of the study area, rather than relying on generic default values. This would enhance both the physical realism and the accuracy of the simulation process."
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "The prediction accuracy for TSR and GSR is relatively low, primarily due to the absence of key linear predictors and a limited sample size. Future work could expand the number of parcel samples and enrich feature sets describing parcel morphology, thereby improving the characterization and prediction of parcel-scale radiation behavior."
+        },
+        {
+          "level": 0,
+          "text": "At present, estimates of solar radiation and power generation rely primarily on proportional methods and analytical formulas, which are insufficient for representing complex meteorological conditions. Subsequent studies could incorporate professional PV simulation software such as PVsyst, in combination with other modelling tools, to enable more detailed and accurate simulations of solar radiation and electricity generation[56]"
+        },
+        {
+          "level": 0,
+          "text": "Future research could collect and apply equipment and environmental parameters that more closely reflect the actual conditions of the study area, rather than relying on generic default values. This would enhance both the physical realism and the accuracy of the simulation process."
+        }
+      ]
     },
     {
       "type": "heading",
-      "level": 2,
+      "level": 1,
+      "id": "conclusion",
       "text": "Conclusion"
     },
     {
@@ -875,20 +1530,25 @@
       "text": "Against the background of the considerable potential for PV deployment on industrial brownfields, this study uses Xiaoyi City in Shanxi Province as a case study to develop and validate a rapid prediction framework for PV deployment potential tailored to spatially clustered industrial wastelands. The framework encompasses dataset construction, performance simulation, multi-objective prediction, and application-oriented extension, and incorporates SHAP-based interpretability analysis to enhance model transparency and credibility. The main conclusions are as follows:"
     },
     {
-      "type": "paragraph",
-      "text": "Using MiniBatchKMeans, abandoned industrial mining parcels are clustered into four morphological types, enabling the selection of representative samples. This effectively captures spatial heterogeneity and provides a regionally representative basis for subsequent energy demand and PV performance simulations."
-    },
-    {
-      "type": "paragraph",
-      "text": "The combination of spatial interpolation–based data augmentation and a multi-objective DML framework performs well under small-sample conditions. Interpolation-enhanced data retain geographic continuity and spatial patterns while significantly increasing effective sample density."
-    },
-    {
-      "type": "paragraph",
-      "text": "The proposed DML framework accounts for heterogeneity between parcels “with buildings” and “without buildings” and supports simultaneous multi-objective prediction. It achieves high accuracy for key PV utilization indicators (R² > 0.95), reducing dependence on large-scale physical simulations and improving robustness. SHAP-based feature analysis further provides an interpretable model, clarifying how different factors influence PV potential."
-    },
-    {
-      "type": "paragraph",
-      "text": "Most parcels show high solar utilization potential, PV substitution rates, and net energy yields, with many capable of achieving energy self-sufficiency or surplus generation. The framework supports rapid identification of high-potential sites and provides preliminary decision support for the regeneration of abandoned industrial mining areas and PV deployment planning."
+      "type": "list",
+      "items": [
+        {
+          "level": 0,
+          "text": "Using MiniBatchKMeans, abandoned industrial mining parcels are clustered into four morphological types, enabling the selection of representative samples. This effectively captures spatial heterogeneity and provides a regionally representative basis for subsequent energy demand and PV performance simulations."
+        },
+        {
+          "level": 0,
+          "text": "The combination of spatial interpolation–based data augmentation and a multi-objective DML framework performs well under small-sample conditions. Interpolation-enhanced data retain geographic continuity and spatial patterns while significantly increasing effective sample density."
+        },
+        {
+          "level": 0,
+          "text": "The proposed DML framework accounts for heterogeneity between parcels “with buildings” and “without buildings” and supports simultaneous multi-objective prediction. It achieves high accuracy for key PV utilization indicators (R² > 0.95), reducing dependence on large-scale physical simulations and improving robustness. SHAP-based feature analysis further provides an interpretable model, clarifying how different factors influence PV potential."
+        },
+        {
+          "level": 0,
+          "text": "Most parcels show high solar utilization potential, PV substitution rates, and net energy yields, with many capable of achieving energy self-sufficiency or surplus generation. The framework supports rapid identification of high-potential sites and provides preliminary decision support for the regeneration of abandoned industrial mining areas and PV deployment planning."
+        }
+      ]
     },
     {
       "type": "paragraph",
@@ -1084,7 +1744,11 @@
     },
     {
       "type": "paragraph",
-      "text": "[48] “the Code for Thermal Design of Civil Buildings.” [49] “the Unified Standard for Design of Civil Buildings.”"
+      "text": "[48] “the Code for Thermal Design of Civil Buildings.”"
+    },
+    {
+      "type": "paragraph",
+      "text": "[49] “the Unified Standard for Design of Civil Buildings.”"
     },
     {
       "type": "paragraph",
