@@ -36,7 +36,7 @@ function renderToc(toc) {
           .map(
             (item) => `
               <li class="toc-level-${Math.min(Math.max(Number(item.level) || 2, 2), 4)}">
-                <a href="#${escapeHtml(item.id)}">${escapeHtml(item.text)}</a>
+                <a href="#${escapeHtml(item.id)}"><span>${escapeHtml(item.number)}</span>${escapeHtml(item.text)}</a>
               </li>
             `,
           )
@@ -94,7 +94,7 @@ function renderBlock(block, index) {
     const full = block.src || block.thumb;
     return `
       <figure class="paper-figure">
-        <img class="lazy-paper-image" src="${escapeHtml(thumb)}" data-src="${escapeHtml(full)}" alt="${escapeHtml(block.alt || `Research figure ${index + 1}`)}" ${imageAttributes(block)} loading="lazy" decoding="async" />
+        <img class="lazy-paper-image" src="${escapeHtml(thumb)}" data-src="${escapeHtml(full)}" alt="${escapeHtml(block.alt || `Research figure ${index + 1}`)}" ${imageAttributes(block)} loading="lazy" decoding="async" draggable="false" />
       </figure>
     `;
   }
@@ -112,6 +112,49 @@ function renderBlock(block, index) {
   }
 
   return `<p>${text}</p>`;
+}
+
+function outlineDepth(rawLevel, depthByRawLevel) {
+  if (rawLevel <= 1) return 1;
+  const parentDepth = depthByRawLevel.get(rawLevel - 1);
+  return parentDepth ? parentDepth + 1 : 1;
+}
+
+function buildOutline(blocks) {
+  const counters = [];
+  const depthByRawLevel = new Map();
+  const outline = [];
+  const numberById = new Map();
+
+  blocks.forEach((block) => {
+    if (block.type !== "heading" || !block.id) return;
+
+    const rawLevel = Number(block.level) || 2;
+    const depth = Math.min(outlineDepth(rawLevel, depthByRawLevel), 4);
+    depthByRawLevel.set(rawLevel, depth);
+    [...depthByRawLevel.keys()].forEach((level) => {
+      if (level > rawLevel) depthByRawLevel.delete(level);
+    });
+
+    counters[depth - 1] = (counters[depth - 1] || 0) + 1;
+    counters.length = depth;
+    const number = counters.join(".");
+    const item = { id: block.id, level: depth + 1, number, text: block.text };
+    outline.push(item);
+    numberById.set(block.id, number);
+  });
+
+  return { outline, numberById };
+}
+
+function renderNumberedBlock(block, index, numberById) {
+  if (block.type !== "heading") return renderBlock(block, index);
+
+  const number = numberById.get(block.id);
+  const level = Math.min(Math.max(Number(block.level) || 2, 2), 4);
+  const id = block.id ? ` id="${escapeHtml(block.id)}"` : "";
+  const text = number ? `${number} ${block.text || ""}` : block.text || "";
+  return `<h${level}${id} class="paper-heading paper-heading-${level}">${escapeHtml(text)}</h${level}>`;
 }
 
 function normalizedBlocks(paper) {
@@ -183,17 +226,38 @@ function activateTocSpy() {
   headings.forEach((heading) => observer.observe(heading));
 }
 
+function activateCopyGuards() {
+  const root = document.querySelector("#paper-detail");
+  if (!root) return;
+
+  ["copy", "cut", "contextmenu", "selectstart"].forEach((eventName) => {
+    document.addEventListener(eventName, (event) => {
+      if (root.contains(event.target)) event.preventDefault();
+    });
+  });
+
+  document.addEventListener("dragstart", (event) => {
+    if (root.contains(event.target)) event.preventDefault();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if ((event.ctrlKey || event.metaKey) && ["c", "x", "a"].includes(event.key.toLowerCase())) {
+      event.preventDefault();
+    }
+  });
+}
+
 function renderPaper(paper, metaPaper) {
   const title = escapeHtml(paper.title || metaPaper.title || "Research manuscript");
   const summary = escapeHtml(paper.summary || metaPaper.summary || "");
   const authors = escapeHtml(paper.authors || "");
-  const docx = paper.docx || metaPaper.docx || "";
   const blocks = normalizedBlocks(paper);
+  const { outline, numberById } = buildOutline(blocks);
 
   document.title = `${paper.title || metaPaper.title || "Research"} | 赵钧毅`;
   document.querySelector("#paper-detail").innerHTML = `
     <div class="paper-reader">
-      ${renderToc(paper.toc)}
+      ${renderToc(outline)}
       <div class="paper-main">
         <header class="paper-header">
           <a class="back-link" href="index.html#research">Back to research</a>
@@ -201,16 +265,16 @@ function renderPaper(paper, metaPaper) {
           <h1>${title}</h1>
           ${authors ? `<p class="paper-authors">${authors}</p>` : ""}
           ${summary ? `<p class="paper-abstract">${summary}</p>` : ""}
-          ${docx ? `<a class="download-link" href="${escapeHtml(docx)}" target="_blank" rel="noreferrer">Download Word file</a>` : ""}
         </header>
         <div class="paper-content">
-          ${blocks.map(renderBlock).join("")}
+          ${blocks.map((block, index) => renderNumberedBlock(block, index, numberById)).join("")}
         </div>
       </div>
     </div>
   `;
   activateLazyImages();
   activateTocSpy();
+  activateCopyGuards();
 }
 
 async function init() {

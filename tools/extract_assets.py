@@ -184,15 +184,12 @@ def extract_papers() -> list[dict]:
         paragraphs = docx_text(source)
         title = guess_title(paragraphs, source.stem)
         abstract = guess_abstract(paragraphs)
-        source_out = DOCS_DIR / source.name
-        shutil.copy2(source, source_out)
         papers.append(
             {
                 "slug": slug,
                 "title": title,
                 "summary": abstract,
                 "cover": first_reasonable_image(images),
-                "docx": rel(source_out),
                 "images": [rel(img) for img in images[:8]],
                 "note": "标题、摘要和封面为自动提取结果，可在 data/papers.json 中修改。",
             }

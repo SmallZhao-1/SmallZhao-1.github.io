@@ -10,3 +10,4 @@
 # Python caches
 __pycache__/
 *.pyc
+assets/docs/*.docx

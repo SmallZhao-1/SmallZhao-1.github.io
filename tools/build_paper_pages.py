@@ -457,15 +457,12 @@ def write_json(path: Path, data) -> None:
 
 def build() -> None:
     papers = []
-    DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
     for slug, source in PAPER_SOURCES:
         blocks, assets = document_blocks(source, slug)
         title = title_from_blocks(blocks, source.stem)
         summary = summary_from_blocks(blocks, title)
         author = author_from_blocks(blocks)
-        source_out = DOCS_DIR / source.name
-        shutil.copy2(source, source_out)
 
         papers.append(
             {
@@ -473,7 +470,6 @@ def build() -> None:
                 "title": title,
                 "summary": summary[:700],
                 "cover": first_reasonable_image(assets, "thumb"),
-                "docx": rel(source_out),
                 "content": f"data/paper-content/{slug}.json",
                 "images": [asset.thumb for asset in list(assets.values())[:8]],
             }
@@ -486,7 +482,6 @@ def build() -> None:
                 "title": title,
                 "authors": author,
                 "summary": summary,
-                "docx": rel(source_out),
                 "toc": table_of_contents(blocks),
                 "blocks": blocks,
             },
