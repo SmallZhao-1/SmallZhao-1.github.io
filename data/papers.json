@@ -5,6 +5,7 @@
     "summary": "Accelerated urbanization has led to significantly increased urban density, amplifying associated challenges including strains on mental well-being. Concurrently, the saturation of traditional building stock emphasizes the critical importance of urban renewal initiatives. Current research in this domain often adopts singular perspectives: examples include analyzing pedestrian visual relationships using 3D-Isovist techniques, quantifying psychological perceptions through sensor-based data collection, or focusing on optimizing urban greenery configurations. While valuable, these approaches typically examine factors in isolation. A holistic framework integrating multiple dimensions is essential ",
     "cover": "assets/papers/heal/image-01.png",
     "docx": "assets/docs/heal.docx",
+    "content": "data/paper-content/heal.json",
     "images": [
       "assets/papers/heal/image-01.png",
       "assets/papers/heal/image-02.png",
@@ -14,15 +15,15 @@
       "assets/papers/heal/image-06.png",
       "assets/papers/heal/image-07.png",
       "assets/papers/heal/image-08.png"
-    ],
-    "note": "标题、摘要和封面为自动提取结果，可在 data/papers.json 中修改。"
+    ]
   },
   {
     "slug": "manuscript",
     "title": "Assessment of Photovoltaic Potential in Abandoned Industrial Mining Areas Based on a Double Machine Learning Framework: A Case Study of Xiaoyi City",
-    "summary": "Within the ongoing energy transition of Chinese-style modernization, abandoned industrial mining areas are promising sites for photovoltaic deployment (PV), but require reliable assessment of solar resources and capacity. This study develops a prediction framework for large abandoned mining sites, evaluating ground and rooftop PV potential. Using Xiaoyi City, Shanxi Province, China, we mapped regional PV potential. A three-dimensional modeling and parcel-morphology clustering workflow using Grasshopper and ArcGIS Pro produced 54 samples across four parcel types. Building energy use intensity (EUI) and solar radiation were simulated with Ladybug Tools. Ground solar radiation (GSR), rooftop so",
+    "summary": "Within the ongoing energy transition of Chinese-style modernization, abandoned industrial mining areas are promising sites for photovoltaic deployment (PV), but require reliable assessment of solar resources and capacity. This study develops a prediction framework for large abandoned mining sites, evaluating ground and rooftop PV potential. Using Xiaoyi City, Shanxi Province, China, we mapped regional PV potential. A three-dimensional modeling and parcel-morphology clustering workflow using Grasshopper and ArcGIS Pro produced 54 samples across four parcel types. Building energy use intensity (EUI) and solar radiation were simulated with Ladybug Tools. Ground solar radiation (GSR), rooftop so",
     "cover": "assets/papers/manuscript/image-01.jpeg",
     "docx": "assets/docs/Manuscript.docx",
+    "content": "data/paper-content/manuscript.json",
     "images": [
       "assets/papers/manuscript/image-01.jpeg",
       "assets/papers/manuscript/image-02.png",
@@ -32,7 +33,6 @@
       "assets/papers/manuscript/image-06.png",
       "assets/papers/manuscript/image-07.png",
       "assets/papers/manuscript/image-08.png"
-    ],
-    "note": "标题、摘要和封面为自动提取结果，可在 data/papers.json 中修改。"
+    ]
   }
 ]

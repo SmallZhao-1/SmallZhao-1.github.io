@@ -483,6 +483,106 @@ code {
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
 }
 
+.paper-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 42px 22px 72px;
+}
+
+.paper-header {
+  padding-bottom: 26px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.paper-header h1 {
+  max-width: 960px;
+  margin: 6px 0 14px;
+  color: var(--heading);
+  font-size: 40px;
+  line-height: 1.14;
+}
+
+.paper-abstract {
+  max-width: 920px;
+  margin: 0 0 16px;
+  color: #c7ccd5;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.paper-authors {
+  max-width: 920px;
+  margin: -2px 0 13px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--link);
+  text-decoration: none;
+}
+
+.download-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.paper-content {
+  display: grid;
+  grid-template-columns: minmax(0, 760px);
+  gap: 0;
+  color: #d9dce2;
+}
+
+.paper-content p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.paper-heading {
+  color: var(--heading);
+  line-height: 1.22;
+}
+
+.paper-heading-2 {
+  margin: 30px 0 12px;
+  font-size: 24px;
+}
+
+.paper-heading-3 {
+  margin: 22px 0 9px;
+  font-size: 19px;
+}
+
+.paper-figure {
+  width: min(100%, 980px);
+  margin: 28px 0 8px;
+}
+
+.paper-figure img {
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.38);
+}
+
+.paper-caption {
+  max-width: 880px;
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 @media (max-width: 900px) {
   .page-shell {
     grid-template-columns: 1fr;
@@ -554,5 +654,18 @@ code {
 
   .project-header h1 {
     font-size: 30px;
+  }
+
+  .paper-shell {
+    padding: 28px 16px 52px;
+  }
+
+  .paper-header h1 {
+    font-size: 29px;
+  }
+
+  .paper-content p,
+  .paper-abstract {
+    font-size: 15px;
   }
 }

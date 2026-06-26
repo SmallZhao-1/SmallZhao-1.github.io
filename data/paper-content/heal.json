@@ -1,0 +1,537 @@
+{
+  "slug": "heal",
+  "title": "Urban renewal in high-density urban areas from the perspective of crowd psychological health",
+  "summary": "Accelerated urbanization has led to significantly increased urban density, amplifying associated challenges including strains on mental well-being. Concurrently, the saturation of traditional building stock emphasizes the critical importance of urban renewal initiatives. Current research in this domain often adopts singular perspectives: examples include analyzing pedestrian visual relationships using 3D-Isovist techniques, quantifying psychological perceptions through sensor-based data collection, or focusing on optimizing urban greenery configurations. While valuable, these approaches typically examine factors in isolation. A holistic framework integrating multiple dimensions is essential for effective urban renewal planning yet remains understudied. Addressing this gap, this paper proposes a novel multi-objective optimization methodology designed for the critical early planning stages of urban renewal, explicitly incorporating psychological healing as a core objective to foster healthier urban environments.",
+  "docx": "assets/docs/heal.docx",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Urban renewal in high-density urban areas from the perspective of crowd psychological health"
+    },
+    {
+      "type": "paragraph",
+      "text": "Junyi Zhao*a *2210620119@student.cumtb.edu.cn"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Abstract"
+    },
+    {
+      "type": "paragraph",
+      "text": "Accelerated urbanization has led to significantly increased urban density, amplifying associated challenges including strains on mental well-being. Concurrently, the saturation of traditional building stock emphasizes the critical importance of urban renewal initiatives. Current research in this domain often adopts singular perspectives: examples include analyzing pedestrian visual relationships using 3D-Isovist techniques, quantifying psychological perceptions through sensor-based data collection, or focusing on optimizing urban greenery configurations. While valuable, these approaches typically examine factors in isolation. A holistic framework integrating multiple dimensions is essential for effective urban renewal planning yet remains understudied. Addressing this gap, this paper proposes a novel multi-objective optimization methodology designed for the critical early planning stages of urban renewal, explicitly incorporating psychological healing as a core objective to foster healthier urban environments."
+    },
+    {
+      "type": "paragraph",
+      "text": "The methodological workflow comprises four integrated phases: (1) Firstly, Geographic Information Systems (GIS) were employed to extract critical datasets of surrounding buildings and the contour line of the building to be updated. (2) Second, considering that urban renewal focuses on the psychological healing of the population, we have selected thermal radiation, Universal Thermal Climate Index (UTCI), and the psychological emotion of the population as the three optimization objectives for our multi-objective optimization. (3) We preprocess the data using the relevant formulas of linear regression, and use 3D-Isovist and 2D-Isovist as the quantitative standards for emotion. (4) The multi-objective problem was resolved using the Non-dominated Sorting Genetic Algorithm II (NSGA-II) implemented through Grasshopper's WallaceiX plugin. This evolutionary algorithm evaluated Pareto-optimal solutions balancing UTCI, emotion and thermal radiation. And the optimization factors of each building’s height are regarded as optimization genes."
+    },
+    {
+      "type": "paragraph",
+      "text": "In the final results, we find that the three optimization objectives exhibited certain antagonistic effects, and there are cases of reverse optimization of the optimization objectives. The optimization factors of different building heights are desperate between 0.72 and 1.30. The final updated height is the initial heights multiply the height factors, which is between 12.30 and 76.56. We speculate that this might be related to the location of the building and its original height. We take the mean optimal solution as our reference target. According to the average optimal solution, the emotion is optimized by 0.0012%, which is very tiny. The emotion is optimized by 13.95% and the UTCI is optimized by 0.24%. The study can help balance the various considerations in the early stage of design and it is a supplement of urban renewal strategies. This method is also an attempt at computationally assisted preliminary design. Designers can change the optimization goals according to different considerations to adapt to different environments."
+    },
+    {
+      "type": "paragraph",
+      "text": "1.Introduction"
+    },
+    {
+      "type": "paragraph",
+      "text": "With the development of architecture and urban planning, applying interdisciplinary technical means in the early design stage has become increasingly vital. Computational design technology is now widely applied in academic research within these fields. Furthermore, urban renewal is essential for revitalizing existing urban land and promoting sustainable urban development, with urban renewal planning optimal being a crucial research challenge.1 Humans use sensory experiences to comprehend the environment, urban areas being no exception.2"
+    },
+    {
+      "type": "paragraph",
+      "text": "However, the relationships among various factors influencing urban environments are often complex. While the application of multi-objective optimization (MOO) algorithms in initial design is highly necessary, current application cases specifically addressing the multi-faceted parameters of human perception in large cities remain limited. For urban planning academic research, the use of digital technology as an aid is imperative. This is because qualitative analyses frequently fail to accurately capture the interrelationships among multiple design goals, necessitating computational quantitative analysis using specific numerical values to represent the optimization degree of multiple objectives and arrive at appropriate design solutions. Therefore, the objective of this study is to provide an initial design method for the renewal of high-density cities that places greater emphasis on diverse human psychological perception factors."
+    },
+    {
+      "type": "paragraph",
+      "text": "In order to measure the impact of changes in building renovations and updates in urban streets on the thermal comfort of pedestrians, we use Universal Thermal Climate Index（UTCI）to quantify this indicator. The most widely used outdoor thermal indices, such as UTCI.5 Martinez developed the PPD*^ dissatisfaction indicator based on UTCI.6 Yuan Su applied UTCI in Dalian to enhance thermal comfort in cold coastal cities, providing planning insights.7 In Katerina Pantavou’s study, the increase in heat stress as assessed by UTCI indicates that heat stress in Greece will rise significantly under the backdrop of climate change, particularly during the summer.8 Xu analyzed spatiotemporal UTCI characteristics during extreme heat events in the Beijing-Tianjin-Hebei region. 9 It can be seen that UTCI has a very good quantitative indication effect on the thermal comfort level of pedestrians on the street."
+    },
+    {
+      "type": "paragraph",
+      "text": "Sustainability has become the focus and interest of researchers with climate change’s increasing impact and challenges.10 Reducing the heat radiation from building surfaces is an important part of promoting sustainable urban development. Fang-Ying Gong explores how to use street view images to assess the urban thermal environment, with a particular focus on the impact of heat radiation on the urban climate.11There are also study focused on the effect of glass structures of modern architecture on the indoor thermal environment during summer. In particular, this study examined how solar radiation significantly altered people’s thermal sensations.12 Lingrui Li applies integrating view quality alongside energy, daylight, and thermal comfort considerations, with a vector-simulation-based metric considering content, access and clarity.13 In this page, we will update the thermal radiation value of the building as one of the optimization goals to improve the climatic environment indicators of the building."
+    },
+    {
+      "type": "paragraph",
+      "text": "Pedestrian environmental perception is significantly influenced by architecture. We use the concept of isovist to quantitatively describe the degree of exposure to visual perception for pedestrians in the space. Visibility represents the size of a space that people visually perceive. An isovist is a spatial concept and measure to illustrate visibility and its visual characteristics in the built environment. For measuring openness within an urban area, the isovist has been widely used as a representative measure.14 Rongrong Yu used Isovist methods to measure visual characteristics along paths in Yu Garden.15 Giseop KIM developed a 3D openness index combining volume and angle, demonstrating that simultaneously considering both more accurately captures the pedestrian perspective and effectively evaluates openness. This method has been validated in simulated and real sensor (point cloud/LiDAR) environments.14 There are also 3D-Isovist example of multi-objective optimization. Karim Zandniapour employed 3D-Isovists within a multi-objective optimization framework using GIS, meta-heuristics (NSGA-II), and continuous solution space search.16 In this article, we will use 3D-Isovist as an optimization objective to qualitatively enhance people's spatial perception, leading to more comprehensive coverage in the optimization results."
+    },
+    {
+      "type": "paragraph",
+      "text": "The problems in reality usually involve multiple conflicting goals, so it is very natural to view engineering problems as multi-objective optimization problems.17 Hanie Rahimbakhsh applied MOO (specifically NSGA-II) combined with 3D-Isovist to balance privacy and natural surveillance in early-stage residential design. 18 Similarly, Karim Zandniapour used MOP, integrating GIS mapping, 3D-Isovist, and NSGA-II to search continuous solution spaces for urban park design.16 In our study, we adopt a MOO approach for the initial design phase of a Hong Kong strip building renovation. We simultaneously optimize three objectives: 3D-Isovist quantification, building thermal radiation, and street pedestrian UTCI, aiming to provide design guidance."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2. Methodology"
+    },
+    {
+      "type": "paragraph",
+      "text": "Within the context of urban renewal, this study focuses on the preliminary design of building renovations. From a public mental health perspective, we select three key human comfort factors—3D-Isovist, solar radiation, and UTCI—as design considerations. While maintaining the original building outlines in a selected area, we explore how these factors influence the optimal renovation height. The resulting optimized heights for each building outline serve as guiding heights for the preliminary renovation design (fig 2)."
+    },
+    {
+      "type": "paragraph",
+      "text": "A primary challenge for the application of an evolutionary process as a design tool is the ability to maintain variation amongst design solutions while simultaneously increasing in fitness.19 This study employs the Grasshopper plugin WallaceiX for multi-objective optimization. WallaceiX maps parametric design variables to genetic algorithm genes and key performance indicators to the objective function, then runs efficient algorithms like NSGA-II to automatically generate and evolve design schemes. This yields a Pareto optimal frontier of solutions, enabling designers to systematically explore the design space, understand trade-offs between objectives, and make data-informed decisions on exterior wall design. Considering multiple objectives simultaneously is clearly advantageous. A multi-objective problem (MOP) with a minimization of objectives as its goal can be described as Equation 1:16"
+    },
+    {
+      "type": "paragraph",
+      "text": "Min (1)"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.1. Study area"
+    },
+    {
+      "type": "paragraph",
+      "text": "In this study, We obtained the model information of a site in Hong Kong using the ArcGIS as the analysis scope. The size of this area was 200m × 240m which is shown in fig 1. The buildings and the surrounding streets in this area were distributed in a block-like pattern and the boundaries were regular. Within the research area, we selected one of the buildings in a certain area as the target for optimization and renovation. This area is located at the center of the site, with accessible roads on all sides. It is a crucial section that affects the perception of the surrounding pedestrians."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-06.png",
+      "alt": "heal figure 1",
+      "width": 8115,
+      "height": 4120
+    },
+    {
+      "type": "caption",
+      "text": "fig 1. The scope of the analysis and the target area for optimization"
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-07.png",
+      "alt": "heal figure 2",
+      "width": 2446,
+      "height": 2484
+    },
+    {
+      "type": "caption",
+      "text": "fig 2. Technology roadmap"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.2. Method to calculate the UTCI"
+    },
+    {
+      "type": "paragraph",
+      "text": "The LadybugTools plugin of Grasshopper is used to simulate the UTCI in the site. We obtained the environmental indicators of this site through the EPW files in Hong Kong and build the program by using the components in the plugin. The scope is divided into multiple grids of 10m×10m (the entire venue was divided into 20×24 grids). Each grid serves as an analysis area. The center point of each grid is taken as the observation location(OL). The test buildings(TB) and the buildings within the site(BWS) are regarded as the context. The height of pedestrians is set at 1.65 meters. After this, collect the data from the extremely hot week period from 0:00 on July 22nd to 23:00 on July 28th, take the average of all the corresponding values of the grids, sum them up, and take the reciprocal as one of the optimization objectives. The current site UTCI could be seen in fig 3 ."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-08.png",
+      "alt": "heal figure 3",
+      "width": 7750,
+      "height": 3990
+    },
+    {
+      "type": "caption",
+      "text": "fig 3. The current site UTCI heatmap"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.3. Method to calculate the Radiation"
+    },
+    {
+      "type": "paragraph",
+      "text": "In the traditional LadybugTools components, CPU is used for thermal radiation calculation and analysis, which takes a long time. However, the Grasshopper plugin Cyclops developed by Foster + Partners, powered by NVIDIA GPUs and is also one of the plugins we adopted in the study, significantly accelerates the calculation process. First, we will mesh the TB. The target number of the mesh is 500, and the target edge length of the mesh is 3m. After meshing, each grid surface of the TB becomes an analysis grid. Secondly, we extract the normal vectors of each grid as the analysis points (fig 5), and others are set according to the default parameters of the component (fig 6)."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-09.png",
+      "alt": "heal figure 4",
+      "width": 4755,
+      "height": 3990
+    },
+    {
+      "type": "caption",
+      "text": "fig 4. The axonometric of the buildings within the site"
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-10.png",
+      "alt": "heal figure 5",
+      "width": 5065,
+      "height": 3990
+    },
+    {
+      "type": "caption",
+      "text": "fig 5. Normal vectors of each grid"
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-11.png",
+      "alt": "heal figure 6",
+      "width": 1397,
+      "height": 662
+    },
+    {
+      "type": "caption",
+      "text": "fig 6. Core program for thermal radiation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.4. Method to calculate the emotion"
+    },
+    {
+      "type": "paragraph",
+      "text": "We see OL as our vantage points and obstacle lines is our building footprint and view range is 200m. Other sets keep default. The output end Isovist Properties has 17 statics each branch, we choose drift magnitude(DM), mean radial(MR) and compactness(CT) as parameters that will be needed in our subsequent formula. In order to obtain the relevant data of 3D-Isovist, we wrote a program using Grasshopper(fig 7). The observation height for the crowd has been set to 1.65m and the obstacle surface is the surface of TB and BWS. The output of the program is Obj3D and VisualVolume(VV)."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-12.png",
+      "alt": "heal figure 7",
+      "width": 2491,
+      "height": 543
+    },
+    {
+      "type": "caption",
+      "text": "fig 7.3D-Isovist program"
+    },
+    {
+      "type": "paragraph",
+      "text": "The statistical analysis is based on a classic MLR model (Equation (2)): Emotion j = α1 Vαr1 + α2 Vαr2+ ... + αn Vαrn + γ +ε (2)"
+    },
+    {
+      "type": "paragraph",
+      "text": "where Emotion j is the averaged Emotion value of all participants at the aggregation point j. The model includes n visual exposure metrics as the predictor variables. α1 ..., αn are the coefficient estimates of the metrics Vαr1, Vαrn at the aggregation point j. γ is the model intercept, and ε is the residual.20 The Equation(3) of this study was obtained through SPSS regression analysis based on a large amount of raw data according to Equation (2). We take the reciprocal of the sum of all emotions as one of the optimization objectives of the genetic algorithm."
+    },
+    {
+      "type": "paragraph",
+      "text": "Emotion j = - 0.178 + 0.29 - 0.304 + 0.461- 6.473 (3)"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.5. Data preprocessing and parameter setting"
+    },
+    {
+      "type": "paragraph",
+      "text": "Considering that the order of magnitude of the three optimization objectives is too disparate (the magnitude of UTCI is 10-2 and Radiation is 105 and emotion is 10-4), the optimization results are not satisfactory. Therefore, we carried out preprocessing on the data to ensure that they are on the similar order of magnitude. We multiply the value of UTCI by 102 and divide Radiation by 104 and multiply emotion by 103."
+    },
+    {
+      "type": "paragraph",
+      "text": "In the program of WallceiX, the crossover rate determines how many offspring chromosomes are produced from the combination of parent chromosomes. The mutation rate introduces random changes in the offspring population to prevent the algorithm from getting trapped in local optima and leaving some areas of the solution space unexplored.16 And we need to select the appropriate Generation Size and Generation Count. In this study, the settings of the relevant parameters are as shown in the (Table 1)."
+    },
+    {
+      "type": "paragraph",
+      "text": "Table 1. The relevant parameters"
+    },
+    {
+      "type": "paragraph",
+      "text": "The contour lines of several buildings in the optimized and renovated area are shown in the fig 8. The contour lines of several buildings. The original height data of these buildings are shown in the Table 2. The original height data of TB. The genes used in the genetic algorithm iteration are modified to achieve the appropriate building height. Since this is a preliminary research for the early guidance of building renovation and update, the variation range of this height is between 0.70 and 1.30 times the original height to prevent large-scale demolition and reconstruction. And we seem TB as our phenotype."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-13.png",
+      "alt": "heal figure 8",
+      "width": 4755,
+      "height": 4120
+    },
+    {
+      "type": "caption",
+      "text": "fig 8. The contour lines of several buildings"
+    },
+    {
+      "type": "paragraph",
+      "text": "Table 2. The original height data of TB 3.Result"
+    },
+    {
+      "type": "paragraph",
+      "text": "There is a certain antagonistic relationship among the three optimization goals. Therefore, while some of the goals are being optimally optimized positively, there may be goals that are being optimized negatively. This phenomenon is also reflected in the fig 9. In the fig 9, both emotion and UTCI showed positive optimization, while Radiation exhibited a reverse optimization phenomenon. This indicates the antagonistic relationship between it and the other two optimization objectives."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-14.png",
+      "alt": "heal figure 9",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-04.png",
+      "alt": "heal figure 10",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-15.png",
+      "alt": "heal figure 11",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "caption",
+      "text": "fig 9.The Standard Deviation Graph: Moving to the left indicates optimization towards smaller values, which is positive optimization. Otherwise, it is reverse optimization."
+    },
+    {
+      "type": "paragraph",
+      "text": "The parallel coordinate plot(fig 10) analyses all the solutions in the population through comparing the fitness values for each solution across all fitness objectives. The aim is to extract emergent behaviour exhibited by the simulation and better understand how the solutions are optimising throughout the simulation. Average Fitness orders the solutions according to their mean fitness by calculating the mean fitness rank of each solution’s fitness objectives.21"
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-05.png",
+      "alt": "heal figure 12",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-01.png",
+      "alt": "heal figure 13",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "caption",
+      "text": "fig 10. The parallel coordinate plot and Mean Fitness: It shows the distribution of different optimization values for each generation."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Mean Fitness Trendline Chart presents the mean fitness value, for each fitness objective independently, for each generation across the entire simulation from start to finish. The aim is to highlight specific trends in the mean fitness value of each generation across the population.21 From fig 11.Mean Value Trendline, it can be seen that the trend angle of emotion is 24.57°, with a negative slope, indicating that this target has a relatively fast forward optimization speed. The trend angle of Radiation is 17.15°, with a positive slope, suggesting that this target is inclined towards reverse optimization. The trend angle of UTCI is 15.25°, with a negative slope, indicating that this target is a slow forward optimization."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-16.png",
+      "alt": "heal figure 14",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-17.png",
+      "alt": "heal figure 15",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-18.png",
+      "alt": "heal figure 16",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "caption",
+      "text": "fig 11.Mean Value Trendline: Describe the optimization trends for different objectives."
+    },
+    {
+      "type": "paragraph",
+      "text": "By presenting the optimization results of the 1st , 10th , 20th and 30th generation(fig 12) and Genetic pool change chart of each body block(fig 13), it can be observed that the height variation trend of each body block under the optimization conditions is as follows. The optimized height trend of each volume can serve as a guideline for the selection of the initial building height during the design stage."
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-19.png",
+      "alt": "heal figure 17",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-20.png",
+      "alt": "heal figure 18",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-21.png",
+      "alt": "heal figure 19",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-22.png",
+      "alt": "heal figure 20",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "caption",
+      "text": "fig 12. Optimize process volume: Compare and optimize individuals at different stages"
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-02.png",
+      "alt": "heal figure 21",
+      "width": 4961,
+      "height": 3508
+    },
+    {
+      "type": "caption",
+      "text": "fig 13.Gene Pool of each height"
+    },
+    {
+      "type": "paragraph",
+      "text": "The changes in the gene pool(fig 13) indicate that in the early stage of optimization, genes 1 to 9 all showed random variations. In the later stage of optimization, gene 1 and gene 5 showed a trend of optimizing towards higher values, while genes 7, 8, and 9 showed a trend of optimizing towards lower values. This might be related to the location of the building."
+    },
+    {
+      "type": "paragraph",
+      "text": "Taking into account the need to balance all the optimization objectives, we finally chose the mean optimal solution as our reference result for optimization (fig 14). The Diamond fitness Chart(fig 14(a)) analyses the fitness values of a single solution.21 The mean optimal solution is generation 29//Ind.39, which is close to the final optimized result. This indicates that for the three goals, the overall process is trending towards optimization. It The index of each TB is shown in fig 8. The contour lines of several buildings We compare the information of each TB’s height as shown in Table 3. The comparison of each TB’s height"
+    },
+    {
+      "type": "image",
+      "src": "assets/papers/heal/image-03.png",
+      "alt": "heal figure 22",
+      "width": 3508,
+      "height": 2480
+    },
+    {
+      "type": "caption",
+      "text": "fig 14. The display of the mean optimal solution: (a) illustrates the ranking of the mean optimal solution among the three optimization objectives; (b)(c)(d) present the visualized results of each optimization objective after the building optimization."
+    },
+    {
+      "type": "paragraph",
+      "text": "Table 3. The comparison of each TB’s height: It shows the initial height, the optimized height, and the optimization coefficient."
+    },
+    {
+      "type": "paragraph",
+      "text": "4.Conclusion"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.1. Summary of Technical Process and Results"
+    },
+    {
+      "type": "paragraph",
+      "text": "The preliminary design of urban planning needs to take into account many factors. For the urban renewal direction we are studying in this research, by analyzing existing research cases, we can focus on the key point of people's mental health in the city as the core of our preliminary design considerations, and thereby analyze the related optimization goals. The advanced digital tools and techniques can be successfully implemented in real-world design processes and the methodology also have the potential to be developed for use in urban design fields.16 Considering the need for collaborative optimization of multiple targets, the advanced digital tools in this study is the genetic algorithm, which comes true by using Grasshopper plugin WallceiX. WallaceiX employs the NSGA-2 algorithm as the primary evolutionary algorithm21. We use emotion, UTCI and radiation as the optimization objectives to guide the preliminary design of urban renewal. Through data preprocessing, we make the optimization results more reasonable."
+    },
+    {
+      "type": "paragraph",
+      "text": "After the optimization was completed, we processed and analyzed the data from the optimization process, thereby understanding the situation and general trend of the optimization. During the analysis process, we observed that emotion and radiation were gradually undergoing positive optimization, while UTCI showed a reverse optimization trend (fig 9). This indicates that there is a certain antagonistic relationship between them. The important point is that by analyzing the height coefficient gene pool of each building block (fig 13), we can visualize the optimization trend, which is very helpful in guiding the early design stage. Finally, from the average optimal solution, it can be seen that the process of multi-objective optimization is moving towards positive optimization (fig 14)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.2. Innovation"
+    },
+    {
+      "type": "paragraph",
+      "text": "The research is an exploration of the multi-objective optimization computational design method. The innovation of the research lies in the following:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Considering human mental health from multiple perspectives (3D-Isovist, UTCI, Radiation)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Pay attention to the current hot policies for urban renewal Utilizing computational methods for design assistance"
+    },
+    {
+      "type": "paragraph",
+      "text": "This method allows the designer to model any existing situation. The initial settings defined include (1) the layout of buildings; (2) the original settings in WallceiX include parameters shown in Table 1 (3) The height and location of observation points"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.3. Shortage and expectation"
+    },
+    {
+      "type": "paragraph",
+      "text": "However, the research still has certain limitations and subsequent related research can further explore and improve upon these aspects:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Considering that this study serves as a reference for the previous design, the refinement of the site and TB grid division dimensions is not negligible, which would result in insignificant visual differences."
+    },
+    {
+      "type": "paragraph",
+      "text": "The optimized genetic attributes are simple, consisting only of the height of each building. In subsequent studies, the genes can be optimized in multiple aspects such as layout, window opening’s position."
+    },
+    {
+      "type": "paragraph",
+      "text": "Finally, it is worth noting that, apart from the application of the genetic algorithm studied in this paper in urban renewal, exploring the application of various other computational methods in urban renewal is both interesting and worthy of further research in the future."
+    },
+    {
+      "type": "paragraph",
+      "text": "Reference:"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. ````Lin, C. et al. Harmonizing stakeholder interests in urban renewal: A novel planning approach using explainable machine learning and spatial optimization. Land Use Policy 155, 107588 (2025).[1"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. `````Hung, S.-H. & Chang, C.-Y. How do humans value urban nature? Developing the perceived biophilic design scale (PBDs) for preference and emotion. Urban For. Urban Green. 76, 127730 (2022).[2"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3. Kaklauskas, A. et al. Emotions analysis in public spaces for urban planning. Land Use Policy 107, 105458 (2021)."
+    },
+    {
+      "type": "paragraph",
+      "text": "4. Ashkezari-Toussi, S., Kamel, M. & Sadoghi-Yazdi, H. Emotional maps based on social networks data to analyze cities emotional structure and measure their emotional similarity. Cities 86, 113–124 (2019)."
+    },
+    {
+      "type": "paragraph",
+      "text": "5. Migliari, M., Babut, R., De Gaulmyn, C., Chesne, L. & Baverel, O. The Metamatrix of Thermal Comfort: A compendious graphical methodology for appropriate selection of outdoor thermal comfort indices and thermo-physiological models for human-biometeorology research and urban planning. Sustain. Cities Soc. 81, 103852 (2022)."
+    },
+    {
+      "type": "paragraph",
+      "text": "6. `````Martinez, S. et al. A methodology to bridge urban shade guidelines with climate metrics. Sustain. Cities Soc. 124, 106322 (2025).[3"
+    },
+    {
+      "type": "paragraph",
+      "text": "7. `````Su, Y. et al. Analyzing a representative neighborhood in coastal city: A study using the universal thermal climate index (UTCI) in Dalian. Energy Build. 329, 115223 (2025).[4"
+    },
+    {
+      "type": "paragraph",
+      "text": "8. ``````Pantavou, K., Kotroni, V., Lagouvardos, K. & Kyriakou, P. Future changes of bioclimate in Greece: Variations in thermal stress according to the Universal Thermal Climate Index (UTCI). Sci. Total Environ. 980, 179514 (2025).[5"
+    },
+    {
+      "type": "paragraph",
+      "text": "9. ``````Xu, Y. et al. Spatiotemporal characteristics of Universal Thermal Climate Index during five-year return period extreme heat events in the Beijing–Tianjin–Hebei region. Atmospheric Ocean. Sci. Lett. 18, 100612 (2025).[6"
+    },
+    {
+      "type": "paragraph",
+      "text": "10. ``````Çataroğlu Coğul, I., Kazanasmaz, Z. T. & Ekici, B. A literature review on sustainable buildings and neighborhoods in terms of daylight, solar energy and human factors. J. Build. Eng. 103, 111989 (2025).[7"
+    },
+    {
+      "type": "paragraph",
+      "text": "11. ``````Gong, F.-Y. Street Sensing: Urban Thermal Environment Assessment Using Street View Images. (Springer Nature Switzerland, Cham, 2025). doi:10.1007/978-3-031-92005-9.[8"
+    },
+    {
+      "type": "paragraph",
+      "text": "12. ``````Li, G. et al. Effect of solar radiation on human thermal sensation and physiological parameters in a convection–radiation air conditioning environment. Build. Simul. 17, 1359–1377 (2024).[9"
+    },
+    {
+      "type": "paragraph",
+      "text": "13. ``````Li, L., Qi, Z., Ma, Q., Gao, W. & Wei, X. Evolving multi-objective optimization framework for early-stage building design: Improving energy efficiency, daylighting, view quality, and thermal comfort. Build. Simul. 17, 2097–2123 (2024).[10"
+    },
+    {
+      "type": "paragraph",
+      "text": "14. ``````Kim, G., Kim, A. & Kim, Y. A new 3D space syntax metric based on 3D isovist capture in urban space using remote sensing technology. Comput. Environ. Urban Syst. 74, 74–87 (2019).[11"
+    },
+    {
+      "type": "paragraph",
+      "text": "15. ``````Yu, R. & Ostwald, M. J. Spatio-visual experience of movement through the Yuyuan Garden: A computational analysis based on isovists and visibility graphs. Front. Archit. Res. 7, 497–509 (2018).[12"
+    },
+    {
+      "type": "paragraph",
+      "text": "16. ``````Zandniapour, K., Soroush, A., Khezerlu Agdam, E. & Sanaieian, H. Integrating GIS, 3D-Isovist, and an NSGA-II multi-objective optimization algorithm for automation of design process in urban parks and public open spaces. Int. J. Geoheritage Parks 13, 1–16 (2025).[13"
+    },
+    {
+      "type": "paragraph",
+      "text": "17. ``````Sharma, S. & Kumar, V. A Comprehensive Review on Multi-objective Optimization Techniques: Past, Present and Future. Arch. Comput. Methods Eng. 29, 5605–5633 (2022).[14"
+    },
+    {
+      "type": "paragraph",
+      "text": "18. ```````````Rahimbakhsh, H., Kohansal, M. E., Tarkashvand, A., Faizi, M. & Rahbar, M. Multi-objective optimization of natural surveillance and privacy in early design stages utilizing NSGA-II. Autom. Constr. 143, 104547 (2022).[15"
+    },
+    {
+      "type": "paragraph",
+      "text": "19. ``````Makki, M. & Showkatbakhsh, M. CONTROL OF MORPHOLOGICAL VARIATION THROUGH POPULATION BASED FITNESS CRITERIA.[16"
+    },
+    {
+      "type": "paragraph",
+      "text": "20. Xiang, L., Cai, M., Ren, C. & Ng, E. Modeling pedestrian emotion in high-density cities using visual exposure and machine learning: Tracking real-time physiology and psychology in Hong Kong. Build. Environ. 205, 108273 (2021)."
+    },
+    {
+      "type": "paragraph",
+      "text": "21. Makki, M., Showkatbakhsh, M. and Song, Y. (2019) ‘Wallacei Primer 2.0’, [Online]. Available at https://www.wallacei.com/."
+    }
+  ]
+}

@@ -151,14 +151,15 @@ function projectEntry(project, index) {
 function paperEntry(paper) {
   const title = escapeHtml(paper.title || "Research manuscript");
   const summary = escapeHtml(sentence(paper.summary));
+  const href = `paper.html?paper=${encodeURIComponent(paper.slug || "")}`;
   return `
     <article class="entry">
-      <a class="entry-media" href="${escapeHtml(paper.docx)}" target="_blank" rel="noreferrer">
-        <span class="badge">DOCX</span>
+      <a class="entry-media" href="${escapeHtml(href)}">
+        <span class="badge">Read paper</span>
         <img src="${escapeHtml(paper.cover)}" alt="${title} cover" loading="lazy" />
       </a>
       <div class="entry-body">
-        <h3 class="entry-title"><a href="${escapeHtml(paper.docx)}" target="_blank" rel="noreferrer">${title}</a></h3>
+        <h3 class="entry-title"><a href="${escapeHtml(href)}">${title}</a></h3>
         <p class="entry-authors"><strong>赵钧毅</strong> et al.</p>
         <ul class="entry-summary">
           <li>${summary}</li>
@@ -167,6 +168,7 @@ function paperEntry(paper) {
           <span class="tag">Research</span>
           <span class="tag">Manuscript</span>
         </div>
+        <a class="text-link" href="${escapeHtml(href)}">Open reading page</a>
       </div>
     </article>
   `;
