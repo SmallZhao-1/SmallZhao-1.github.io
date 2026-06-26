@@ -1,9 +1,10 @@
 # 赵钧毅个人作品集主页
 
-这是一个可以直接部署到 GitHub Pages 的静态个人主页。首页展示三类内容：
+这是一个可以直接部署到 GitHub Pages 的静态个人主页。首页展示这些内容：
 
 - 作品集项目：来自 `赵钧毅-作品集.pdf`，已按页码拆成 9 个项目 PDF，并自动生成封面。
 - 论文与研究：来自 `heal.docx` 和 `Manuscript.docx`，已提取标题、摘要和部分图片。
+- 获奖与实践经历：来自 `data/awards.json`，可逐条追加奖项、项目介绍和个人贡献。
 - 个人简历：来自 `CV.pdf`。
 
 ## 本地预览
@@ -59,7 +60,29 @@ data/profile.json
 
 简历 PDF 的中文文本自动提取出现编码问题，所以我没有把奖项、经历等内容硬塞进网页。你可以把简历里的教育经历、荣誉、技能整理后再发给我，我可以继续帮你做成更完整的网页模块。
 
-### 2. 修改作品标题和说明
+### 2. 修改获奖与实践经历
+
+打开：
+
+```text
+data/awards.json
+```
+
+每条获奖或实践经历可以这样写，网页会显示为英文的 `Awards & Practical Experience` 模块：
+
+```json
+{
+  "title": "Award or Practice Experience Title",
+  "date": "2026",
+  "project": "Briefly introduce the project background, objective, design or research problem, and final outcome.",
+  "contribution": "Describe your specific responsibilities, such as concept development, parametric modeling, data analysis, visualization, coordination, implementation, or presentation.",
+  "tags": ["Award", "Project", "Role"]
+}
+```
+
+你后续新增奖项时，只需要在数组里继续追加一个对象。`project` 写这个奖项项目的大致内容，`contribution` 写你具体做了什么；如果某条获奖没有项目介绍或个人贡献，可以直接删掉对应字段，网页会自动隐藏那一栏。
+
+### 3. 修改作品标题和说明
 
 打开：
 
@@ -97,7 +120,7 @@ project.html?project=project-01
 
 项目详情页会在简介下方显示 `keywords` 字段，可在 `data/projects.json` 中补充具体关键词。
 
-### 3. 修改论文内容和封面
+### 4. 修改论文内容和封面
 
 打开：
 

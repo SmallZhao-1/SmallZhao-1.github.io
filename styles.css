@@ -268,6 +268,52 @@ img {
   color: var(--muted);
 }
 
+.awards-list {
+  display: grid;
+  gap: 12px;
+}
+
+.award-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+.award-heading {
+  display: grid;
+  gap: 3px;
+}
+
+.award-heading h3 {
+  margin: 0;
+  color: var(--heading);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.award-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.award-detail {
+  display: grid;
+  gap: 4px;
+}
+
+.award-detail strong {
+  color: #b8d9ff;
+  font-size: 13px;
+}
+
+.award-detail p {
+  margin: 0;
+}
+
 code {
   padding: 1px 5px;
   background: rgba(255, 255, 255, 0.08);

@@ -11,6 +11,8 @@ const fallbackProfile = {
   softwareSkills: [],
 };
 
+const awardFieldGuide = `Add award entries in <code>data/awards.json</code>. Each item can include <code>title</code>, <code>date</code>, <code>project</code>, <code>contribution</code>, and <code>tags</code>.`;
+
 async function loadJson(path, fallback) {
   try {
     const response = await fetch(path);
@@ -90,7 +92,8 @@ function setProfile(profile) {
   emailLink.textContent = email;
   emailLink.href = `mailto:${email}`;
 
-  document.querySelector("#profile-cv").href = text(safeProfile.cv, fallbackProfile.cv);
+  const cvLink = document.querySelector("#profile-cv");
+  if (cvLink) cvLink.href = text(safeProfile.cv, fallbackProfile.cv);
 
   const avatar = document.querySelector("#avatar");
   if (safeProfile.avatar) {
@@ -152,15 +155,69 @@ function paperEntry(paper) {
   `;
 }
 
+function awardTags(tags) {
+  const safeTags = Array.isArray(tags) ? tags.filter(Boolean) : [];
+  if (!safeTags.length) return "";
+
+  return `
+    <div class="tagline">
+      ${safeTags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
+    </div>
+  `;
+}
+
+function awardEntry(award) {
+  const safeAward = award || {};
+  const title = escapeHtml(text(safeAward.title || safeAward.name, "Award title"));
+  const date = safeAward.date || safeAward.year || "";
+  const project = safeAward.project || safeAward.projectSummary;
+  const contribution = safeAward.contribution || safeAward.role || safeAward.work;
+
+  return `
+    <article class="award-card">
+      <div class="award-heading">
+        <h3>${title}</h3>
+        ${date ? `<p>${escapeHtml(date)}</p>` : ""}
+      </div>
+      ${project ? `
+        <div class="award-detail">
+          <strong>Project overview</strong>
+          <p>${escapeHtml(project)}</p>
+        </div>
+      ` : ""}
+      ${contribution ? `
+        <div class="award-detail">
+          <strong>My contribution</strong>
+          <p>${escapeHtml(contribution)}</p>
+        </div>
+      ` : ""}
+      ${awardTags(safeAward.tags)}
+    </article>
+  `;
+}
+
+function setAwards(awards) {
+  const awardsList = Array.isArray(awards) ? awards : [];
+  const container = document.querySelector("#awards-list");
+  if (!awardsList.length) {
+    container.innerHTML = `<p class="empty-note">${awardFieldGuide}</p>`;
+    return;
+  }
+
+  container.innerHTML = awardsList.map(awardEntry).join("");
+}
+
 async function init() {
-  const [profile, projects, papers] = await Promise.all([
+  const [profile, projects, papers, awards] = await Promise.all([
     loadJson("data/profile.json", fallbackProfile),
     loadJson("data/projects.json", []),
     loadJson("data/papers.json", []),
+    loadJson("data/awards.json", []),
   ]);
 
   setProfile(profile);
   setSoftwareSkills(profile.softwareSkills);
+  setAwards(awards);
   document.querySelector("#projects-list").innerHTML = projects.map(projectEntry).join("");
   document.querySelector("#papers-list").innerHTML = papers.map(paperEntry).join("");
 }
