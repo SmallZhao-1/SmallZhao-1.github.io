@@ -244,14 +244,16 @@ code {
   position: absolute;
   top: 12px;
   left: -10px;
+  max-width: min(78%, 280px);
   min-width: 106px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   background: var(--blue);
   color: #fff;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.15;
   text-align: center;
+  white-space: normal;
 }
 
 .entry-title {

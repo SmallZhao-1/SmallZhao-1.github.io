@@ -8,7 +8,8 @@
     "pdf": "assets/projects/project-01.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-02",
@@ -19,7 +20,8 @@
     "pdf": "assets/projects/project-02.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-03",
@@ -30,7 +32,8 @@
     "pdf": "assets/projects/project-03.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-04",
@@ -41,7 +44,8 @@
     "pdf": "assets/projects/project-04.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-05",
@@ -52,7 +56,8 @@
     "pdf": "assets/projects/project-05.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-06",
@@ -63,7 +68,8 @@
     "pdf": "assets/projects/project-06.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-07",
@@ -74,7 +80,8 @@
     "pdf": "assets/projects/project-07.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-08",
@@ -85,7 +92,8 @@
     "pdf": "assets/projects/project-08.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   },
   {
     "slug": "project-09",
@@ -96,6 +104,7 @@
     "pdf": "assets/projects/project-09.pdf",
     "tags": [
       "Portfolio"
-    ]
+    ],
+    "theme": "Theme TBD"
   }
 ]

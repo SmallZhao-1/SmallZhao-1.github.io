@@ -52,9 +52,7 @@ function setProfile(profile) {
   emailLink.textContent = email;
   emailLink.href = `mailto:${email}`;
 
-  for (const link of [document.querySelector("#profile-cv"), document.querySelector("#cv-link-footer")]) {
-    link.href = text(safeProfile.cv, fallbackProfile.cv);
-  }
+  document.querySelector("#profile-cv").href = text(safeProfile.cv, fallbackProfile.cv);
 
   const avatar = document.querySelector("#avatar");
   if (safeProfile.avatar) {
@@ -64,14 +62,10 @@ function setProfile(profile) {
   }
 }
 
-function renderTags(tags = []) {
-  return tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
-}
-
 function projectEntry(project, index) {
   const title = escapeHtml(project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
   const summary = escapeHtml(sentence(project.summary));
-  const badge = `Pages ${escapeHtml(project.pages || "")}`;
+  const badge = escapeHtml(project.theme || project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
   return `
     <article class="entry">
       <a class="entry-media" href="${escapeHtml(project.pdf)}" target="_blank" rel="noreferrer">
@@ -80,11 +74,9 @@ function projectEntry(project, index) {
       </a>
       <div class="entry-body">
         <h3 class="entry-title"><a href="${escapeHtml(project.pdf)}" target="_blank" rel="noreferrer">${title}</a></h3>
-        <p class="entry-authors"><strong>赵钧毅</strong></p>
         <ul class="entry-summary">
           <li>${summary}</li>
         </ul>
-        <div class="tagline">${renderTags(project.tags || ["Portfolio"])}</div>
       </div>
     </article>
   `;
