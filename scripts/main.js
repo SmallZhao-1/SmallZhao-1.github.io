@@ -53,16 +53,10 @@ function skillIcon(skill) {
 
 function skillEntry(skill) {
   const name = escapeHtml(text(skill.name, "Software"));
-  const level = escapeHtml(skill.level || skill.category || "");
-  const note = escapeHtml(skill.note || "");
   return `
     <article class="skill-card">
       <div class="skill-icon">${skillIcon(skill)}</div>
-      <div>
-        <h3>${name}</h3>
-        ${level ? `<p class="skill-level">${level}</p>` : ""}
-        ${note ? `<p>${note}</p>` : ""}
-      </div>
+      <h3>${name}</h3>
     </article>
   `;
 }
@@ -106,16 +100,24 @@ function setProfile(profile) {
   }
 }
 
+function projectCover(project) {
+  if (project.thumbnail) return project.thumbnail;
+  if (project.slug) return `assets/projects/thumbs/${project.slug}-thumb.webp`;
+  return project.cover;
+}
+
 function projectEntry(project, index) {
   const title = escapeHtml(project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
   const summary = escapeHtml(text(project.summary, "说明待补充。"));
   const badge = escapeHtml(project.theme || project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
   const href = `project.html?project=${encodeURIComponent(project.slug || `project-${String(index + 1).padStart(2, "0")}`)}`;
+  const cover = escapeHtml(project.cover || "");
+  const thumbnail = escapeHtml(projectCover(project));
   return `
     <article class="entry">
       <a class="entry-media" href="${escapeHtml(href)}">
         <span class="badge">${badge}</span>
-        <img src="${escapeHtml(project.cover)}" alt="${title} cover" loading="lazy" />
+        <img src="${thumbnail}" alt="${title} cover" width="720" height="509" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${cover}'" />
       </a>
       <div class="entry-body">
         <h3 class="entry-title"><a href="${escapeHtml(href)}">${title}</a></h3>

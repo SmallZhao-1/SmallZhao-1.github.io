@@ -32,14 +32,15 @@ function projectPageImages(project) {
   });
 }
 
-function projectTags(project) {
-  const tags = [project.theme, ...(Array.isArray(project.tags) ? project.tags : [])].filter(Boolean);
-  return [...new Set(tags)].map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+function projectKeywords(project) {
+  if (Array.isArray(project.keywords)) return project.keywords.filter(Boolean).join(", ");
+  return project.keywords || "";
 }
 
 function renderProject(project, index) {
   const title = escapeHtml(project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
   const summary = escapeHtml(project.summary || "说明待补充。");
+  const keywords = escapeHtml(projectKeywords(project));
   const images = projectPageImages(project);
 
   document.title = `${title} | 赵钧毅`;
@@ -49,17 +50,14 @@ function renderProject(project, index) {
       <p class="project-kicker">Selected Work${project.pages ? ` / Pages ${escapeHtml(project.pages)}` : ""}</p>
       <h1>${title}</h1>
       <p>${summary}</p>
-      <div class="project-actions">
-        <a class="button-link" href="${escapeHtml(project.pdf)}" target="_blank" rel="noreferrer">Open original PDF</a>
-      </div>
-      <div class="tagline">${projectTags(project)}</div>
+      <p class="project-keywords"><span>Keywords:</span>${keywords ? ` ${keywords}` : ""}</p>
     </div>
     <div class="project-pages">
       ${images
         .map(
           (image, pageIndex) => `
             <figure class="project-page">
-              <img src="${escapeHtml(image)}" alt="${title} page ${pageIndex + 1}" loading="${pageIndex === 0 ? "eager" : "lazy"}" />
+              <img src="${escapeHtml(image)}" alt="${title} page ${pageIndex + 1}" width="2150" height="1521" loading="${pageIndex === 0 ? "eager" : "lazy"}" decoding="async" />
             </figure>
           `,
         )

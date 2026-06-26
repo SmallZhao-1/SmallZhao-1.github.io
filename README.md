@@ -95,7 +95,7 @@ data/projects.json
 project.html?project=project-01
 ```
 
-原 PDF 仍然保留在项目详情页的 `Open original PDF` 按钮里。
+项目详情页会在简介下方显示 `keywords` 字段，可在 `data/projects.json` 中补充具体关键词。
 
 ### 3. 修改论文内容和封面
 

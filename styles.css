@@ -104,15 +104,14 @@ img {
 .avatar {
   display: grid;
   place-items: center;
-  width: 160px;
-  height: 160px;
+  width: 168px;
+  height: 168px;
   margin: 0 auto 18px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(220, 226, 235, 0.72);
   border-radius: 50%;
-  background:
-    linear-gradient(135deg, rgba(47, 125, 211, 0.3), rgba(255, 255, 255, 0.08)),
-    #151923;
+  background: #dfe2e4;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04);
   color: #f5f7fb;
   font-size: 64px;
   font-weight: 700;
@@ -122,6 +121,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .sidebar h1 {
@@ -208,17 +208,17 @@ img {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .skill-card {
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 8px;
   align-items: center;
-  min-height: 74px;
-  padding: 12px;
+  min-height: 46px;
+  padding: 7px 8px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--rule);
   border-radius: 6px;
@@ -227,26 +227,28 @@ img {
 .skill-icon {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: 30px;
+  height: 30px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
   color: #ffffff;
+  font-size: 13px;
   font-weight: 700;
 }
 
 .skill-icon img {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
 }
 
 .skill-card h3 {
   margin: 0;
   color: var(--heading);
-  font-size: 15px;
+  overflow-wrap: anywhere;
+  font-size: 13px;
   line-height: 1.25;
 }
 
@@ -298,6 +300,7 @@ code {
 
 .entry-media img {
   width: 100%;
+  height: auto;
   aspect-ratio: 1.414 / 1;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -371,24 +374,6 @@ code {
   font-size: 16px;
 }
 
-.button-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 12px;
-  background: var(--blue);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 4px;
-  color: #ffffff;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.button-link:hover {
-  color: #ffffff;
-  background: #3b8be5;
-}
-
 .project-shell {
   max-width: 1120px;
   margin: 0 auto;
@@ -414,6 +399,14 @@ code {
   margin: 0 0 12px;
 }
 
+.project-header .project-keywords {
+  color: var(--text);
+}
+
+.project-keywords span {
+  font-weight: 700;
+}
+
 .project-kicker {
   color: var(--muted);
   font-size: 13px;
@@ -424,13 +417,6 @@ code {
   display: inline-flex;
   margin-bottom: 16px;
   font-size: 14px;
-}
-
-.project-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 16px 0 0;
 }
 
 .project-pages {
@@ -474,6 +460,10 @@ code {
     grid-column: 1 / -1;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .skills-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -501,6 +491,10 @@ code {
 
   .profile-links {
     grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-shell {
