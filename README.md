@@ -34,13 +34,28 @@ data/profile.json
 
 - `headline`：一句话身份，例如 `Architecture and Urban Computing Portfolio`
 - `location`：城市或学校，例如 `Beijing, China`
+- `school`：学校或机构，例如 `China University of Mining and Technology-Beijing`
 - `bio`：2-4 句话个人介绍
+- `softwareSkills`：软件技能列表，可以继续追加软件名、熟练度、说明和图标路径
 
 现在能可靠填入的信息有：
 
 - 姓名：赵钧毅
 - 邮箱：zhaojunyi20040110@gmail.com
 - 电话：18774986412
+
+软件技能可以这样写：
+
+```json
+{
+  "name": "Rhino",
+  "level": "Advanced",
+  "note": "Parametric modeling",
+  "icon": "assets/icons/rhino.png"
+}
+```
+
+如果暂时没有图标，`icon` 留空即可，网页会自动显示软件名称首字母。之后你可以把图标图片放到 `assets/icons/`，再把路径填进 `icon`。
 
 简历 PDF 的中文文本自动提取出现编码问题，所以我没有把奖项、经历等内容硬塞进网页。你可以把简历里的教育经历、荣誉、技能整理后再发给我，我可以继续帮你做成更完整的网页模块。
 
@@ -73,6 +88,14 @@ data/projects.json
 - `tags`：项目标签，例如 `["Urban Design", "Python", "Grasshopper"]`
 
 不要改 `cover` 和 `pdf`，除非你替换了文件。
+
+作品卡片现在默认打开网页式项目浏览页，例如：
+
+```text
+project.html?project=project-01
+```
+
+原 PDF 仍然保留在项目详情页的 `Open original PDF` 按钮里。
 
 ### 3. 修改论文内容和封面
 
