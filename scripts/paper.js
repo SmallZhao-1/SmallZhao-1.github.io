@@ -30,7 +30,7 @@ function renderToc(toc) {
 
   return `
     <nav class="paper-toc" aria-label="Paper sections">
-      <h2>Contents</h2>
+      <h2>Paper Outline</h2>
       <ol>
         ${items
           .map(
@@ -156,6 +156,33 @@ function activateLazyImages() {
   images.forEach((image) => observer.observe(image));
 }
 
+function activateTocSpy() {
+  const links = [...document.querySelectorAll(".paper-toc a[href^='#']")];
+  const headings = links
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  if (!links.length || !headings.length || !("IntersectionObserver" in window)) return;
+
+  const setActive = (id) => {
+    links.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible[0]) setActive(visible[0].target.id);
+    },
+    { rootMargin: "-96px 0px -65% 0px" },
+  );
+
+  headings.forEach((heading) => observer.observe(heading));
+}
+
 function renderPaper(paper, metaPaper) {
   const title = escapeHtml(paper.title || metaPaper.title || "Research manuscript");
   const summary = escapeHtml(paper.summary || metaPaper.summary || "");
@@ -165,22 +192,25 @@ function renderPaper(paper, metaPaper) {
 
   document.title = `${paper.title || metaPaper.title || "Research"} | 赵钧毅`;
   document.querySelector("#paper-detail").innerHTML = `
-    <header class="paper-header">
-      <a class="back-link" href="index.html#research">Back to research</a>
-      <p class="project-kicker">Research manuscript</p>
-      <h1>${title}</h1>
-      ${authors ? `<p class="paper-authors">${authors}</p>` : ""}
-      ${summary ? `<p class="paper-abstract">${summary}</p>` : ""}
-      ${docx ? `<a class="download-link" href="${escapeHtml(docx)}" target="_blank" rel="noreferrer">Download Word file</a>` : ""}
-    </header>
-    <div class="paper-layout">
+    <div class="paper-reader">
       ${renderToc(paper.toc)}
-      <div class="paper-content">
-        ${blocks.map(renderBlock).join("")}
+      <div class="paper-main">
+        <header class="paper-header">
+          <a class="back-link" href="index.html#research">Back to research</a>
+          <p class="project-kicker">Research manuscript</p>
+          <h1>${title}</h1>
+          ${authors ? `<p class="paper-authors">${authors}</p>` : ""}
+          ${summary ? `<p class="paper-abstract">${summary}</p>` : ""}
+          ${docx ? `<a class="download-link" href="${escapeHtml(docx)}" target="_blank" rel="noreferrer">Download Word file</a>` : ""}
+        </header>
+        <div class="paper-content">
+          ${blocks.map(renderBlock).join("")}
+        </div>
       </div>
     </div>
   `;
   activateLazyImages();
+  activateTocSpy();
 }
 
 async function init() {

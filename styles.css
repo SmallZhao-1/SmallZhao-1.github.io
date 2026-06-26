@@ -484,12 +484,13 @@ code {
 }
 
 .paper-shell {
-  max-width: 1120px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 42px 22px 72px;
+  padding: 0 22px 72px;
 }
 
 .paper-header {
+  padding-top: 42px;
   padding-bottom: 26px;
   margin-bottom: 28px;
   border-bottom: 1px solid var(--rule);
@@ -534,23 +535,28 @@ code {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.paper-layout {
+.paper-reader {
   display: grid;
-  grid-template-columns: 220px minmax(0, 760px);
+  grid-template-columns: 280px minmax(0, 900px);
   gap: 42px;
   align-items: start;
 }
 
+.paper-main {
+  min-width: 0;
+}
+
 .paper-toc {
   position: sticky;
-  top: 72px;
-  max-height: calc(100vh - 96px);
+  top: 48px;
+  height: calc(100vh - 48px);
   overflow: auto;
-  padding-right: 10px;
+  padding: 38px 16px 30px 0;
+  border-right: 1px solid var(--rule);
 }
 
 .paper-toc h2 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   color: var(--heading);
   font-size: 14px;
   line-height: 1.2;
@@ -559,7 +565,7 @@ code {
 
 .paper-toc ol {
   display: grid;
-  gap: 7px;
+  gap: 3px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -571,22 +577,26 @@ code {
 
 .paper-toc a {
   display: block;
+  padding: 5px 8px;
+  border-radius: 4px;
   color: #aeb6c2;
   font-size: 13px;
   line-height: 1.35;
   text-decoration: none;
 }
 
-.paper-toc a:hover {
+.paper-toc a:hover,
+.paper-toc a.active {
+  background: rgba(255, 255, 255, 0.07);
   color: var(--link-hover);
 }
 
 .toc-level-3 {
-  padding-left: 12px;
+  padding-left: 14px;
 }
 
 .toc-level-4 {
-  padding-left: 24px;
+  padding-left: 28px;
 }
 
 .paper-content {
@@ -755,17 +765,18 @@ code {
   }
 
   .paper-shell {
-    padding: 28px 16px 52px;
+    padding: 0 16px 52px;
   }
 
-  .paper-layout {
+  .paper-reader {
     grid-template-columns: 1fr;
     gap: 22px;
   }
 
   .paper-toc {
     position: static;
-    max-height: none;
+    height: auto;
+    max-height: 42vh;
     padding: 14px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--rule);
