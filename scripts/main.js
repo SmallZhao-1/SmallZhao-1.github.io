@@ -109,6 +109,22 @@ function projectCover(project) {
   return project.cover;
 }
 
+function keywordTags(keywords) {
+  const safeKeywords = Array.isArray(keywords)
+    ? keywords.filter(Boolean)
+    : String(keywords || "")
+        .split(",")
+        .map((keyword) => keyword.trim())
+        .filter(Boolean);
+  if (!safeKeywords.length) return "";
+
+  return `
+    <div class="tagline">
+      ${safeKeywords.map((keyword) => `<span class="tag">${escapeHtml(keyword)}</span>`).join("")}
+    </div>
+  `;
+}
+
 function projectEntry(project, index) {
   const title = escapeHtml(project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
   const summary = escapeHtml(text(project.summary, "说明待补充。"));
@@ -125,6 +141,7 @@ function projectEntry(project, index) {
       <div class="entry-body">
         <h3 class="entry-title"><a href="${escapeHtml(href)}">${title}</a></h3>
         <p class="entry-summary-text">${summary}</p>
+        ${keywordTags(project.keywords)}
         <a class="text-link" href="${escapeHtml(href)}">Open project</a>
       </div>
     </article>
@@ -197,7 +214,7 @@ function awardEntry(award) {
 }
 
 function setAwards(awards) {
-  const awardsList = Array.isArray(awards) ? awards : [];
+  const awardsList = Array.isArray(awards) ? awards : Array.isArray(awards?.awards) ? awards.awards : [];
   const container = document.querySelector("#awards-list");
   if (!awardsList.length) {
     container.innerHTML = `<p class="empty-note">${awardFieldGuide}</p>`;
