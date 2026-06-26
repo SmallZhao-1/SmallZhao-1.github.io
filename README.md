@@ -155,7 +155,7 @@ data/profile.json
 6. 等几分钟后访问：
 
 ```text
-https://你的GitHub用户名.github.io
+https://SmallZhao-1.github.io
 ```
 
 ## 当前文件结构

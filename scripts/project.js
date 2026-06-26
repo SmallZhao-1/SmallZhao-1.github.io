@@ -32,6 +32,10 @@ function projectPageImages(project) {
   });
 }
 
+function optimizedProjectImage(image) {
+  return image.replace(/\.png$/i, ".webp");
+}
+
 function projectKeywords(project) {
   if (Array.isArray(project.keywords)) return project.keywords.filter(Boolean).join(", ");
   return project.keywords || "";
@@ -57,7 +61,7 @@ function renderProject(project, index) {
         .map(
           (image, pageIndex) => `
             <figure class="project-page">
-              <img src="${escapeHtml(image)}" alt="${title} page ${pageIndex + 1}" width="2150" height="1521" loading="${pageIndex === 0 ? "eager" : "lazy"}" decoding="async" />
+              <img src="${escapeHtml(optimizedProjectImage(image))}" alt="${title} page ${pageIndex + 1}" width="1400" height="991" loading="${pageIndex === 0 ? "eager" : "lazy"}" decoding="async" onerror="this.onerror=null;this.src='${escapeHtml(image)}'" />
             </figure>
           `,
         )
