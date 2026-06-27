@@ -60,6 +60,12 @@ function normalizeSchool(profile) {
   return profile.school || profile.School || profile.university || profile.education;
 }
 
+function formatBio(value) {
+  const bio = text(value, fallbackProfile.bio);
+  const highlight = "本人为27FALL，目前正在寻求研究生（master or phd）学习机会，如能得到学习机会，讲不胜荣幸！";
+  return escapeHtml(bio).replace(escapeHtml(highlight), `<strong>${escapeHtml(highlight)}</strong>`);
+}
+
 function skillIcon(skill) {
   if (skill.icon) {
     return `<img src="${escapeHtml(skill.icon)}" alt="" loading="lazy" />`;
@@ -96,7 +102,7 @@ function setProfile(profile) {
   document.title = `${text(safeProfile.name, "Homepage")} | Homepage`;
   document.querySelector("#profile-name").textContent = text(safeProfile.name, "Homepage");
   document.querySelector("#profile-headline").textContent = text(safeProfile.headline, fallbackProfile.headline);
-  document.querySelector("#profile-bio").textContent = text(safeProfile.bio, fallbackProfile.bio);
+  document.querySelector("#profile-bio").innerHTML = formatBio(safeProfile.bio);
   document.querySelector("#profile-phone").textContent = text(safeProfile.phone);
   document.querySelector("#profile-location").textContent = text(safeProfile.location);
   document.querySelector("#profile-school").textContent = text(normalizeSchool(safeProfile));
