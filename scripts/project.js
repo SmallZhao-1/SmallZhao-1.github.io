@@ -36,6 +36,77 @@ function optimizedProjectImage(image) {
   return image.replace(/\.png$/i, ".webp");
 }
 
+function previewProjectImage(image) {
+  return image.replace(/\.png$/i, "-preview.webp");
+}
+
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = () => resolve(src);
+    image.onerror = reject;
+    image.src = src;
+  });
+}
+
+function upgradeProjectImage(image) {
+  const full = image.dataset.src;
+  if (!full) return;
+
+  const fallback = image.dataset.fallback;
+  loadImage(full)
+    .catch(() => (fallback ? loadImage(fallback) : Promise.reject()))
+    .then((src) => {
+      image.src = src;
+      image.removeAttribute("data-src");
+      image.classList.add("is-loaded");
+    })
+    .catch(() => {
+      image.removeAttribute("data-src");
+    });
+}
+
+function activateProgressiveProjectImages() {
+  const images = [...document.querySelectorAll(".progressive-project-image[data-src]")];
+  if (!images.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    images.forEach(upgradeProjectImage);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        upgradeProjectImage(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "1400px 0px" },
+  );
+
+  images.forEach((image) => observer.observe(image));
+}
+
+function prewarmProjectImages(images) {
+  const fullImages = images.map(optimizedProjectImage).slice(1, 4);
+  const warm = () => {
+    fullImages.forEach((src) => {
+      const image = new Image();
+      image.decoding = "async";
+      image.src = src;
+    });
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(warm, { timeout: 1200 });
+  } else {
+    window.setTimeout(warm, 300);
+  }
+}
+
 function projectKeywords(project) {
   if (Array.isArray(project.keywords)) return project.keywords.filter(Boolean).join(", ");
   return project.keywords || "";
@@ -59,15 +130,22 @@ function renderProject(project, index) {
     <div class="project-pages">
       ${images
         .map(
-          (image, pageIndex) => `
+          (image, pageIndex) => {
+            const full = escapeHtml(optimizedProjectImage(image));
+            const preview = escapeHtml(previewProjectImage(image));
+            const fallback = escapeHtml(image);
+            return `
             <figure class="project-page">
-              <img src="${escapeHtml(optimizedProjectImage(image))}" alt="${title} page ${pageIndex + 1}" width="1400" height="991" loading="${pageIndex === 0 ? "eager" : "lazy"}" decoding="async" onerror="this.onerror=null;this.src='${escapeHtml(image)}'" />
+              <img class="progressive-project-image" src="${preview}" data-src="${full}" data-fallback="${fallback}" alt="${title} page ${pageIndex + 1}" width="1400" height="991" loading="${pageIndex === 0 ? "eager" : "lazy"}" decoding="async" fetchpriority="${pageIndex === 0 ? "high" : "auto"}" onerror="this.onerror=null;this.src=this.dataset.src || this.dataset.fallback" />
             </figure>
-          `,
+          `;
+          },
         )
         .join("")}
     </div>
   `;
+  activateProgressiveProjectImages();
+  prewarmProjectImages(images);
 }
 
 async function init() {

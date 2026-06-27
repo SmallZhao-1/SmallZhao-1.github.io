@@ -123,6 +123,52 @@ function projectCover(project) {
   return project.cover;
 }
 
+function projectPageImages(project) {
+  if (Array.isArray(project.images) && project.images.length) return project.images;
+
+  const pages = String(project.pages || "")
+    .split("-")
+    .map((item) => Number.parseInt(item, 10))
+    .filter(Number.isFinite);
+  const total = pages.length === 2 ? pages[1] - pages[0] + 1 : 1;
+
+  return Array.from({ length: Math.max(total, 1) }, (_, index) => {
+    return `assets/projects/${project.slug}/page-${index + 1}.png`;
+  });
+}
+
+function optimizedProjectImage(image) {
+  return image.replace(/\.png$/i, ".webp");
+}
+
+function previewProjectImage(image) {
+  return image.replace(/\.png$/i, "-preview.webp");
+}
+
+function prefetchAsset(href, as = "image") {
+  if (!href) return;
+  const alreadyPrefetched = [...document.querySelectorAll('link[rel="prefetch"]')]
+    .some((link) => link.getAttribute("href") === href);
+  if (alreadyPrefetched) return;
+
+  const link = document.createElement("link");
+  link.rel = "prefetch";
+  link.as = as;
+  link.href = href;
+  document.head.append(link);
+}
+
+function warmProject(project) {
+  if (!project || project.__warmed) return;
+  project.__warmed = true;
+
+  const pages = projectPageImages(project);
+  pages
+    .slice(0, 2)
+    .flatMap((page, index) => (index === 0 ? [previewProjectImage(page), optimizedProjectImage(page)] : [optimizedProjectImage(page)]))
+    .forEach((src) => prefetchAsset(src));
+}
+
 function keywordTags(keywords) {
   const safeKeywords = Array.isArray(keywords)
     ? keywords.filter(Boolean)
@@ -148,9 +194,9 @@ function projectEntry(project, index) {
   const thumbnail = escapeHtml(projectCover(project));
   return `
     <article class="entry">
-      <a class="entry-media" href="${escapeHtml(href)}">
+      <a class="entry-media" href="${escapeHtml(href)}" data-project-index="${index}">
         <span class="badge">${badge}</span>
-        <img src="${thumbnail}" alt="${title} cover" width="720" height="509" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${cover}'" />
+        <img src="${thumbnail}" alt="${title} cover" width="720" height="509" loading="${index === 0 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index === 0 ? "high" : "auto"}" onerror="this.onerror=null;this.src='${cover}'" />
       </a>
       <div class="entry-body">
         <h3 class="entry-title"><a href="${escapeHtml(href)}">${title}</a></h3>
@@ -171,7 +217,7 @@ function paperEntry(paper) {
     <article class="entry">
       <a class="entry-media" href="${escapeHtml(href)}">
         <span class="badge">Read paper</span>
-        <img src="${escapeHtml(paper.cover)}" alt="${title} cover" loading="lazy" />
+        <img src="${escapeHtml(paper.cover)}" alt="${title} cover" width="720" height="509" loading="lazy" decoding="async" />
       </a>
       <div class="entry-body">
         <h3 class="entry-title"><a href="${escapeHtml(href)}">${title}</a></h3>
@@ -186,6 +232,33 @@ function paperEntry(paper) {
       </div>
     </article>
   `;
+}
+
+function activateProjectWarmup(projects) {
+  const links = [...document.querySelectorAll("[data-project-index]")];
+
+  links.forEach((link) => {
+    const project = projects[Number(link.dataset.projectIndex)];
+    ["pointerenter", "touchstart", "focus"].forEach((eventName) => {
+      link.addEventListener(eventName, () => warmProject(project), { once: true, passive: true });
+    });
+  });
+
+  if (!("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const project = projects[Number(entry.target.dataset.projectIndex)];
+        warmProject(project);
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "900px 0px" },
+  );
+
+  links.forEach((link) => observer.observe(link));
 }
 
 function awardTags(tags) {
@@ -253,6 +326,7 @@ async function init() {
   setAwards(awards);
   document.querySelector("#projects-list").innerHTML = projects.map(projectEntry).join("");
   document.querySelector("#papers-list").innerHTML = papers.map(paperEntry).join("");
+  activateProjectWarmup(projects);
 }
 
 init();

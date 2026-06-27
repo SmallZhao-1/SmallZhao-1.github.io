@@ -490,6 +490,16 @@ code {
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
 }
 
+.progressive-project-image {
+  filter: blur(10px);
+  transform: translateZ(0);
+  transition: filter 180ms ease;
+}
+
+.progressive-project-image.is-loaded {
+  filter: blur(0);
+}
+
 .paper-shell {
   max-width: 1320px;
   margin: 0 auto;
