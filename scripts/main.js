@@ -62,7 +62,7 @@ function normalizeSchool(profile) {
 
 function formatBio(value) {
   const bio = text(value, fallbackProfile.bio);
-  const highlight = "本人为27FALL，目前正在寻求研究生（master or phd）学习机会，如能得到学习机会，讲不胜荣幸！";
+  const highlight = "本人为27FALL，目前正在寻求研究生（master or phd）学习机会，如您感兴趣，欢迎沟通交流！";
   return escapeHtml(bio).replace(escapeHtml(highlight), `<strong>${escapeHtml(highlight)}</strong>`);
 }
 
