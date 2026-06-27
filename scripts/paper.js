@@ -9,6 +9,84 @@ async function loadJson(path, fallback) {
   }
 }
 
+const translations = {
+  zh: {
+    htmlLang: "zh-CN",
+    navLabel: "主导航",
+    navHome: "主页",
+    navProjects: "代表作品",
+    navResearch: "研究论文",
+    toggleLabel: "Switch to English",
+    toggleText: "EN",
+    tocLabel: "论文目录",
+    tocTitle: "论文目录",
+    back: "返回研究论文",
+    kicker: "研究论文",
+    notFoundTitle: "未找到论文",
+    notFoundText: "无法加载所选研究页面。请返回主页后重新选择论文。",
+    titleSuffix: "赵钧毅",
+  },
+  en: {
+    htmlLang: "en",
+    navLabel: "Primary navigation",
+    navHome: "Homepage",
+    navProjects: "Selected Works",
+    navResearch: "Research",
+    toggleLabel: "切换到中文",
+    toggleText: "中文",
+    tocLabel: "Paper sections",
+    tocTitle: "Paper Outline",
+    back: "Back to research",
+    kicker: "Research manuscript",
+    notFoundTitle: "Paper not found",
+    notFoundText: "The selected research page could not be loaded. Please return to the homepage and choose a paper again.",
+    titleSuffix: "Junyi Zhao",
+  },
+};
+
+const supportedLanguages = Object.keys(translations);
+let currentLanguage = getInitialLanguage();
+let paperState = { paper: null, metaPaper: null };
+
+function getInitialLanguage() {
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = params.get("lang");
+  if (supportedLanguages.includes(fromUrl)) return fromUrl;
+
+  const stored = window.localStorage.getItem("homepageLanguage");
+  return supportedLanguages.includes(stored) ? stored : "zh";
+}
+
+function currentText() {
+  return translations[currentLanguage] || translations.zh;
+}
+
+function localized(source, key) {
+  if (!source || typeof source !== "object") return source;
+  if (currentLanguage === "en") return source[`${key}En`] || source[key];
+  return source[key] || source[`${key}En`];
+}
+
+function updateHomeLinks() {
+  document.documentElement.lang = currentText().htmlLang;
+  document.querySelector(".topnav").setAttribute("aria-label", currentText().navLabel);
+  document.querySelector('[data-nav="home"]').textContent = currentText().navHome;
+  document.querySelector('[data-nav="projects"]').textContent = currentText().navProjects;
+  document.querySelector('[data-nav="research"]').textContent = currentText().navResearch;
+  document.querySelectorAll(".topnav a[href^='index.html']").forEach((link) => {
+    const target = new URL(link.getAttribute("href"), window.location.href);
+    target.searchParams.set("lang", currentLanguage);
+    link.href = `${target.pathname.split("/").pop()}${target.search}${target.hash}`;
+  });
+
+  const toggle = document.querySelector("#language-toggle");
+  if (toggle) {
+    toggle.textContent = currentText().toggleText;
+    toggle.setAttribute("aria-label", currentText().toggleLabel);
+    toggle.setAttribute("title", currentText().toggleLabel);
+  }
+}
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -43,8 +121,8 @@ function renderToc(toc) {
   if (!items.length) return "";
 
   return `
-    <nav class="paper-toc" aria-label="Paper sections">
-      <h2>Paper Outline</h2>
+    <nav class="paper-toc" aria-label="${currentText().tocLabel}">
+      <h2>${currentText().tocTitle}</h2>
       <ol>
         ${items
           .map(
@@ -262,20 +340,23 @@ function activateCopyGuards() {
 }
 
 function renderPaper(paper, metaPaper) {
-  const title = escapeHtml(paper.title || metaPaper.title || "Research manuscript");
-  const summary = escapeHtml(paper.summary || metaPaper.summary || "");
+  updateHomeLinks();
+  const titleText = localized(metaPaper, "title") || localized(paper, "title") || "Research manuscript";
+  const summaryText = localized(metaPaper, "summary") || localized(paper, "summary") || "";
+  const title = escapeHtml(titleText);
+  const summary = escapeHtml(summaryText);
   const authors = renderAuthors(paper.authors || metaPaper.authors);
   const blocks = normalizedBlocks(paper);
   const { outline, numberById } = buildOutline(blocks);
 
-  document.title = `${paper.title || metaPaper.title || "Research"} | 赵钧毅`;
+  document.title = `${titleText || currentText().navResearch} | ${currentText().titleSuffix}`;
   document.querySelector("#paper-detail").innerHTML = `
     <div class="paper-reader">
       ${renderToc(outline)}
       <div class="paper-main">
         <header class="paper-header">
-          <a class="back-link" href="index.html#research">Back to research</a>
-          <p class="project-kicker">Research manuscript</p>
+          <a class="back-link" href="index.html?lang=${currentLanguage}#research">${currentText().back}</a>
+          <p class="project-kicker">${currentText().kicker}</p>
           <h1>${title}</h1>
           ${authors ? `<p class="paper-authors">${authors}</p>` : ""}
           ${summary ? `<p class="paper-abstract">${summary}</p>` : ""}
@@ -291,24 +372,45 @@ function renderPaper(paper, metaPaper) {
   activateCopyGuards();
 }
 
+function renderNotFound() {
+  updateHomeLinks();
+  document.querySelector("#paper-detail").innerHTML = `
+    <header class="paper-header">
+      <a class="back-link" href="index.html?lang=${currentLanguage}#research">${currentText().back}</a>
+      <h1>${currentText().notFoundTitle}</h1>
+      <p>${currentText().notFoundText}</p>
+    </header>
+  `;
+}
+
+function setLanguage(language) {
+  currentLanguage = supportedLanguages.includes(language) ? language : "zh";
+  window.localStorage.setItem("homepageLanguage", currentLanguage);
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", currentLanguage);
+  window.history.replaceState({}, "", url);
+
+  if (paperState.paper && paperState.metaPaper) renderPaper(paperState.paper, paperState.metaPaper);
+  else renderNotFound();
+}
+
 async function init() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("paper");
   const papers = await loadJson("data/papers.json", []);
   const metaPaper = papers.find((paper) => paper.slug === slug);
 
+  document.querySelector("#language-toggle")?.addEventListener("click", () => {
+    setLanguage(currentLanguage === "zh" ? "en" : "zh");
+  });
+
   if (!metaPaper) {
-    document.querySelector("#paper-detail").innerHTML = `
-      <header class="paper-header">
-        <a class="back-link" href="index.html#research">Back to research</a>
-        <h1>Paper not found</h1>
-        <p>The selected research page could not be loaded. Please return to the homepage and choose a paper again.</p>
-      </header>
-    `;
+    renderNotFound();
     return;
   }
 
   const paper = await loadJson(metaPaper.content, metaPaper);
+  paperState = { paper, metaPaper };
   renderPaper(paper, metaPaper);
 }
 

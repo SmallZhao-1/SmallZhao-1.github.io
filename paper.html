@@ -3,22 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Research paper reading page for Zhao Junyi's portfolio." />
-    <title>Research | 赵钧毅</title>
+    <meta name="description" content="赵钧毅研究论文阅读页。" />
+    <title>研究论文 | 赵钧毅</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <nav class="topnav" aria-label="Primary navigation">
-        <a href="index.html#top">Homepage</a>
-        <a href="index.html#projects">Selected Works</a>
-        <a href="index.html#research">Research</a>
+      <nav class="topnav" aria-label="主导航">
+        <a href="index.html#top" data-nav="home">主页</a>
+        <a href="index.html#projects" data-nav="projects">代表作品</a>
+        <a href="index.html#research" data-nav="research">研究论文</a>
+        <button id="language-toggle" class="language-toggle" type="button" aria-label="Switch to English">EN</button>
       </nav>
     </header>
 
     <main class="paper-shell">
       <article id="paper-detail" class="paper-detail" aria-live="polite">
-        <p class="empty-note">Loading paper...</p>
+        <p class="empty-note">正在加载论文...</p>
       </article>
     </main>
 

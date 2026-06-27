@@ -1,14 +1,16 @@
 [
   {
     "slug": "heal",
-    "title": "Urban renewal in high-density urban areas from the perspective of crowd psychological health",
+    "title": "从人群心理健康视角出发的高密度城市地区城市更新研究",
+    "titleEn": "Urban renewal in high-density urban areas from the perspective of crowd psychological health",
     "authors": [
       {
         "name": "JunyiZhao",
         "sup": "*"
       }
     ],
-    "summary": "Accelerated urbanization has led to significantly increased urban density, amplifying associated challenges including strains on mental well-being. Concurrently, the saturation of traditional building stock emphasizes the critical importance of urban renewal initiatives. Current research in this domain often adopts singular perspectives: examples include analyzing pedestrian visual relationships using 3D-Isovist techniques, quantifying psychological perceptions through sensor-based data collection, or focusing on optimizing urban greenery configurations. While valuable, these approaches typically examine factors in isolation. A holistic framework integrating multiple dimensions is essential ",
+    "summary": "快速城市化显著提高了城市密度，也放大了心理健康压力等相关问题。与此同时，传统建筑存量逐渐饱和，使城市更新的重要性进一步凸显。现有研究常从单一视角切入，例如使用 3D-Isovist 分析行人视觉关系、通过传感器数据量化心理感知，或聚焦城市绿化配置优化。尽管这些方法具有价值，但往往将影响因素割裂处理，因此有必要建立整合多维要素的整体性框架。",
+    "summaryEn": "Accelerated urbanization has led to significantly increased urban density, amplifying associated challenges including strains on mental well-being. Concurrently, the saturation of traditional building stock emphasizes the critical importance of urban renewal initiatives. Current research in this domain often adopts singular perspectives: examples include analyzing pedestrian visual relationships using 3D-Isovist techniques, quantifying psychological perceptions through sensor-based data collection, or focusing on optimizing urban greenery configurations. While valuable, these approaches typically examine factors in isolation. A holistic framework integrating multiple dimensions is essential.",
     "cover": "assets/papers/heal/image-20-thumb.webp",
     "content": "data/paper-content/heal.json",
     "images": [
@@ -24,7 +26,8 @@
   },
   {
     "slug": "manuscript",
-    "title": "Assessment of Photovoltaic Potential in Abandoned Industrial Mining Areas Based on a Double Machine Learning Framework: A Case Study of Xiaoyi City",
+    "title": "基于双重机器学习框架的废弃工矿区光伏潜力评估：以孝义市为例",
+    "titleEn": "Assessment of Photovoltaic Potential in Abandoned Industrial Mining Areas Based on a Double Machine Learning Framework: A Case Study of Xiaoyi City",
     "authors": [
       {
         "name": "Junyi Zhao"
@@ -37,7 +40,8 @@
         "sup": "a,*"
       }
     ],
-    "summary": "Within the ongoing energy transition of Chinese-style modernization, abandoned industrial mining areas are promising sites for photovoltaic deployment (PV), but require reliable assessment of solar resources and capacity. This study develops a prediction framework for large abandoned mining sites, evaluating ground and rooftop PV potential. Using Xiaoyi City, Shanxi Province, China, we mapped regional PV potential. A three-dimensional modeling and parcel-morphology clustering workflow using Grasshopper and ArcGIS Pro produced 54 samples across four parcel types. Building energy use intensity (EUI) and solar radiation were simulated with Ladybug Tools. Ground solar radiation (GSR), rooftop so",
+    "summary": "在中国式现代化能源转型背景下，废弃工矿区具备光伏部署潜力，但仍需要可靠评估太阳能资源与装机容量。本研究构建面向大型废弃矿区的预测框架，评估地面与屋顶光伏潜力。以山西省孝义市为例，研究通过 Grasshopper 与 ArcGIS Pro 建立三维建模和地块形态聚类流程，形成四类地块共 54 个样本，并使用 Ladybug Tools 模拟建筑能耗强度与太阳辐射。",
+    "summaryEn": "Within the ongoing energy transition of Chinese-style modernization, abandoned industrial mining areas are promising sites for photovoltaic deployment (PV), but require reliable assessment of solar resources and capacity. This study develops a prediction framework for large abandoned mining sites, evaluating ground and rooftop PV potential. Using Xiaoyi City, Shanxi Province, China, we mapped regional PV potential. A three-dimensional modeling and parcel-morphology clustering workflow using Grasshopper and ArcGIS Pro produced 54 samples across four parcel types. Building energy use intensity (EUI) and solar radiation were simulated with Ladybug Tools.",
     "cover": "assets/papers/manuscript/image-01-thumb.webp",
     "content": "data/paper-content/manuscript.json",
     "images": [

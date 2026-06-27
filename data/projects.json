@@ -1,119 +1,137 @@
 [
   {
     "slug": "project-01",
-    "title": "Graphastics Exploration",
-    "summary": "Graphic statics is a structural analysis methodology that interprets equilibrium conditions through geometric representations of forces and moments, employing visualization tools including free body diagrams, force polygons, and moment distribution diagrams. This parametric design framework implements computational graphic statics principles through Grasshopper's algorithmic modeling environment, enabling force-driven generation of structurally informed architectural morphologies. The development process systematically integrates spatial scales, functional requirements, and material constraints to achieve equilibrium-optimized configurations with verified constructability.",
-    "keywords": ["Structure Design","Structure Simulation"],
+    "title": "图解静力学探索",
+    "titleEn": "Graphastics Exploration",
+    "summary": "图解静力学是一种通过力与力矩的几何表达来理解结构平衡的分析方法，常借助自由体图、力多边形和弯矩分布图等可视化工具。本项目在 Grasshopper 算法建模环境中实现计算图解静力学方法，使建筑形态能够由受力逻辑驱动生成，并在空间尺度、功能需求与材料约束之间建立系统整合，形成兼顾平衡优化与可建造性的结构形态。",
+    "summaryEn": "Graphic statics is a structural analysis methodology that interprets equilibrium conditions through geometric representations of forces and moments, employing visualization tools including free body diagrams, force polygons, and moment distribution diagrams. This parametric design framework implements computational graphic statics principles through Grasshopper's algorithmic modeling environment, enabling force-driven generation of structurally informed architectural morphologies. The development process systematically integrates spatial scales, functional requirements, and material constraints to achieve equilibrium-optimized configurations with verified constructability.",
+    "keywords": ["结构设计", "结构模拟"],
+    "keywordsEn": ["Structure Design", "Structure Simulation"],
     "pages": "3-7",
     "cover": "assets/projects/project-01-cover.png",
     "pdf": "assets/projects/project-01.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Parametric Design"
+    "tags": ["Portfolio"],
+    "theme": "参数化设计",
+    "themeEn": "Parametric Design"
   },
   {
     "slug": "project-02",
-    "title": "Decentralized post-war shelter generative architecture",
-    "summary": "The reconstruction of Palestinian shelters amid the ongoing Israel-Palestine conflict requires a sustainable, efficient, and resilient approach. By integrating hybrid generative design—leveraging machine learning (ML) and heuristic algorithms—we propose a novel framework for optimizing shelter design. This approach balances structural stability, material efficiency, environmental adaptation, and rapid deployment to ensure safe and habitable spaces for displaced communities.",
-    "keywords": ["MOO","CNN"],
+    "title": "分散式战后庇护所生成式建筑",
+    "titleEn": "Decentralized Post-war Shelter Generative Architecture",
+    "summary": "面对持续冲突背景下的巴勒斯坦庇护所重建需求，本项目提出一种兼顾可持续性、效率与韧性的设计方法。通过整合机器学习与启发式算法的混合生成式设计框架，方案在结构稳定性、材料效率、环境适应性和快速部署之间进行优化，为流离失所群体提供安全、可居住的空间原型。",
+    "summaryEn": "The reconstruction of Palestinian shelters amid the ongoing Israel-Palestine conflict requires a sustainable, efficient, and resilient approach. By integrating hybrid generative design leveraging machine learning (ML) and heuristic algorithms, we propose a novel framework for optimizing shelter design. This approach balances structural stability, material efficiency, environmental adaptation, and rapid deployment to ensure safe and habitable spaces for displaced communities.",
+    "keywords": ["多目标优化", "CNN"],
+    "keywordsEn": ["MOO", "CNN"],
     "pages": "8-14",
     "cover": "assets/projects/project-02-cover.png",
     "pdf": "assets/projects/project-02.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Multi-objective Optimization"
+    "tags": ["Portfolio"],
+    "theme": "多目标优化",
+    "themeEn": "Multi-objective Optimization"
   },
   {
     "slug": "project-03",
-    "title": "Intelligent Building Exhibition & Exchange Center",
-    "summary": "Driven by parametric algorithms, this project achieves the collaborative generation of large-span spaces and structural systems. Deeply integrating BIM platforms and finite element analysis (FEA), the design transforms complex spatial grids into standardized modular units. The scheme fully adopts prefabricated assembly technology, linking data models directly to component prefabrication and rapid on-site assembly, thereby realizing a highly efficient transition from digital morphogenesis to smart construction.",
-    "keywords": ["Structure Simulation","ML","Parametric Design"],
+    "title": "智能建造展览交流中心",
+    "titleEn": "Intelligent Building Exhibition & Exchange Center",
+    "summary": "本项目以参数化算法驱动大跨度空间与结构体系的协同生成，并深度整合 BIM 平台与有限元分析，将复杂空间网格转化为标准化模块单元。方案采用预制装配技术，使数据模型直接关联构件预制与现场快速装配，从而实现从数字形态生成到智能建造的高效转化。",
+    "summaryEn": "Driven by parametric algorithms, this project achieves the collaborative generation of large-span spaces and structural systems. Deeply integrating BIM platforms and finite element analysis (FEA), the design transforms complex spatial grids into standardized modular units. The scheme fully adopts prefabricated assembly technology, linking data models directly to component prefabrication and rapid on-site assembly, thereby realizing a highly efficient transition from digital morphogenesis to smart construction.",
+    "keywords": ["结构模拟", "机器学习", "参数化设计"],
+    "keywordsEn": ["Structure Simulation", "ML", "Parametric Design"],
     "pages": "15-18",
     "cover": "assets/projects/project-03-cover.png",
     "pdf": "assets/projects/project-03.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "BIM"
+    "tags": ["Portfolio"],
+    "theme": "BIM",
+    "themeEn": "BIM"
   },
   {
     "slug": "project-04",
-    "title": "AI-driven Generative Aerial Hub",
-    "summary": "Visioning the Future Low-Altitude Economy: Design of UAV-Prefabricated High-Rise Office Buildings",
-    "keywords": ["CFD Simulation","ML","Parametric Design"],
+    "title": "AI 驱动的生成式空中枢纽",
+    "titleEn": "AI-driven Generative Aerial Hub",
+    "summary": "面向未来低空经济的城市愿景，本项目探索无人机预制高层办公建筑的设计方法，并结合 AI 生成、参数化建模与性能模拟，构建适应低空交通和智能建造需求的建筑原型。",
+    "summaryEn": "Visioning the Future Low-Altitude Economy: Design of UAV-Prefabricated High-Rise Office Buildings",
+    "keywords": ["CFD 模拟", "机器学习", "参数化设计"],
+    "keywordsEn": ["CFD Simulation", "ML", "Parametric Design"],
     "pages": "19-24",
     "cover": "assets/projects/project-04-cover.png",
     "pdf": "assets/projects/project-04.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Parametric Design"
+    "tags": ["Portfolio"],
+    "theme": "参数化设计",
+    "themeEn": "Parametric Design"
   },
   {
     "slug": "project-05",
-    "title": "GATS: A Predictive System for Street Safety and Pedestrian Vitality in Generative Urban Design",
-    "summary": "This project develops an integrated workflow that connects urban sensing, graph neural networks, and parametric design. Using 220 urban samples from Manhattan and Brooklyn, it combines GIS road networks, Google Street View imagery, semantic segmentation, facade material recognition, pedestrian detection, and crime data to construct a two-layer hierarchical graph of street segments, intersections, and observation points. A GATv2-based graph neural network is trained to predict street-level safety and pedestrian vitality. The model is then embedded into a Rhino/Grasshopper generative design workflow, enabling early-stage design alternatives to receive rapid social-performance feedback for multi-objective optimization and urban decision-making.",
-    "keywords": ["GAT","AI for City","Generative Design","MOO"],
+    "title": "GATS：面向生成式城市设计的街道安全与步行活力预测系统",
+    "titleEn": "GATS: A Predictive System for Street Safety and Pedestrian Vitality in Generative Urban Design",
+    "summary": "本项目构建了连接城市感知、图神经网络与参数化设计的一体化工作流。基于曼哈顿和布鲁克林 220 个城市样本，项目融合 GIS 道路网络、Google 街景图像、语义分割、立面材料识别、行人检测与犯罪数据，构建街段、交叉口和观测点的双层层级图结构，并训练基于 GATv2 的图神经网络预测街道安全与步行活力。模型进一步嵌入 Rhino/Grasshopper 生成式设计流程，使早期设计方案能够快速获得社会性能反馈，服务多目标优化与城市决策。",
+    "summaryEn": "This project develops an integrated workflow that connects urban sensing, graph neural networks, and parametric design. Using 220 urban samples from Manhattan and Brooklyn, it combines GIS road networks, Google Street View imagery, semantic segmentation, facade material recognition, pedestrian detection, and crime data to construct a two-layer hierarchical graph of street segments, intersections, and observation points. A GATv2-based graph neural network is trained to predict street-level safety and pedestrian vitality. The model is then embedded into a Rhino/Grasshopper generative design workflow, enabling early-stage design alternatives to receive rapid social-performance feedback for multi-objective optimization and urban decision-making.",
+    "keywords": ["GAT", "AI for City", "生成式设计", "多目标优化"],
+    "keywordsEn": ["GAT", "AI for City", "Generative Design", "MOO"],
     "pages": "25-29",
     "cover": "assets/projects/project-05-cover.png",
     "pdf": "assets/projects/project-05.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Deep Learning"
+    "tags": ["Portfolio"],
+    "theme": "深度学习",
+    "themeEn": "Deep Learning"
   },
   {
     "slug": "project-06",
-    "title": "Heritage Building Information Modelling in Group Portrait Depiction of Regional Historical Wooden Buildings: from Beiyuyuan Five-Mountain Temple to Fenyang",
-    "summary": "This study presents an HBIM workflow to create a parametric component library for Fenyang's Yuan Dynasty timber buildings. Using the Water-God Hall as a case study, we fused TLS, UAV, and measurement data into precise point clouds. A reusable library modeled in Rhino/Grasshopper was transferred to Revit via Rhino.Inside to integrate non-geometric data. Through parameter adjustments, the model efficiently adapts to similar structures like the Five-Mountain Hall. This digital conservation pipeline provides a scalable resource for comparative architectural and regional structural analysis.",
-    "keywords": ["HBIM","Parametric Design"],
+    "title": "区域历史木构建筑群像描绘中的遗产建筑信息模型：从北榆苑五岳庙到汾阳",
+    "titleEn": "Heritage Building Information Modelling in Group Portrait Depiction of Regional Historical Wooden Buildings: from Beiyuyuan Five-Mountain Temple to Fenyang",
+    "summary": "本研究提出一套 HBIM 工作流，用于构建汾阳元代木构建筑的参数化构件库。以水神庙为案例，研究融合 TLS、无人机与测绘数据生成精确点云，并在 Rhino/Grasshopper 中建立可复用构件库，通过 Rhino.Inside 转入 Revit 以整合非几何信息。通过参数调整，模型可高效适配五岳殿等相似结构，为数字化保护、建筑比较研究与区域结构分析提供可扩展资源。",
+    "summaryEn": "This study presents an HBIM workflow to create a parametric component library for Fenyang's Yuan Dynasty timber buildings. Using the Water-God Hall as a case study, we fused TLS, UAV, and measurement data into precise point clouds. A reusable library modeled in Rhino/Grasshopper was transferred to Revit via Rhino.Inside to integrate non-geometric data. Through parameter adjustments, the model efficiently adapts to similar structures like the Five-Mountain Hall. This digital conservation pipeline provides a scalable resource for comparative architectural and regional structural analysis.",
+    "keywords": ["HBIM", "参数化设计"],
+    "keywordsEn": ["HBIM", "Parametric Design"],
     "pages": "30-32",
     "cover": "assets/projects/project-06-cover.png",
     "pdf": "assets/projects/project-06.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Parametric Design"
+    "tags": ["Portfolio"],
+    "theme": "参数化设计",
+    "themeEn": "Parametric Design"
   },
   {
     "slug": "project-07",
-    "title": "Collaborative Optimization of Morphological Performance in Residential Districts Using Interpretable Machine Learning: a case study area in Changsha",
-    "summary": "This study addresses the challenge of balancing energy efficiency and thermal comfort in high-density residential designs. Using field surveys and simulations, we developed a surrogate model (R² = 0.91) that significantly accelerates multi-objective optimization. Additionally, we introduce an interactive Streamlit platform with Pareto-front analysis to visualize design trade-offs, effectively translating advanced optimization into practical workflows for sustainable urban planning.",
-    "keywords": ["Interpretable ML","AI for City"],
+    "title": "基于可解释机器学习的居住区形态性能协同优化：以长沙案例区域为例",
+    "titleEn": "Collaborative Optimization of Morphological Performance in Residential Districts Using Interpretable Machine Learning: a case study area in Changsha",
+    "summary": "本研究面向高密度居住区设计中能效与热舒适之间的平衡问题，结合实地调研与模拟数据建立代理模型（R2 = 0.91），显著提升多目标优化效率。同时，研究构建带有 Pareto 前沿分析的交互式 Streamlit 平台，用于可视化设计权衡，并将先进优化方法转化为可用于可持续城市规划的实践流程。",
+    "summaryEn": "This study addresses the challenge of balancing energy efficiency and thermal comfort in high-density residential designs. Using field surveys and simulations, we developed a surrogate model (R2 = 0.91) that significantly accelerates multi-objective optimization. Additionally, we introduce an interactive Streamlit platform with Pareto-front analysis to visualize design trade-offs, effectively translating advanced optimization into practical workflows for sustainable urban planning.",
+    "keywords": ["可解释机器学习", "AI for City"],
+    "keywordsEn": ["Interpretable ML", "AI for City"],
     "pages": "33-35",
     "cover": "assets/projects/project-07-cover.png",
     "pdf": "assets/projects/project-07.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Machine Learning"
+    "tags": ["Portfolio"],
+    "theme": "机器学习",
+    "themeEn": "Machine Learning"
   },
   {
     "slug": "project-08",
-    "title": "The University Innovation Center: Interior Renovation Design Project",
-    "summary": "该项目是我作为校方主设计师，沟通协调施工方完成的学校大创中心改造落地项目",
-    "keywords": ["Interior Design"],
+    "title": "学校大创中心室内改造设计项目",
+    "titleEn": "The University Innovation Center: Interior Renovation Design Project",
+    "summary": "该项目是我作为校方主设计师，沟通协调施工方完成的学校大创中心改造落地项目。",
+    "summaryEn": "This implemented renovation project transformed the university innovation center. I served as the university-side lead designer and coordinated communication with the construction team to move the design from scheme development to on-site completion.",
+    "keywords": ["室内设计"],
+    "keywordsEn": ["Interior Design"],
     "pages": "36-39",
     "cover": "assets/projects/project-08-cover.png",
     "pdf": "assets/projects/project-08.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Interior Design"
+    "tags": ["Portfolio"],
+    "theme": "室内设计",
+    "themeEn": "Interior Design"
   },
   {
     "slug": "project-09",
-    "title": "Autonomous Unmanned Inclined Masonry of Discrete Shells Using Aerial Robots",
-    "summary": "该项目为CDAD_2024计算性设计工作营的落地项目，为无人机搭建双曲马鞍面模块的一次尝试，我在此次工作营获得优秀营员称号",
-    "keywords": ["Parametric Design","UAV"],
+    "title": "基于空中机器人的离散壳体自主无人倾斜砌筑",
+    "titleEn": "Autonomous Unmanned Inclined Masonry of Discrete Shells Using Aerial Robots",
+    "summary": "该项目为 CDAD_2024 计算性设计工作营的落地项目，是一次使用无人机搭建双曲马鞍面模块的实践尝试。我在此次工作营中获得优秀营员称号。",
+    "summaryEn": "This built project was developed during the CDAD_2024 computational design workshop as an experiment in constructing hyperbolic saddle-surface modules with aerial robots. I contributed to the workshop implementation and received the Outstanding Participant award.",
+    "keywords": ["参数化设计", "无人机"],
+    "keywordsEn": ["Parametric Design", "UAV"],
     "pages": "40-41",
     "cover": "assets/projects/project-09-cover.png",
     "pdf": "assets/projects/project-09.pdf",
-    "tags": [
-      "Portfolio"
-    ],
-    "theme": "Intelligent Construction"
+    "tags": ["Portfolio"],
+    "theme": "智能建造",
+    "themeEn": "Intelligent Construction"
   }
 ]

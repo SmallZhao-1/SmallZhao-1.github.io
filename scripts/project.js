@@ -9,6 +9,88 @@ async function loadJson(path, fallback) {
   }
 }
 
+const translations = {
+  zh: {
+    htmlLang: "zh-CN",
+    navLabel: "主导航",
+    navHome: "主页",
+    navProjects: "代表作品",
+    navResearch: "研究论文",
+    toggleLabel: "Switch to English",
+    toggleText: "EN",
+    back: "返回代表作品",
+    selectedWork: "代表作品",
+    pages: "页码",
+    keywords: "关键词：",
+    notFoundTitle: "未找到项目",
+    notFoundText: "无法加载所选项目。请返回主页后重新选择作品。",
+    fallbackTitle: "作品",
+    fallbackSummary: "说明待补充。",
+    titleSuffix: "赵钧毅",
+  },
+  en: {
+    htmlLang: "en",
+    navLabel: "Primary navigation",
+    navHome: "Homepage",
+    navProjects: "Selected Works",
+    navResearch: "Research",
+    toggleLabel: "切换到中文",
+    toggleText: "中文",
+    back: "Back to selected works",
+    selectedWork: "Selected Work",
+    pages: "Pages",
+    keywords: "Keywords:",
+    notFoundTitle: "Project not found",
+    notFoundText: "The selected project could not be loaded. Please return to the homepage and choose a work again.",
+    fallbackTitle: "Work",
+    fallbackSummary: "Description to be added.",
+    titleSuffix: "Junyi Zhao",
+  },
+};
+
+const supportedLanguages = Object.keys(translations);
+let currentLanguage = getInitialLanguage();
+let projectState = { projects: [], project: null, index: -1 };
+
+function getInitialLanguage() {
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = params.get("lang");
+  if (supportedLanguages.includes(fromUrl)) return fromUrl;
+
+  const stored = window.localStorage.getItem("homepageLanguage");
+  return supportedLanguages.includes(stored) ? stored : "zh";
+}
+
+function currentText() {
+  return translations[currentLanguage] || translations.zh;
+}
+
+function localized(source, key) {
+  if (!source || typeof source !== "object") return source;
+  if (currentLanguage === "en") return source[`${key}En`] || source[key];
+  return source[key] || source[`${key}En`];
+}
+
+function updateHomeLinks() {
+  document.documentElement.lang = currentText().htmlLang;
+  document.querySelector(".topnav").setAttribute("aria-label", currentText().navLabel);
+  document.querySelector('[data-nav="home"]').textContent = currentText().navHome;
+  document.querySelector('[data-nav="projects"]').textContent = currentText().navProjects;
+  document.querySelector('[data-nav="research"]').textContent = currentText().navResearch;
+  document.querySelectorAll(".topnav a[href^='index.html']").forEach((link) => {
+    const target = new URL(link.getAttribute("href"), window.location.href);
+    target.searchParams.set("lang", currentLanguage);
+    link.href = `${target.pathname.split("/").pop()}${target.search}${target.hash}`;
+  });
+
+  const toggle = document.querySelector("#language-toggle");
+  if (toggle) {
+    toggle.textContent = currentText().toggleText;
+    toggle.setAttribute("aria-label", currentText().toggleLabel);
+    toggle.setAttribute("title", currentText().toggleLabel);
+  }
+}
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -108,24 +190,26 @@ function prewarmProjectImages(images) {
 }
 
 function projectKeywords(project) {
-  if (Array.isArray(project.keywords)) return project.keywords.filter(Boolean).join(", ");
-  return project.keywords || "";
+  const keywords = localized(project, "keywords") || project.keywords;
+  if (Array.isArray(keywords)) return keywords.filter(Boolean).join(", ");
+  return keywords || "";
 }
 
 function renderProject(project, index) {
-  const title = escapeHtml(project.title || `作品 ${String(index + 1).padStart(2, "0")}`);
-  const summary = escapeHtml(project.summary || "说明待补充。");
+  updateHomeLinks();
+  const title = escapeHtml(localized(project, "title") || `${currentText().fallbackTitle} ${String(index + 1).padStart(2, "0")}`);
+  const summary = escapeHtml(localized(project, "summary") || currentText().fallbackSummary);
   const keywords = escapeHtml(projectKeywords(project));
   const images = projectPageImages(project);
 
-  document.title = `${title} | 赵钧毅`;
+  document.title = `${title} | ${currentText().titleSuffix}`;
   document.querySelector("#project-detail").innerHTML = `
     <div class="project-header">
-      <a class="back-link" href="index.html#projects">Back to selected works</a>
-      <p class="project-kicker">Selected Work${project.pages ? ` / Pages ${escapeHtml(project.pages)}` : ""}</p>
+      <a class="back-link" href="index.html?lang=${currentLanguage}#projects">${currentText().back}</a>
+      <p class="project-kicker">${currentText().selectedWork}${project.pages ? ` / ${currentText().pages} ${escapeHtml(project.pages)}` : ""}</p>
       <h1>${title}</h1>
       <p>${summary}</p>
-      <p class="project-keywords"><span>Keywords:</span>${keywords ? ` ${keywords}` : ""}</p>
+      <p class="project-keywords"><span>${currentText().keywords}</span>${keywords ? ` ${keywords}` : ""}</p>
     </div>
     <div class="project-pages">
       ${images
@@ -148,21 +232,42 @@ function renderProject(project, index) {
   prewarmProjectImages(images);
 }
 
+function renderNotFound() {
+  updateHomeLinks();
+  document.querySelector("#project-detail").innerHTML = `
+    <div class="project-header">
+      <a class="back-link" href="index.html?lang=${currentLanguage}#projects">${currentText().back}</a>
+      <h1>${currentText().notFoundTitle}</h1>
+      <p>${currentText().notFoundText}</p>
+    </div>
+  `;
+}
+
+function setLanguage(language) {
+  currentLanguage = supportedLanguages.includes(language) ? language : "zh";
+  window.localStorage.setItem("homepageLanguage", currentLanguage);
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", currentLanguage);
+  window.history.replaceState({}, "", url);
+
+  if (projectState.project) renderProject(projectState.project, projectState.index);
+  else renderNotFound();
+}
+
 async function init() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("project");
   const projects = await loadJson("data/projects.json", []);
   const index = projects.findIndex((project) => project.slug === slug);
   const project = projects[index];
+  projectState = { projects, project, index };
+
+  document.querySelector("#language-toggle")?.addEventListener("click", () => {
+    setLanguage(currentLanguage === "zh" ? "en" : "zh");
+  });
 
   if (!project) {
-    document.querySelector("#project-detail").innerHTML = `
-      <div class="project-header">
-        <a class="back-link" href="index.html#projects">Back to selected works</a>
-        <h1>Project not found</h1>
-        <p>The selected project could not be loaded. Please return to the homepage and choose a work again.</p>
-      </div>
-    `;
+    renderNotFound();
     return;
   }
 

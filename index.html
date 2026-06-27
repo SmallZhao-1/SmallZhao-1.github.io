@@ -4,26 +4,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="赵钧毅的个人主页，展示作品集项目、研究论文与个人简历。" />
-    <title>赵钧毅 | Homepage</title>
+    <title>赵钧毅 | 个人主页</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <nav class="topnav" aria-label="Primary navigation">
-        <a class="active" href="#top">Homepage</a>
-        <a href="#about">About Me</a>
-        <a href="#skills">Software Skills</a>
-        <a href="#awards">Awards & Practical Experience</a>
-        <a href="#projects">Selected Works</a>
-        <a href="#research">Research</a>
+      <nav class="topnav" aria-label="主导航">
+        <a class="active" href="#top" data-i18n="navHome">主页</a>
+        <a href="#about" data-i18n="navAbout">关于我</a>
+        <a href="#skills" data-i18n="navSkills">软件技能</a>
+        <a href="#awards" data-i18n="navAwards">荣誉与实践经历</a>
+        <a href="#projects" data-i18n="navProjects">代表作品</a>
+        <a href="#research" data-i18n="navResearch">研究论文</a>
+        <button id="language-toggle" class="language-toggle" type="button" aria-label="Switch to English">EN</button>
       </nav>
     </header>
 
     <main id="top" class="page-shell">
-      <aside class="sidebar" aria-label="Profile">
+      <aside class="sidebar" aria-label="个人信息" data-i18n-attr="aria-label:profileLabel">
         <div id="avatar" class="avatar" aria-hidden="true">赵</div>
         <h1 id="profile-name">赵钧毅</h1>
-        <p id="profile-headline" class="role">Portfolio / Personal Homepage</p>
+        <p id="profile-headline" class="role">个人主页</p>
 
         <ul class="profile-links">
           <li><span class="icon">▣</span><span id="profile-location">待补充</span></li>
@@ -35,29 +36,29 @@
 
       <div class="content">
         <section id="about" class="section">
-          <h2>About Me</h2>
+          <h2 data-i18n="sectionAbout">关于我</h2>
           <p id="profile-bio">
             个人介绍待补充。建议用 2-4 句话概括你的方向、能力、关注的问题和正在寻找的机会。
           </p>
         </section>
 
         <section id="skills" class="section">
-          <h2>Software Skills</h2>
+          <h2 data-i18n="sectionSkills">软件技能</h2>
           <div id="software-skills" class="skills-grid" aria-live="polite"></div>
         </section>
 
         <section id="awards" class="section">
-          <h2>Awards & Practical Experience</h2>
+          <h2 data-i18n="sectionAwards">荣誉与实践经历</h2>
           <div id="awards-list" class="awards-list" aria-live="polite"></div>
         </section>
 
         <section id="projects" class="section">
-          <h2>Selected Works</h2>
+          <h2 data-i18n="sectionProjects">代表作品</h2>
           <div id="projects-list" class="entry-list" aria-live="polite"></div>
         </section>
 
         <section id="research" class="section">
-          <h2>Research</h2>
+          <h2 data-i18n="sectionResearch">研究论文</h2>
           <div id="papers-list" class="entry-list" aria-live="polite"></div>
         </section>
       </div>
