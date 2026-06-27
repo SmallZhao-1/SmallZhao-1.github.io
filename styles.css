@@ -386,6 +386,13 @@ code {
   margin: 0 0 9px;
 }
 
+.entry-authors sup,
+.paper-authors sup {
+  font-size: 0.72em;
+  line-height: 0;
+  vertical-align: super;
+}
+
 .entry-summary-text {
   margin: 0 0 12px;
 }

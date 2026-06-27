@@ -18,6 +18,20 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function renderAuthors(authors) {
+  if (Array.isArray(authors)) {
+    return authors
+      .filter((author) => author && author.name)
+      .map((author) => {
+        const name = escapeHtml(author.name);
+        const sup = author.sup ? `<sup>${escapeHtml(author.sup)}</sup>` : "";
+        return `${name}${sup}`;
+      })
+      .join(", ");
+  }
+  return escapeHtml(authors || "");
+}
+
 function imageAttributes(block) {
   const width = Number(block.width) || 1200;
   const height = Number(block.height) || 800;
@@ -250,7 +264,7 @@ function activateCopyGuards() {
 function renderPaper(paper, metaPaper) {
   const title = escapeHtml(paper.title || metaPaper.title || "Research manuscript");
   const summary = escapeHtml(paper.summary || metaPaper.summary || "");
-  const authors = escapeHtml(paper.authors || "");
+  const authors = renderAuthors(paper.authors || metaPaper.authors);
   const blocks = normalizedBlocks(paper);
   const { outline, numberById } = buildOutline(blocks);
 

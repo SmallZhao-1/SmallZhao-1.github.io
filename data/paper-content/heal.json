@@ -1,7 +1,12 @@
 {
   "slug": "heal",
   "title": "Urban renewal in high-density urban areas from the perspective of crowd psychological health",
-  "authors": "Junyi Zhao*a *2210620119@student.cumtb.edu.cn",
+  "authors": [
+    {
+      "name": "JunyiZhao",
+      "sup": "*"
+    }
+  ],
   "summary": "Accelerated urbanization has led to significantly increased urban density, amplifying associated challenges including strains on mental well-being. Concurrently, the saturation of traditional building stock emphasizes the critical importance of urban renewal initiatives. Current research in this domain often adopts singular perspectives: examples include analyzing pedestrian visual relationships using 3D-Isovist techniques, quantifying psychological perceptions through sensor-based data collection, or focusing on optimizing urban greenery configurations. While valuable, these approaches typically examine factors in isolation. A holistic framework integrating multiple dimensions is essential for effective urban renewal planning yet remains understudied. Addressing this gap, this paper proposes a novel multi-objective optimization methodology designed for the critical early planning stages of urban renewal, explicitly incorporating psychological healing as a core objective to foster healthier urban environments.",
   "toc": [
     {

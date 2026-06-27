@@ -42,6 +42,20 @@ function sentence(value) {
   return clean.length > 220 ? `${clean.slice(0, 220)}...` : clean;
 }
 
+function renderAuthors(authors) {
+  if (Array.isArray(authors)) {
+    return authors
+      .filter((author) => author && author.name)
+      .map((author) => {
+        const name = escapeHtml(author.name);
+        const sup = author.sup ? `<sup>${escapeHtml(author.sup)}</sup>` : "";
+        return `${name}${sup}`;
+      })
+      .join(", ");
+  }
+  return escapeHtml(authors || "");
+}
+
 function normalizeSchool(profile) {
   return profile.school || profile.School || profile.university || profile.education;
 }
@@ -151,6 +165,7 @@ function projectEntry(project, index) {
 function paperEntry(paper) {
   const title = escapeHtml(paper.title || "Research manuscript");
   const summary = escapeHtml(sentence(paper.summary));
+  const authors = renderAuthors(paper.authors);
   const href = `paper.html?paper=${encodeURIComponent(paper.slug || "")}`;
   return `
     <article class="entry">
@@ -160,7 +175,7 @@ function paperEntry(paper) {
       </a>
       <div class="entry-body">
         <h3 class="entry-title"><a href="${escapeHtml(href)}">${title}</a></h3>
-        <p class="entry-authors"><strong>赵钧毅</strong> et al.</p>
+        ${authors ? `<p class="entry-authors">${authors}</p>` : ""}
         <ul class="entry-summary">
           <li>${summary}</li>
         </ul>

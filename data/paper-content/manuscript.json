@@ -1,7 +1,18 @@
 {
   "slug": "manuscript",
   "title": "Assessment of Photovoltaic Potential in Abandoned Industrial Mining Areas Based on a Double Machine Learning Framework: A Case Study of Xiaoyi City",
-  "authors": "",
+  "authors": [
+    {
+      "name": "Junyi Zhao"
+    },
+    {
+      "name": "Zijing Peng"
+    },
+    {
+      "name": "Lijie He",
+      "sup": "a,*"
+    }
+  ],
   "summary": "Within the ongoing energy transition of Chinese-style modernization, abandoned industrial mining areas are promising sites for photovoltaic deployment (PV), but require reliable assessment of solar resources and capacity. This study develops a prediction framework for large abandoned mining sites, evaluating ground and rooftop PV potential. Using Xiaoyi City, Shanxi Province, China, we mapped regional PV potential. A three-dimensional modeling and parcel-morphology clustering workflow using Grasshopper and ArcGIS Pro produced 54 samples across four parcel types. Building energy use intensity (EUI) and solar radiation were simulated with Ladybug Tools. Ground solar radiation (GSR), rooftop solar radiation (RSR), total solar radiation (TSR), and EUI were predicted using feature-space interpolation and double machine learning (DML), achieving R² = 0.88–0.99; Shapley additive explanations (SHAP) improved interpretability. Predicted outputs were converted into deployable PV capacity and utilization potential, supporting PV planning and redevelopment of abandoned mining land.",
   "toc": [
     {
